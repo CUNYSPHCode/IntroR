@@ -42,3 +42,28 @@ Type some in your R console to try them out.
 ```{r}
 5 %/% 2
 ```
+
+### Combining numbers
+
+```{r}
+c(1, 3, 4, 5)
+```
+
+### Sequences
+
+```{r}
+1:10
+seq(from = 1, to = 10, by = 2)
+```
+
+### The `mean` function
+
+```{r}
+mean(c(2,3,6))
+```
+
+## Questions
+
+1. Look at the help documentation for the `class` function. How many arguments can be passed to it?
+
+2. Pull up the help documentation for the `mean` function. What does the `Value` section say this function returns?

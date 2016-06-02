@@ -10,10 +10,16 @@ output:
   ioslides_presentation: default
 ---
 
-# Just a quote...
+# Introduction to R
 
-* _Your dreams are on the other side of your grit_
--unknown
+\huge{Welcome!}
+
+# Introductions
+
+* Name
+* Program/Concentration
+* Expectations/Familiarity with R
+* Fun fact?
 
 # Class structure
 
@@ -37,19 +43,20 @@ output:
 |               | Features of the R language       |            |
 |               | Getting help and troubleshooting |            |
 |               |                                  |            |
-| Tues. June 7  | Classes                          | Exercise   |
+| Tues. June 7  | Classes and data types           | Exercise   |
 |               | data.frame                       | and        |
 |               | Import/Export                    | quiz       |
 |               | subsets                          |            |
-|               | merge                            |            |
 
 # Today's class
 
-* Getting started
-* The RStudio interface
+* R and the RStudio interface
 * Basic features of the language
+* Getting started
+* Tips
 * Getting help and troubleshooting
 * R as a calculator
+* External resources
 
 # What is R?
 
@@ -83,9 +90,17 @@ output:
 * Spaces are ignored
 * works with functions
 * vectorized operations
+* objects
 * help pages
+* `?reserved`
 
-# Useful tips for learning R (stand-alone)
+# Structure of a function
+
+* a name followed by parentheses `help()`
+* arguments
+* input / output
+
+# Useful tips for learning R
 
 Pseudo code                                   |   Example code
 --------------------------------------------  |   -------------------
@@ -97,7 +112,17 @@ install.packages(packagename)                 | install.packages(dplyr)
 help(package = "loadedpackage")               | help("dplyr")
 browseVignettes("packagename")                | browseVignettes("dplyr")
 
-# Learning R via online courses
+# First contact with R
+
+* R as a calculator exercise
+
+# Getting help and troubleshooting
+
+* Critically important
+* "Debugging" your script
+* Step by step, line by line process
+
+# External Resources
 
 * [Coursera](https://www.coursera.org)
 * [edX](https://www.edX.org)
@@ -105,7 +130,3 @@ browseVignettes("packagename")                | browseVignettes("dplyr")
 * [Quick-R](http://www.statmethods.net/) -
 Mostly for basic and base functions
 * [RStudio Cheatcheets](https://www.rstudio.com/resources/cheatsheets/)
-
-# First contact with R
-
-* R as a calculator exercise
