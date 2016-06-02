@@ -35,8 +35,12 @@ cor(b, c)
 # Value section
 ?mean
 
+# File paths (what are they?)
 getwd()
 # setwd()
 
 babies <- read.table("Data/babies.txt")
 babies <- read.table("Data/babies.txt", header = TRUE)
+
+# install.pacakges()
+# library()

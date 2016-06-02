@@ -84,6 +84,19 @@ output:
 * Learning a language
 * Practice promotes familiarity
 
+# R Housekeeping tips
+
+* Maintain a clean R "global" environment
+* Save your scripts rather than outputs
+* Use object names that are descriptive
+* Improve readability with clean formatting
+
+# Recommendations for RStudio setup
+
+* Tools > Global Options
+* \color{red}{Don't} restore .RData into workspace
+* \color{red}{Never} save workspace to .RData on exit
+
 # Features of the R Language
 
 * case sensitive
