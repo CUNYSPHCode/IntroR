@@ -87,7 +87,7 @@ output:
 # Features of the R Language
 
 * case sensitive
-* Spaces are ignored
+* Spaces are ignored (except in names)
 * works with functions
 * vectorized operations
 * objects
@@ -104,7 +104,7 @@ output:
 
 Pseudo code                                   |   Example code
 --------------------------------------------  |   -------------------
-install.packages(packagename)                 | install.packages(dplyr) 
+install.packages(packagename)                 | install.packages("dplyr") 
 ?functionname                                 | ?select
 ?package::functionname                        | ?dplyr::select
 ? 'Reserved keyword or symbol' \color{blue}{(or backticks)} | ? '%>%'
