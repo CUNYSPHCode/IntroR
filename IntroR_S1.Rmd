@@ -1,0 +1,111 @@
+---
+title: "Introduction to R for Data Management and Analysis"
+author: "Marcel Ramos"
+date: "Thursday, June 2nd, 2016"
+output:
+  beamer_presentation:
+    colortheme: dolphin
+    fonttheme: structureitalicserif
+    theme: CambridgeUS
+  ioslides_presentation: default
+---
+
+# Just a quote...
+
+* _Your dreams are on the other side of your grit_
+-unknown
+
+# Class structure
+
+* Lecture and short exercises: 90 minutes
+* Break: 10-15 minutes
+* Exercise: 60 minutes
+* Discussion: 15 minutes
+
+# Grading
+
+* Attendance: 15%
+* Quizzes: 20%
+* Exercises: 65%
+
+# Course Outline
+
+| Date          | Topics                           | Assessment |
+|---------------|----------------------------------|------------|
+| Thurs. June 2 | Introductions                    | Exercise   |
+|               | About this class                 |            |
+|               | Features of the R language       |            |
+|               | Getting help and troubleshooting |            |
+|               |                                  |            |
+| Tues. June 7  | Classes                          | Exercise   |
+|               | data.frame                       | and        |
+|               | Import/Export                    | quiz       |
+|               | subsets                          |            |
+|               | merge                            |            |
+
+# Today's class
+
+* Getting started
+* The RStudio interface
+* Basic features of the language
+* Getting help and troubleshooting
+* R as a calculator
+
+# What is R?
+
+* R is a programming language and environment for statistical computing and data visualization.
+* "Base R" refers to the standalone suite of pre-packaged functions that allow R to function as a language.
+* Extensions of the R language are what are called "packages".
+* A **package** is a container of functions that give R additional flexibility.
+
+# What is RStudio?
+
+* IDE Interactive Development Environment
+* Console + Help + Figures + Project Management
+* Let's have a look at it!
+
+# How do I get started? 
+
+* First download the latest R version from [\color{blue}{r-project.org}](https://cloud.r-project.org/)
+* Install R with all the default settings
+* Download RStudio from [\color{blue}{RStudio.com}](https://www.rstudio.com/products/rstudio/download/)
+* RStudio allow you to select the R version installed in your system. 
+
+# General tips for learning R
+
+* Learning R will be frustrating
+* Learning a language
+* Practice promotes familiarity
+
+# Features of the R Language
+
+* case sensitive
+* Spaces are ignored
+* works with functions
+* vectorized operations
+* help pages
+
+# Useful tips for learning R (stand-alone)
+
+Pseudo code                                   |   Example code
+--------------------------------------------  |   -------------------
+install.packages(packagename)                 | install.packages(dplyr) 
+?functionname                                 | ?select
+?package::functionname                        | ?dplyr::select
+? 'Reserved keyword or symbol' \color{blue}{(or backticks)} | ? '%>%'
+??searchforpossiblyexistingfunctionandortopic | ??simulate
+help(package = "loadedpackage")               | help("dplyr")
+browseVignettes("packagename")                | browseVignettes("dplyr")
+
+# Learning R via online courses
+
+* [Coursera](https://www.coursera.org)
+* [edX](https://www.edX.org)
+* [RStudio](https://www.rstudio.com/resources/training/online-learning/#R)
+* [Quick-R](http://www.statmethods.net/) -
+Mostly for basic and base functions
+* [RStudio Cheatcheets](https://www.rstudio.com/resources/cheatsheets/)
+
+# First contact with R
+
+* R as a calculator exercise
