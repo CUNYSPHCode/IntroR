@@ -43,3 +43,9 @@ library(haven)
 read_spss("~/Downloads/p010.sav")
 read_csv("~/Downloads/femaleMiceWeights.csv")
 read_sas("http://crn.cancer.gov/resources/ctcodes-procedures.sas7bdat")
+
+download("https://raw.githubusercontent.com/LiNk-NY/IntroR/master/Data/SampleData.xlsx", 
+         destfile = "~/Downloads/SampleData.xlsx")
+
+read_excel("~/Downloads/SampleData.xlsx")
+read_excel("~/Downloads/SampleData.xlsx", sheet = 2)
