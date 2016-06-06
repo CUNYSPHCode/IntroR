@@ -10,7 +10,7 @@ output:
   ioslides_presentation: default
 ---
 
-## Notes on last week's lecture
+# Notes on last week's lecture
 
 * Using `c()` with mixed data types
 * `...` ellipses
@@ -18,10 +18,41 @@ output:
     (e.g., `par()` in `plot()`)
 * Any questions?
 
-## Brief recap
+# Brief recap
 
 * Basic features of the language
     * case sensitive, ignores spaces except between objects and functions
     * an object is any type of variable stored in R (i.e., `data.frame`, `numeric` vector, `function`, etc.)
     * Be familiar with the parts of a function
     * know your help pages (use `?functionname` or `help("functionname")`)
+    * Finding help and troubleshooting are critically important
+
+# Today's lecture overview
+
+* Importing and Exporting Data
+* Classes and Data types in R
+    * `data.frame`
+    * data type coercion
+* Subsetting
+    * using brackets and dollar signs (`[`, `$`)
+    * using vector operands
+* More troubleshooting
+
+# Importing and Exporting Data
+
+* Recognizing file types
+    * File extensions (e.g., `.tsv`, `.csv`, `.xlsx`, `.txt`, `.sav`, `.sasb7dat`)
+* Show file extensions on Windows
+    * Windows Start button > Control panel > (View by: Large Icons) > Folder options > View tab > Advanced Settings: [__Deselect__] Hide extensions for known file types
+* Downloading files from the internet
+
+# Classes in R
+
+![Bicycle](https://pixabay.com/static/uploads/photo/2012/04/14/14/41/bicycle-34159_960_720.png)
+
+# What are classes?
+
+* R objects have class attributes 
+* Define what functions/operations can be performed
+* `class()` function
+* Examples
