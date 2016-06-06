@@ -47,5 +47,9 @@ read_sas("http://crn.cancer.gov/resources/ctcodes-procedures.sas7bdat")
 download("https://raw.githubusercontent.com/LiNk-NY/IntroR/master/Data/SampleData.xlsx", 
          destfile = "~/Downloads/SampleData.xlsx")
 
-read_excel("~/Downloads/SampleData.xlsx")
 read_excel("~/Downloads/SampleData.xlsx", sheet = 2)
+sampDat <- read_excel("~/Downloads/SampleData.xlsx")
+
+sampDat$OrderDate
+?as.Date()
+as.Date(b$OrderDate, origin = "1899-12-30")
