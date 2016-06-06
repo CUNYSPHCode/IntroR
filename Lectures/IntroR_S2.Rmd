@@ -1,0 +1,27 @@
+---
+title: "Introduction to R for Data Management and Analysis"
+author: "Marcel Ramos, MPH"
+date: "Tuesday, June 6, 2016"
+output:
+  beamer_presentation:
+    colortheme: dolphin
+    fonttheme: structureitalicserif
+    theme: CambridgeUS
+  ioslides_presentation: default
+---
+
+## Notes on last week's lecture
+
+* Using `c()` with mixed data types
+* `...` ellipses
+    * additional arguments to "lower level" functions 
+    (e.g., `par()` in `plot()`)
+* Any questions?
+
+## Brief recap
+
+* Basic features of the language
+    * case sensitive, ignores spaces except between objects and functions
+    * an object is any type of variable stored in R (i.e., `data.frame`, `numeric` vector, `function`, etc.)
+    * Be familiar with the parts of a function
+    * know your help pages (use `?functionname` or `help("functionname")`)

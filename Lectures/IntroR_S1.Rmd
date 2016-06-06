@@ -110,7 +110,7 @@ output:
 # Structure of a function
 
 * a name followed by parentheses `help()`
-* arguments
+* arguments (e.g., `functionname(argument1 = "default")`)
 * input / output
 
 # Useful tips for learning R
