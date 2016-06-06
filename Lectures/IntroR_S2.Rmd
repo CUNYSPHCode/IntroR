@@ -46,6 +46,16 @@ output:
     * Windows Start button > Control panel > (View by: Large Icons) > Folder options > View tab > Advanced Settings: [__Deselect__] Hide extensions for known file types
 * Downloading files from the internet
 
+# Packages for reading foreign data
+
+* readr, readxl, haven
+
+# Exporting Data
+
+* `write.table()`
+* `write.csv()` / `write_csv()`
+* `write_delim()`
+
 # Classes in R
 
 ![Bicycle](https://pixabay.com/static/uploads/photo/2012/04/14/14/41/bicycle-34159_960_720.png)
