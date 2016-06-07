@@ -1,4 +1,4 @@
-# Introduction to R for Data Management and Analysis EPI 70N0601
+# Introduction to R for Data Management and Analysis (EPI 70N0601)
 
 ## Course Source Code and Slides
 
