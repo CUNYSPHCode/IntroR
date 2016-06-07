@@ -68,6 +68,18 @@ as.Date(b$OrderDate, origin = "1899-12-30")
 # Named vector
 namedNumericVector <- c("a" = 1, "b" = 2, "c" = 3)
 
+# Logical operations
+
+truth <- c(TRUE, FALSE, NA)
+
+!truth
+
+truth | !truth
+
+truth & truth
+
+truth && truth
+
 # Factors
 charVec <- c("small", "small", "medium", "large")
 
@@ -85,6 +97,13 @@ table(airquality$Month)
 
 newMonth <- factor(airquality$Month, levels = c(5:9), labels = c("May", "June", "July", "August", "September"))
 
+gender <- factor(rep(c("Male", "Female", "Male"), 3), levels = c("Male", "Female"))
+
+contrasts(gender)
+
+contrasts(relevel(gender, "Female"))
+
+gender2 <- relevel(gender, "Female")
 
 ?data.frame
 

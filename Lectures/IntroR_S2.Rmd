@@ -86,3 +86,12 @@ output:
     * `list`
     * `array`
     * custom classes
+
+# Coercion
+
++ as.__*(class type here)*__
++ `as.character`
++ `as.numeric`
++ `as.logical`
++ `as.data.frame`
+
