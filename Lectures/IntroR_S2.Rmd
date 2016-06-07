@@ -21,11 +21,13 @@ output:
 # Brief recap
 
 * Basic features of the language
+    * interactive and _interpreted_
     * case sensitive, ignores spaces except between objects and functions
     * an object is any type of variable stored in R (i.e., `data.frame`, `numeric` vector, `function`, etc.)
     * Be familiar with the parts of a function
     * know your help pages (use `?functionname` or `help("functionname")`)
     * Finding help and troubleshooting are critically important
+    * Help pages can be intimidating but very useful
 
 # Today's lecture overview
 
@@ -66,3 +68,30 @@ output:
 * Define what functions/operations can be performed
 * `class()` function
 * Examples
+
+# Vectors, classes, and functions
+
+* Vectors of class (may be named):
+    * character, integer, numeric, logical, complex, raw (bytes)
+    * factor: discrete levels
+        * mostly used in regressions
+        * set reference by `relevel`ing categories 
+        * `relevel` does not work with ordered factors
+    * missing (`NA`)
+* Tabular classes: 
+    * `data.frame`
+    * `matrix`
+* Non-tabular: 
+    * `function`
+    * `list`
+    * `array`
+    * custom classes
+
+# Coercion
+
++ as.__*(class type here)*__
++ `as.character`
++ `as.numeric`
++ `as.logical`
++ `as.data.frame`
+
