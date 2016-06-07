@@ -44,12 +44,57 @@ read_spss("~/Downloads/p010.sav")
 read_csv("~/Downloads/femaleMiceWeights.csv")
 read_sas("http://crn.cancer.gov/resources/ctcodes-procedures.sas7bdat")
 
-download("https://raw.githubusercontent.com/LiNk-NY/IntroR/master/Data/SampleData.xlsx", 
+download("https://raw.githubusercontent.com/LiNk-NY/IntroR/master/Data/SampleData.xlsx",
          destfile = "~/Downloads/SampleData.xlsx")
 
 read_excel("~/Downloads/SampleData.xlsx", sheet = 2)
 sampDat <- read_excel("~/Downloads/SampleData.xlsx")
 
 sampDat$OrderDate
+
 ?as.Date()
+
 as.Date(b$OrderDate, origin = "1899-12-30")
+
+## Classes
+
+# Vector types
+
+( characterVector <- c("a", "b", "c") )
+( numericVector <- c(1, 2, 3) )
+( logicalVector <- c(TRUE, FALSE, TRUE) )
+( integerVector <- 1L:5L )
+
+# Named vector
+namedNumericVector <- c("a" = 1, "b" = 2, "c" = 3)
+
+# Factors
+charVec <- c("small", "small", "medium", "large")
+
+factor(charVec)
+
+factor(charVec, levels = c("small", "medium"))
+
+factor(charVec, levels = c("small", "medium"), ordered = TRUE)
+
+size <- factor(charVec, levels = c("small", "medium", "large"), ordered = TRUE)
+
+data("airquality")
+head(airquality)
+table(airquality$Month)
+
+newMonth <- factor(airquality$Month, levels = c(5:9), labels = c("May", "June", "July", "August", "September"))
+
+
+?data.frame
+
+data.frame(var1 = characterVector, var2 = logicalVector, var3 = numericVector)
+
+?data
+data("mtcars")
+data("airquality")
+
+# Example of Iris array
+data("iris3")
+
+data("cars")
