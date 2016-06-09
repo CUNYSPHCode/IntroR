@@ -1,0 +1,57 @@
+---
+title: "Introduction to R for Data Management and Analysis"
+author: "Marcel Ramos, MPH"
+date: "Tuesday, June 6, 2016"
+output:
+  beamer_presentation:
+    colortheme: dolphin
+    fonttheme: structureitalicserif
+    theme: CambridgeUS
+  ioslides_presentation: default
+---
+
+```{r setup, include = FALSE, echo = FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Announcements
+
+* Blackboard is now live
+* Quizzes graded
+
+# Notes on the Tuesday's lecture
+
+* Changing the levels of a factor
+* converting factors to numeric
+* Up arrow in RStudio
+* Basics of R Markdown
+
+# Recap
+
+* Import and Export data
+    * Know your paths
+    * Most export functions include the word "write" (i.e., `write.table`)
+* Classes (bicycle analogy)
+    * can have particular operations
+    * some functions are similar across classes
+    * identify a class by using the `class` function
+* Factors and levels
+* `data.frames` and `lists`
+* subsetting using vectors
+    * Accessing columns with `[` and `$`
+* coercion (`as.`**classname**)
+
+# Data Manipulation Overview
+
+* Subsetting (cont.)
+    * vectors and `[` with character, numeric, logical
+    * `lists` and `[` / `$`
+    * double brackets `[[`
+    * with conditions
+* Sorting and aggregating data
+* removing duplicated records
+* removing records with `NA`
+* merging and binding
+* transformations
+
