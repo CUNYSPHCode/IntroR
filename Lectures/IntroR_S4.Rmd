@@ -1,0 +1,75 @@
+---
+title: "Introduction to R for Data Management and Analysis"
+author: "Marcel Ramos, MPH"
+date: "Tuesday, June 14, 2016"
+output:
+  beamer_presentation:
+    colortheme: dolphin
+    fonttheme: structureitalicserif
+    theme: CambridgeUS
+  ioslides_presentation: default
+---
+
+```{r setup, include = FALSE, echo = FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Notes on last Thursday's lecture
+
+* Examples with pipes
+* Reshaping your data
+* Merge alternatives
+
+# Using the `nycflights13` dataset
+
+```{r, echo = TRUE, message = FALSE, warning = FALSE}
+library(nycflights13); library(dplyr)
+flights %>% group_by(carrier) %>%
+  summarise(avg_depdelay = mean(dep_delay, na.rm = TRUE),
+            count = n()) %>% left_join(airlines) %>%
+    arrange(avg_depdelay) %>% head
+```
+
+# Reshaping data using `gather`
+
+```{r, echo = TRUE, message = FALSE}
+data(iris); library(tidyr)
+longdata <- gather(tbl_df(iris), key = measure, n,
+  Sepal.Length:Petal.Width) %>% separate(measure, c("type",
+    "dimension"))
+longdata %>% group_by(Species, type, dimension) %>%
+  summarise(avg_dim = mean(n, na.rm = TRUE))
+```
+
+# Pew example
+
+```{r, echo = TRUE}
+library(readr)
+(pew <- read_csv("../Data/pew.csv"))
+```
+
+# Gather dataset
+
+```{r, echo = TRUE}
+pew %>% gather(income, n, -religion) %>% head
+```
+
+income, religion : variables to gather 
+n : variable in cells 
+-religion means all except religion
+
+# Using `group_by`
+
+```{r, echo = TRUE}
+pew %>% gather(income, n, -religion) %>%
+  group_by(income) %>% summarise(totals = sum(n))
+```
+
+# Using `group_by`
+
+```{r, echo = TRUE}
+pew %>% gather(income, n, -religion) %>%
+  group_by(religion) %>% summarise(totals = sum(n))
+```
+
