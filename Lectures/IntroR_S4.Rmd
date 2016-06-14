@@ -19,7 +19,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Examples with pipes
 * Reshaping your data
-* Merge alternatives
 
 # Using the `nycflights13` dataset
 
@@ -73,3 +72,32 @@ pew %>% gather(income, n, -religion) %>%
   group_by(religion) %>% summarise(totals = sum(n))
 ```
 
+# Plotting and Graphing
+
+* Exploratory Data Analysis
+* Base graphics
+* Intro `ggplot2`
+* Saving graphics
+
+# Exploratory Data Analysis
+
+* Informal representation data
+* Looking for patterns, outliers, etc.
+
+# Types of graphs
+
+* Historgram
+* Scatterplot
+    * Scatterplot matrix
+* Boxplots
+* Violin plots (`ggplot2`)
+* Q-Q plots
+
+# `par` function
+
+* Check parameters for graphing
+
+# `ggplot2` - Grammar of Graphics
+
+* Different syntax
+* Powerful operations
