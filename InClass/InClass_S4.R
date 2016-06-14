@@ -124,3 +124,14 @@ pp + facet_grid(. ~ sex)
 pp + facet_grid(day ~ sex)
 
 pp + facet_wrap(~ day, ncol = 2)
+
+## saving your output
+
+pdf("myPlot.pdf")
+# enter plot code here #
+dev.off()
+
+pdf("filename.pdf", width = 5, height = 5)
+
+?svg
+?png

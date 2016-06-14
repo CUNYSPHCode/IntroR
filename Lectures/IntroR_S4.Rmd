@@ -101,3 +101,15 @@ pew %>% gather(income, n, -religion) %>%
 
 * Different syntax
 * Powerful operations
+
+# Saving output to file
+
+* Formats
+    * PDF
+    * SVG
+    * PNG/TIFF
+
+End in `dev.off()`
+
+`ggplot2` graphics may require a `print` before it gets rendered in the
+file. 
