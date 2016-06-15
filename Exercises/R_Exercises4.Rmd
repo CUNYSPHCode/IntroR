@@ -43,3 +43,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
+## Extra credit
+
+6. Create correlation matrix using only **numeric** observations in the `mtcars` dataset. Find the correlations that are greater than the absolute value of `.80`. What pairs of variables are highly correlated? Show your code. 
+
+```{r}
+
+```
+
+
+
+
+
