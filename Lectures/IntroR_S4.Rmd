@@ -79,6 +79,12 @@ pew %>% gather(income, n, -religion) %>%
 * Intro `ggplot2`
 * Saving graphics
 
+# Plotting systems in R
+
+* 'Base' graphics
+* lattice
+* ggplot2 
+
 # Exploratory Data Analysis
 
 * Informal representation data

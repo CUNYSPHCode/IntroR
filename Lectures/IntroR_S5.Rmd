@@ -40,3 +40,21 @@ knitr::opts_chunk$set(echo = FALSE)
 * Replacing missing values with NA
 * Using a `for` loop
 * Using a `function`
+
+# `for` loops
+
+* Repeat code a certain number of times
+* `for` <_variable_> in <_sequence of numbers_> {  }
+* Each step is visible
+* Purpose may not be immediately clear
+
+# Functions
+
+* Extend the language
+* Group operations for _ideally_ one purpose
+* _Pure_ function
+
+# Functionals
+
+* A function that takes another function as an argument
+* Make coding more efficient

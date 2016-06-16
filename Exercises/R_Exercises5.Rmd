@@ -1,0 +1,36 @@
+---
+title: "R Exercises Session 4"
+author: "Introduction to R for Data Management and Analysis"
+date: "June 16, 2016"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Note**: Use `Ctrl (Command) + Alt (Option) + I` or go to `Code` > `Insert Chunk` (from the menu) to insert a code block "chunk". 
+
+## Exercises
+
+1. Write a small function that takes a number as an input and raises it to the power of `3`. Name this function `cube`.
+
+```{r}
+
+```
+
+2. Create a `4` by `5` matrix of random numbers and assign it. Write a `for` loop that takes the `sum` of each of the rows and returns a vector of row means. 
+
+```{r}
+
+```
+
+3. Create a list of 2 `mtcars` datasets, one in each element/component and assign it. Now use an `lapply` function with `dim` as an argument. 
+
+```{r}
+
+```
+
+4. 
+
+
