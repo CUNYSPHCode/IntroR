@@ -1,0 +1,42 @@
+---
+title: "Introduction to R for Data Management and Analysis"
+author: "Marcel Ramos, MPH"
+date: "Thursday, June 16, 2016"
+output:
+  beamer_presentation:
+    colortheme: dolphin
+    fonttheme: structureitalicserif
+    theme: CambridgeUS
+  ioslides_presentation: default
+---
+
+```{r setup, include = FALSE, echo = FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Announcements
+
+* Error in Quiz 3
+* 1 more class left
+
+# Notes on Tuesday's lecture
+
+* [\color{blue}{Interactivity}](http://mramos.shinyapps.io/obView)
+* Plotting Odds Ratios
+    * Base graphics
+    * ggplot2
+
+# Today's lecture topics
+
+* Repetitive code
+* `for` loops
+* Functions
+* Functionals and functional programming
+    `apply` family
+
+# Examples
+
+* Replacing missing values with NA
+* Using a `for` loop
+* Using a `function`
