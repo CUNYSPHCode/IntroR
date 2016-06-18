@@ -31,11 +31,11 @@ table(subIris$Species)
 
 ```{r}
 ## reorder the mtcars dataset based on mpg
-mtcars[order(mtcars$mpg),]
+mtcars[order(mtcars$mpg, decreasing = TRUE),]
 
 ## with dplyr..
 library(dplyr)
-arrange(mtcars, mpg)
+arrange(mtcars, -mpg)
 ```
 
 4. Apply `aggregate` or `summarize_each` to the mtcars dataset with a mean for each of the categories in the `cyl` or cylinder column. What cylinder category gets the most miles per gallon? What cylinder category has the highest mean weight (`wt`)? Show your code. 
