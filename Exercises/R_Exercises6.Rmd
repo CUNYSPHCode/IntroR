@@ -1,0 +1,20 @@
+---
+title: "R Exercises Session 6"
+author: "Introduction to R for Data Management and Analysis"
+date: "June 21, 2016"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exercises
+
+1. You are tasked to test whether there is a difference in mean miles per gallon (`mpg`) by type of motor (`vs`) (v-shape or straight). Run a t-test on the variables in question. What is the result? Show another way to calculate the mean by group. What type of motor has a higher mean miles per gallon? Show your code.
+
+```{r}
+
+```
+
+2. 

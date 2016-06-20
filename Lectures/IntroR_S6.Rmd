@@ -1,0 +1,88 @@
+---
+title: "Introduction to R for Data Management and Analysis"
+author: "Marcel Ramos"
+date: "June 19, 2016"
+output:
+  beamer_presentation:
+    colortheme: dolphin
+    fonttheme: structureitalicserif
+    theme: CambridgeUS
+  ioslides_presentation: default
+---
+
+```{r setup, include = FALSE, echo = FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Announcements
+
+* Exercises mostly graded
+* Extra credit due Thursday
+* Final class today
+
+# Notes on Tuesday's lecture
+
+* Questions on the material
+
+*\large{Pseudocode}*
+\normalsize{}
+
+* `for` loop structure
+```{r, eval=FALSE, echo=TRUE}
+for (variable in vector) {
+    # < enter code here > 
+} 
+```
+* `function` structure
+```{r, eval = FALSE, echo=TRUE}
+functionname <- function(argument1 = "default",
+                         argument2 = "default") {
+    myresult <- anotherfunction(argument1, argument2)
+        return(myresult)
+}
+```
+
+# Notes on Tuesday's lecture
+
+* Functions are powerful tools
+* Minimize errors
+* Create a set of operations to achieve a goal
+* Easy to write
+* Loops are useful but are not easily extendable
+
+# Data Analysis
+
+* R is particularly good at statistics
+* Packages with new methods get published faster
+* Extensibility is an advantage compared to other software
+
+# The basics
+
+* Frequency tables
+* Calculating odds ratios
+* `relevel`
+
+# Frequencies
+
+* `gmodels` package
+* `CrossTable` function
+* `table` function
+
+# Tests
+
+* `chisq.test` function
+* `fisher.test` function
+* `t.test` function
+
+# Linear Regression
+
+* `lm` function
+* [\color{blue}{UCLA example}](http://scc.stat.ucla.edu/page_attachments/0000/0139/reg_1.pdf)
+
+# Logistic Regression and Odds Ratios
+
+* `glm` function
+* `Odds Ratio` calculation
+* [\color{blue}{UCLA example}](http://www.ats.ucla.edu/stat/r/dae/logit.htm)
+

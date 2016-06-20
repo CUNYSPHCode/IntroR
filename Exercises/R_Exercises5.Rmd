@@ -1,5 +1,5 @@
 ---
-title: "R Exercises Session 4"
+title: "R Exercises Session 5"
 author: "Introduction to R for Data Management and Analysis"
 date: "June 16, 2016"
 output: word_document

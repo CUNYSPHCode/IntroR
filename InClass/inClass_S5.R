@@ -91,9 +91,13 @@ set.seed(1014)
 df <- data.frame(replicate(6, sample(c(1:10, -99), 6, rep = TRUE)))
 # See it
 df
+# Here we have loop that goes through every column and checks for any
+# -99 values and replaces them with NA
+## Note: NA is not a character vector!
 for(i in seq_along(df)) {
     df[, i][ df[,i] == -99 ] <- NA
 }
+
 df
 
 ## We create a function
@@ -126,26 +130,32 @@ complete <- function(directory, id=1:332){
 complete(mydatalocation, id = 1:3)
 complete(mydatalocation)
 
-## Functionals 
+## Functionals
 
 ## *apply family
 
 ## lapply
 datasets <- list(mtcars, iris, cars)
 
+## Repetitive code example
 dim(datasets[[1]])
 dim(datasets[[2]])
 dim(datasets[[3]])
 
+## List apply a dim function to the list of datasets
 lapply(datasets, dim)
 
+## Functions can be applied by groups with tapply
 tapply(X = mtcars$mpg, INDEX = mtcars$cyl, FUN = mean)
 tapply(X = mtcars$mpg, INDEX = mtcars$cyl, FUN = sd)
 tapply(X = mtcars$mpg, INDEX = mtcars$cyl, FUN = var)
 
+## We can create a list of functions
 myfun <- list(meanFUN = function(x) {mean(x, na.rm = TRUE)} ,  sdFUN = sd, varFUN = var)
+## See the names of the functions
 names(myfun)
 
+## We can recursively apply a function
 lapply(myfun, function(f) f(mtcars$mpg) )
 
 lapply(mtcars, mean)

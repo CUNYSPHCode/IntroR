@@ -63,7 +63,8 @@ boxplot(Petal.Length ~ Species, data = iris)
 
 ```{r}
 # Remove cylinders variable from the data as it is categorical (conceptually)
-mtcars2 <- mtcars[, -2]
+categorical <- !(names(mtcars) %in% c("cyl", "vs", "am", "gear", "carb"))
+mtcars2 <- mtcars[, categorical]
 mycorrel <- abs(cor(mtcars2))
 
 mycorrel > 0.8 & mycorrel!= 1
