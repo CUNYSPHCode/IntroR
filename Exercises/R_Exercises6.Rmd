@@ -17,4 +17,29 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-2. 
+2. Fit a linear model with the `Orange` dataset. You are investigating how age relates to circumference of a tree. Use the `predict` function to estimate the circumference of a `500` year old tree. Show your code. 
+
+```{r}
+
+```
+
+3. Using what you learned, load the `babies.txt` dataset and replace the missing values in the smoking variable `smoke`. Run a t-test to see if the average birth weight (`bwt`) is significantly different between mothers who smoke and those who don't.
+
+```{r}
+
+```
+
+4. Run a linear regression with `gestation`, `smoke`, `age` as predictor of birth weight `bwt`. Create a plot of fitted vs residual values using the functions learned in class. 
+
+```{r}
+
+```
+
+## Extra Credit 
+
+5. Using the `lm` object in 4, create a table of beta ($\beta$) coefficients using the `coef` function on the summary of the model. Add columns for confidence intervals with `confint`.
+
+```{r}
+
+```
+
