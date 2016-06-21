@@ -48,6 +48,7 @@ mtcars2 <- aggregate(. ~ cyl, data = mtcars, FUN = mean)
 mtcars2[which(mtcars2$wt == max(mtcars2$wt)),]
 ```
 
+Cars with 4 cylinders have the highest mean miles per gallon. 
 Cars with 8 cylinders have the highest mean weight (shown in thousands of pounds).
 
 5. Consider a systematic error for the weight scale used in the `ChickWeight` dataset. The reading on each of the weights was consistently 5 grams lower than the actual weight. Create a new column in the `ChickWeight` dataset to adjust for the measurement error. Show your work. 
