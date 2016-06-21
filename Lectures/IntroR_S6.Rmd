@@ -75,6 +75,20 @@ functionname <- function(argument1 = "default",
 * `fisher.test` function
 * `t.test` function
 
+# Useful functions to apply on model objects
+
+* Functions that work on `lm` class objects
+    * `summary`
+    * `fitted`
+    * `resid`
+    * `predict`
+
+# Tidy model results with *broom*
+
+* `tidy` - model coefficients
+* `augment` - fitted/residual values and more
+* `glance` - model level statistics
+
 # Linear Regression
 
 * `lm` function
