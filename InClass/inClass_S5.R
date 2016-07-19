@@ -120,9 +120,9 @@ list.files(mydatalocation, pattern = ".csv", full.names = TRUE)
 
 complete <- function(directory, id=1:332){
     monitorFile <- list.files(directory, pattern = ".csv", full.names=TRUE)
-    nobs <- c()
+    nobs <- vector(mode = "numeric", length = length(id))
     for (i in id) {
-        nobs <- c(nobs, sum(complete.cases(read.csv(monitorFile[i]))))
+        nobs[i] <- sum(complete.cases(read.csv(monitorFile[i])))
     }
     data.frame(filename = basename(monitorFile[id]), nobs=nobs)
 }
