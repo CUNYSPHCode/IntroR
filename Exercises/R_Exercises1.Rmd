@@ -1,7 +1,7 @@
 ---
 title: "CalculatoR"
 author: "Marcel Ramos"
-date: "June 2, 2016"
+date: "Tuesday, June 5, 2018"
 output: html_document
 ---
 
