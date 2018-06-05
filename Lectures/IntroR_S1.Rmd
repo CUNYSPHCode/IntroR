@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos"
-date: "Thursday, June 2nd, 2016"
+date: "Tuesday, June 5nd, 2018"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -18,15 +18,16 @@ output:
 
 * Name
 * Program/Concentration
-* Expectations/Familiarity with R
+* Familiarity with R
+* Expectations
 * Fun fact?
 
 # Class structure
 
 * Lecture and short exercises: 90 minutes
-* Break: 10-15 minutes
-* Exercise: 60 minutes
-* Discussion: 15 minutes
+* Break: 10 minutes
+* Exercise: 40 minutes
+* Discussion: 10 minutes
 
 # Grading
 
@@ -38,18 +39,19 @@ output:
 
 | Date          | Topics                           | Assessment |
 |---------------|----------------------------------|------------|
-| Thurs. June 2 | Introductions                    | Exercise   |
+| Tues. June 5  | Introductions                    | Exercise   |
 |               | About this class                 |            |
 |               | Features of the R language       |            |
 |               | Getting help and troubleshooting |            |
 |               |                                  |            |
-| Tues. June 7  | Classes and data types           | Exercise   |
+| Thurs. June 7 | Classes and data types           | Exercise   |
 |               | data.frame                       | and        |
 |               | Import/Export                    | quiz       |
 |               | subsets                          |            |
 
 # Today's class
 
+* Installation
 * R and the RStudio interface
 * Basic features of the language
 * Getting started
