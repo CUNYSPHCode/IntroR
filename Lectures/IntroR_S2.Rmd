@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos, MPH"
-date: "Tuesday, June 6, 2016"
+date: "Thursday, June 7, 2018"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -45,7 +45,9 @@ output:
 * Recognizing file types
     * File extensions (e.g., `.tsv`, `.csv`, `.xlsx`, `.txt`, `.sav`, `.sasb7dat`)
 * Show file extensions on Windows
-    * Windows Start button > Control panel > (View by: Large Icons) > Folder options > View tab > Advanced Settings: [__Deselect__] Hide extensions for known file types
+    * Windows Start button > Control panel > (View by: Large Icons) >
+    Folder options > View tab > Advanced Settings: [__Deselect__]
+    Hide extensions for known file types
 * Downloading files from the internet
 
 # Packages for reading foreign data
