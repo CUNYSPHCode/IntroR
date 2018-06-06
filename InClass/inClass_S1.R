@@ -14,6 +14,7 @@ help    (   topic   =    "mean")
 
 ## Assignment with arrow "<-"
 a <- c(1, 3, 4, 6)
+b <- c("marcel", "ramos")
 
 ## Assignment with equals sign "="
 a = c(1, 3, 4, 7)
@@ -30,11 +31,13 @@ help("mean")
 
 ?rnorm()
 b <- rnorm(20)
+
 mean(b)
 
 # Arguments
 ?cor
 3 < 5
+
 cc <- rnorm(20)
 
 # Run functions with explicit arguments
@@ -48,11 +51,24 @@ cor(b, cc)
 
 # File paths (what are they?)
 getwd()
-# setwd()
-setwd("~/Documents/GitHub/IntroR/")
-babies <- read.table("Data/babies.txt")
-babies <- read.table("Data/babies.txt",
-                     header = TRUE)
 
-# install.pacakges()
+## Change your current working directory
+setwd("C:/Users/mramos/Documents/IntroR/IntroR/Data")
+
+## list all the contents in a directory
+list.files("~/IntroR/IntroR/Data/")
+
+## shortcut to home directory '~'
+normalizePath("~")
+
+## read a text file from your current working directory
+babies <- read.table("babies.txt")
+head(babies)
+
+## use headers = TRUE
+babies <- read.table("babies.txt", header = TRUE)
+
+head(babies)
+
+# install.packages()
 # library()
