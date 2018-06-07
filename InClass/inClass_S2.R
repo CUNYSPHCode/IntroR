@@ -21,19 +21,19 @@ var3 <- c(TRUE, FALSE, TRUE, TRUE)
 
 ## Download file from github
 ## Dataset provided by Data Analysis for the Life Sciences by Rafael Irizarry and Michael I. Love
-download.file("https://raw.githubusercontent.com/LiNk-NY/IntroR/master/Data/femaleMiceWeights.csv",
-              destfile = "~/Downloads/femaleMiceWeights.csv")
+download.file("https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/femaleMiceWeights.csv",
+    destfile = "~/Downloads/femaleMiceWeights.csv")
 
-download.file("https://raw.githubusercontent.com/LiNk-NY/IntroR/master/Data/babies.txt",
-              destfile = "~/Downloads/babies.txt")
+download.file("https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/babies.txt",
+    destfile = "~/Downloads/babies.txt")
 
 ## Example dataset from http://www.ats.ucla.edu/stat/spss/examples/chp/chpspss_dl.htm
 download("http://www.ats.ucla.edu/stat/spss/examples/chp/p010.sav",
-              destfile = "~/../Downloads/p010.sav")
+    destfile = "~/../Downloads/p010.sav")
 
 library(downloader)
 download("http://www.ats.ucla.edu/stat/spss/examples/chp/p010.sav",
-              destfile = "~/../Downloads/p010.sav")
+    destfile = "~/../Downloads/p010.sav")
 
 mice <- read.csv("~/../Downloads/femaleMiceWeights.csv")
 
@@ -50,8 +50,8 @@ read_sav("http://www.ats.ucla.edu/stat/spss/examples/chp/p010.sav")
 read_csv("~/Downloads/femaleMiceWeights.csv")
 read_sas("http://crn.cancer.gov/resources/ctcodes-procedures.sas7bdat")
 
-download("https://raw.githubusercontent.com/LiNk-NY/IntroR/master/Data/SampleData.xlsx",
-         destfile = "~/Downloads/SampleData.xlsx")
+download("https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/SampleData.xlsx",
+    destfile = "~/Downloads/SampleData.xlsx")
 
 read_excel("Data/SampleData.xlsx", sheet = 2)
 
