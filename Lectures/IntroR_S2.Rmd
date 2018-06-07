@@ -62,7 +62,7 @@ output:
 
 # Classes in R
 
-![Bicycle](https://pixabay.com/static/uploads/photo/2012/04/14/14/41/bicycle-34159_960_720.png)
+![Bicycle](bicycle-34159_960_720.png)
 
 # What are classes?
 
