@@ -3,6 +3,7 @@
 # Mixed data types vector
 c("a", 1, TRUE, NA)
 
+## mixed data types default to character
 c(1, 3, 5, "1")
 
 ?plot
@@ -35,7 +36,29 @@ library(downloader)
 download("http://www.ats.ucla.edu/stat/spss/examples/chp/p010.sav",
     destfile = "~/../Downloads/p010.sav")
 
-mice <- read.csv("~/../Downloads/femaleMiceWeights.csv")
+
+## assign an object named mice from a CSV file 
+mice <- read.csv("C:/Users/mramos/Downloads/IntroR/IntroR/Data/femaleMiceWeights.csv")
+
+## check if file is in that path
+file.exists("C:/Users/mramos/Downloads/IntroR/IntroR/Data/femaleMiceWeights.csv")
+
+
+## relative file path
+read.csv("~/../Downloads/femaleMiceWeights.csv")
+
+## absolute file path
+read.csv("C:/Users/mramos/Downloads/femaleMiceWeights.csv")
+
+### export
+?write.table
+write.table(mice, "~/../Downloads/micedata.txt")
+
+write.table(x = mice, file = "~/../Downloads/micedata2.txt")
+write.table(file = "~/../Downloads/micedata2.txt", x = mice)
+
+## ERROR
+## write.table("~/../Downloads/micedata2.txt", mice)
 
 # Packages for importing data
 library(readr)
@@ -43,6 +66,8 @@ library(readxl)
 library(haven)
 myPackages <- c("readr", "readxl", "haven")
 install.packages(myPackages)
+
+install.packages("readr")
 
 read_sav("~/../Downloads/p010.sav")
 read_sav("http://www.ats.ucla.edu/stat/spss/examples/chp/p010.sav")
@@ -72,6 +97,8 @@ as.Date(sampDat$OrderDate, origin = "1899-12-30")
 ( logicalVector <- c(TRUE, FALSE, TRUE) )
 ( integerVector <- 1L:5L )
 
+
+
 # Named vector
 namedNumericVector <- c("a" = 1, "b" = 2, "c" = 3)
 
@@ -83,12 +110,17 @@ truth <- c(TRUE, FALSE, NA)
 
 truth | !truth
 
+## logic tables
+TRUE | FALSE # returns TRUE
+FALSE | FALSE # returns FALSE
+
+## works accross values of the vector
 truth & truth
 
 truth && truth
 
 # Factors
-charVec <- c("small", "small", "medium", "large")
+charVec <- c("small", "small", "medium", "large", "large", "large")
 
 factor(charVec)
 
@@ -97,6 +129,7 @@ factor(charVec, levels = c("small", "medium"))
 factor(charVec, levels = c("small", "medium"), ordered = TRUE)
 
 size <- factor(charVec, levels = c("small", "medium", "large"), ordered = TRUE)
+
 data()
 data("airquality")
 class(airquality)
@@ -105,16 +138,20 @@ View(airquality)
 
 table(airquality$Month)
 
-newMonth <- factor(airquality$Month, levels = c(5:9), labels = c("May", "June", "July", "August", "September"))
+newMonth <- factor(airquality$Month, levels = c(5:9),
+    labels = c("May", "June", "July", "August", "September"))
+
 contrasts(newMonth)
 
-gender <- factor(rep(c("Male", "Female", "Male"), 3), levels = c("Male", "Female"))
+sexchar <- rep(c("Male", "Female", "Male"), 3)
 
-contrasts(gender)
+sexfactor <- factor(sexchar, levels = c("Male", "Female"))
 
-contrasts(relevel(gender, "Female"))
+contrasts(sexfactor)
 
-gender2 <- relevel(gender, "Female")
+contrasts(relevel(sexfactor, "Female"))
+
+sexfactor2 <- relevel(sexfactor, "Female")
 
 ?data.frame
 
@@ -137,19 +174,29 @@ colnames(mtcars)
 rownames(mtcars)
 dim(mtcars)
 length(mtcars)
+
 sapply(mtcars, class)
 
 ## Subsetting
-
+## using character, numeric or logical vectors
 mtcars[ , c("disp", "hp")]
 mtcars[, 1:3]
 mtcars[, c(TRUE, FALSE, TRUE, FALSE , FALSE)]
 
+## creating a logical vector from a condition
+## mice on the chow diet
+mice$Diet == "chow"
+
+## take only the mice on the chow diet
+mice[ mice$Diet == "chow", ]
+
+## subset rows using numeric, logical and character vectors
 mtcars[1:5, ]
 mtcars[1:5, c("mpg"), drop = FALSE]
 mtcars[c(TRUE, FALSE) , ]
 mtcars["Honda Civic" ,]
 
+## install a package
 install.packages("dplyr")
 
 mtcars %>% select(mpg, disp)
