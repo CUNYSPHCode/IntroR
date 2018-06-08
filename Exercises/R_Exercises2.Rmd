@@ -31,8 +31,8 @@ c) 7, 7, 7, 7, 9, 9, 9, 9
 ```
 
 
-2. Write a character vector with your 3 favorite food items and assign it to an
-object called `myFaves`.
+2. Write a character vector with your 3 favorite food items and assign it to
+an object called `myFaves`.
 
 ```{r}
 
@@ -45,7 +45,7 @@ object called `myFaves`.
 ```
 
 4. Create an ordered factor from the `myFaves` character vector by arranging
-the levels argument in the proper order. 
+the levels argument in the order from least to greatest in personal preference. 
 
 ```{r}
 
@@ -66,8 +66,8 @@ deviation of **5** to create a matrix with **4** rows.
 
 ```
 
-7. Create a list of 2 vectors (a character vector of a, b, and c and a numeric
-vector of one to ten) with names `element1` and `element2`.
+7. Create a list of 2 vectors (a character vector of letters a, b, and c and a
+numeric vector of one to ten) with names `element1` and `element2`.
 
 ```{r}
 

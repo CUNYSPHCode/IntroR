@@ -109,7 +109,7 @@ output:
 * help pages
 * `?reserved`
 
-# Structure of a function
+# Recognizing a function
 
 * a name followed by parentheses `help()`
 * arguments (e.g., `functionname(argument1 = "default")`)
