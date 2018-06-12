@@ -15,15 +15,11 @@ library(knitr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Announcements
-
-* Blackboard is now live
-* Quizzes graded
-
 # Notes on the Tuesday's lecture
 
 * Changing the levels of a factor
 * converting factors to numeric
+* data classes: lists and matrices
 * Up arrow in RStudio
 * Basics of R Markdown
 
