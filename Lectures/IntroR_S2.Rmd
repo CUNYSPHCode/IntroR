@@ -89,6 +89,24 @@ output:
     * `array`
     * custom classes
 
+# list
+
+* Handle multiple data types in one
+* Can contain vectors, data.frames, and even functions
+* The `data.frame` is a special type of list
+
+# data.frame
+
+* A unique type of list with uniform lengths in all elements
+* Great for data analysis
+* Most common class you will use to do analysis
+
+# matrix
+
+* Handles only one type of data at a time
+* can be character or numeric
+* create using `matrix()` function
+
 # Coercion
 
 + as.__*(class type here)*__

@@ -1,3 +1,32 @@
+## recap
+
+fruit <- c("banana", "strawberry", "kiwi")
+fruitfactor <- factor(fruit)
+contrasts(fruitfactor)
+
+fruitfactor <- relevel(fruitfactor, ref = "kiwi")
+contrasts(fruitfactor)
+
+## matrices
+
+?matrix
+matrix()
+matrix(rnorm(20), nrow = 4)
+matrix(letters, nrow = 2)
+
+## lists 
+
+list()
+
+list(c("row1", "row2"), c("C.1", "C.2", "C.3"))
+
+list(mean, sd, sqrt)
+
+alist <- list(a = 1:3, b = c("a", "b", "c"))
+
+## data.frames
+as.data.frame(alist)
+
 ## NOTES
 ## Setting the levels of a factor
 
@@ -34,16 +63,36 @@ vec["a"]
 
 vec[1]
 
-vec[c(TRUE, FALSE, TRUE)]
+vec[c(TRUE, FALSE, FALSE)]
 
 ranks
 
 ranks["a"]
 
+## Use of dollar sign operator $
+data("mtcars")
+mtcars$mpg
+mtcars[, "mpg"]
+
+mtcars[, c("mpg", "disp")]
+mtcars[, c(1, 3)]
+
+table(mtcars$am)
+
+## Subset by rows and columns
+mtcars[1:3, c("mpg", "disp")]
+mtcars %>% slice(1:3) %>% select(mpg, disp)
+
+
+head(mtcars[, 1:3])
+head(mtcars[1:3])
+
+
 ## Subsets with
 ## Double bracket notation
 
 mtcars[["mpg"]]
+# Error: mtcars[[c("mpg", "disp")]]
 
 aList <- list(a = 1:3, b = letters[1:3])
 
@@ -59,30 +108,56 @@ aList$b
 mtcars$hp
 
 ## Using Conditions to subset
+mtcars$mpg
 mtcars$mpg > 20
+
+mtcars[mtcars$mpg > 20, ]
+mtcars[mtcars[["mpg"]] > 20, ]
+
+
+mtcars[mtcars$mpg > 20, "mpg", drop = FALSE]
 
 sum(mtcars$mpg > 20)
 
 mtcars$highMPG <- mtcars$mpg > 20
 
+head(mtcars)
+
+mutate(mtcars, highMPG = mpg > 20)
+
 mtcars
 
 mtcars[ mtcars$mpg > 20, ]
 
-airquality$Month <- factor(airquality$Month,
-                           levels = 5:9,
-                           labels = c("May", "June", "July",
-                                      "August", "September"))
+data("airquality")
 
-airquality[ airquality$Month == "May", ]
+table(airquality$Month)
+
+airquality$Month2 <- factor(airquality$Month,
+  levels = 5:9, labels = c("May", "June", "July",
+  "August", "September"))
+head(airquality)
+table(airquality$Month2)
+
+airquality$Month2 == "May"
+
+
+airquality[ airquality$Month2 == "May", ]
 
 # Sorting data
 
 airquality
+aq <- airquality[1:10, ]
+
+aq[ order(aq$Temp),  ]
 
 order(airquality$Temp)
 
+## tidyverse arrange
+arrange(aq, Temp)
+
 airquality[ order(airquality$Temp), ]
+
 airquality[ order(airquality$Temp, decreasing = TRUE), ]
 
 ## dplyr alternative

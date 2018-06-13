@@ -15,7 +15,7 @@ library(knitr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Notes on the Tuesday's lecture
+# Notes on the Thursday's lecture
 
 * Changing the levels of a factor
 * converting factors to numeric

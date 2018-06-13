@@ -198,11 +198,22 @@ mtcars["Honda Civic" ,]
 
 ## install a package
 install.packages("dplyr")
+library("dplyr")
+
+?`%>%`
 
 mtcars %>% select(mpg, disp)
+select(mtcars, mpg, disp)
+
+mtcars[, c("mpg", "disp")]
+
 browseVignettes("dplyr")
 
 mtcars %>% slice(1:10)
+mtcars[1:10, ]
+
+## combine multiple verbs
+mtcars %>% slice(1:10) %>% select(mpg, disp)
 
 matrix(rnorm(20), nrow = 4)
 matrix(letters[1:20], nrow = 4)
