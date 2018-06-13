@@ -176,7 +176,8 @@ unique(airquality$Day)
 ?complete.cases
 complete.cases(airquality)
 
-airquality[complete.cases(airquality) ,]
+airquality[ complete.cases(airquality), ]
+
 
 ## Aggregate data
 
@@ -192,7 +193,7 @@ mean(c(1, 2, NA))
 mean(c(1, 2, NA), na.rm = TRUE)
 
 airquality %>%
-  group_by(Month) %>%
+  group_by(Month2) %>%
   summarise_each(funs(mean(., na.rm = TRUE)))
 
 ## Merging
