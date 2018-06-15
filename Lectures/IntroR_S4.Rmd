@@ -20,6 +20,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * Examples with pipes
 * Formulas
 * Aggregating
+* Reshaping your data
 
 # Using the `nycflights13` dataset
 
