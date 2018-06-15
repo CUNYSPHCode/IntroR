@@ -1,3 +1,22 @@
+# install.packages("nycflights13")
+library(nycflights13)
+library(dplyr)
+
+head(flights)
+
+table(flights$carrier)
+
+flights %>% group_by(carrier) %>%
+  summarize(avg_depdelay = mean(dep_delay, na.rm = TRUE), count = n()) %>%
+  left_join(airlines) %>% arrange(avg_depdelay)
+
+data(iris)
+install.packages("tidyr")
+library(tidyr)
+longiris <- gather(tbl_df(iris), key = measure, n, Sepal.Length:Petal.Width) %>%
+  separate(measure, c("type", "dimension"))
+
+longiris %>% group_by(Species, type, dimension)
 # Graphing
 
 # Generate random numbers
@@ -12,6 +31,7 @@ dat <- data.frame(cond = factor(rep(c("A", "B"), each = 200)),
                   rating = c(rating, rating2))
 
 hist(rating)
+
 hist(rating, breaks = 20, col = "#CCCCFF", freq = FALSE)
 
 boundaries <- seq(-3, 3.6, by = .6)
@@ -35,6 +55,7 @@ plot(newData$a, newData$b)
 plot(b ~ a, data = newData)
 
 fitLine <- lm(b ~ a, data = newData)
+
 abline(fitLine, col = "blue", lwd = 3)
 
 ## lowess smoothing

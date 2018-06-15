@@ -15,10 +15,11 @@ library(knitr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Notes on last Thursday's lecture
+# Notes on last Tuesday's lecture
 
 * Examples with pipes
-* Reshaping your data
+* Formulas
+* Aggregating
 
 # Using the `nycflights13` dataset
 

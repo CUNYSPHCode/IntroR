@@ -183,6 +183,7 @@ airquality[ complete.cases(airquality), ]
 
 ## formula notation
 class(a ~ b)
+class(. ~ Month)
 
 aggregate(. ~ Month, data = airquality, mean)
 
@@ -197,14 +198,17 @@ airquality %>%
   summarise_each(funs(mean(., na.rm = TRUE)))
 
 ## Merging
+rownames(mtcars)
 
 shuffle <- sample(nrow(mtcars))
 
 A <- mtcars[shuffle, 5:9]
 B <- mtcars[, 1:4]
 
+
 merge(x = A, y = B, by = "row.names")
-merge(x = A, y = B, by.x = A$ID, by.y = B$ID2)
+
+# merge(x = A, y = B, by.x = A$ID, by.y = B$ID2)
 ?merge
 
 
@@ -238,15 +242,16 @@ cbind()
 cbind(A, B2)
 
 ## Binning
-
+##      install.packages("Hmisc")
 library(Hmisc)
 ?cut2
-set.seed(3)
+set.seed(5)
 num <- floor(rnorm(20, 20, 5))
+
 range(num)
 
 cut2(num, cuts = 20)
-size <- cut2(num, cuts = c(18, 24))
+cut2(num, cuts = c(18, 24))
 
 cut2(num, g = 4)
 
@@ -257,6 +262,7 @@ cut2(num, m = 10)
 
 ## Adding a variable
 mtcars$logDis <- log(mtcars$disp)
+
 head(mtcars)
 
 ## with dplyr
