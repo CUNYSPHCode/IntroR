@@ -17,15 +17,25 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Announcements
 
-* Error in Quiz 3
-* 1 more class left
+* Posted Google Doc for terminology
+* Exercises will be submitted on BlackBoard
 
-# Notes on Tuesday's lecture
+# Notes on Thursday's lecture
 
 * [\color{blue}{Interactivity}](http://mramos.shinyapps.io/obView)
 * Plotting Odds Ratios
     * Base graphics
     * ggplot2
+
+# Review
+
+* Plotting systems in R
+* base, lattice, ggplot2
+* Exploratory Data Analysis
+* Graphics device
+    * the default window / pane for all your plots
+    * save to external files (pdf, png, etc.)
+
 
 # Today's lecture topics
 
@@ -33,7 +43,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * `for` loops
 * Functions
 * Functionals and functional programming
-    `apply` family
+    * `apply` family
 
 # Examples
 
@@ -52,9 +62,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Extend the language
 * Group operations for _ideally_ one purpose
-* _Pure_ function
+* _Pure_ functions
 
 # Functionals
 
-* A function that takes another function as an argument
-* Make coding more efficient
+* An argument that itself is a function
+* Many functions can accept other functions as an arguments
+* Make coding more efficient and customizeable
+
