@@ -1,5 +1,7 @@
 ## Graph examples
 # ovView
+## open a URL in a browser
+browseURL("https://mramos.shinyapps.io/obView/")
 
 ## Odds ratio plots
 
@@ -94,9 +96,14 @@ df
 # Here we have loop that goes through every column and checks for any
 # -99 values and replaces them with NA
 ## Note: NA is not a character vector!
-for(i in seq_along(df)) {
+for (i in seq_along(df)) {
     df[, i][ df[,i] == -99 ] <- NA
 }
+
+for (i in 1:100) {
+  print(1 + i)
+}
+
 
 df
 
@@ -137,6 +144,10 @@ complete(mydatalocation)
 ## lapply
 datasets <- list(mtcars, iris, cars)
 
+dim(mtcars)
+dim(iris)
+dim(cars)
+
 ## Repetitive code example
 dim(datasets[[1]])
 dim(datasets[[2]])
@@ -145,12 +156,22 @@ dim(datasets[[3]])
 ## List apply a dim function to the list of datasets
 lapply(datasets, dim)
 
+lapply(df, fix_missing)
+as.data.frame(lapply(df, fix_missing))
+
+table(mtcars$cyl)
 ## Functions can be applied by groups with tapply
 tapply(X = mtcars$mpg, INDEX = mtcars$cyl, FUN = mean)
 tapply(X = mtcars$mpg, INDEX = mtcars$cyl, FUN = sd)
 tapply(X = mtcars$mpg, INDEX = mtcars$cyl, FUN = var)
 
 ## We can create a list of functions
+numeric_vec <- rnorm(20)
+
+funlist <- list(meanFUN = mean, sdFUN = sd, varFUN = var)
+
+lapply(funlist, function(f) f(numeric_vec))
+
 myfun <- list(meanFUN = function(x) {mean(x, na.rm = TRUE)} ,  sdFUN = sd, varFUN = var)
 ## See the names of the functions
 names(myfun)
@@ -159,7 +180,10 @@ names(myfun)
 lapply(myfun, function(f) f(mtcars$mpg) )
 
 lapply(mtcars, mean)
+
 apply(X = mtcars, MARGIN = 2, FUN = mean)
+apply(X = mtcars, MARGIN = 1, FUN = sum)
+
 sapply(mtcars, class)
 
 apply(mtcars, 1, mean)

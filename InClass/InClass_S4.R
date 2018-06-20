@@ -76,6 +76,9 @@ segments(x0 = 5, x1 = 15, y0 = 40, y1 = 100)
 plot(newData[, 1:3])
 
 library(psych)
+
+pairs.panels(newData)
+
 psych::pairs.panels(newData)
 
 library(car)
@@ -123,7 +126,11 @@ par(mfrow = c(2,2))
 
 ## Fun with `rafalib`
 library(rafalib)
+
+rafalib::mypar()
+
 mypar()
+
 ?mypar
 
 plot(cars)
