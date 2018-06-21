@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos"
-date: "Tuesday, June 21, 2018"
+date: "Thursday, June 21, 2018"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -17,9 +17,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Announcements
 
-* Exercises mostly graded
-* Extra credit due Thursday
-* Final class today
+* Last in-person class on Tuesday
+* Review Session - data analysis workflow
+* Extra credit assignment
 
 # Notes on Tuesday's lecture
 
@@ -42,6 +42,10 @@ functionname <- function(argument1 = "default",
         return(myresult)
 }
 ```
+
+# More on functions
+
+![funs](Functions.png)
 
 # Notes on Tuesday's lecture
 
@@ -85,9 +89,10 @@ functionname <- function(argument1 = "default",
 
 # Tidy model results with *broom*
 
-* `tidy` - model coefficients
-* `augment` - fitted/residual values and more
-* `glance` - model level statistics
+* Use the `broom` package to clean up results from model functions
+    * `tidy` - model coefficients
+    * `augment` - fitted/residual values and more
+    * `glance` - model level statistics
 
 # Linear Regression
 
