@@ -1,7 +1,7 @@
 ---
 title: "R Exercises Session 6"
 author: "Introduction to R for Data Management and Analysis"
-date: "Tuesday, June 21, 2018"
+date: "Thursday, June 21, 2018"
 output: word_document
 ---
 
@@ -37,7 +37,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Extra Credit 
 
-5. Using the `lm` object in 4, create a table of beta ($\beta$) coefficients using the `coef` function on the summary of the model. Add columns for confidence intervals with `confint`.
+5. Using the `lm` object in 4, create a table of beta ($\beta$) coefficients using the `coef` function on the `summary` of the model. Add columns for confidence intervals with `confint`.
 
 ```{r}
 

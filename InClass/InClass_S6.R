@@ -60,7 +60,7 @@ glance(eruption.lm)
 ## Logistic regression using GLM
 browseURL("http://www.ats.ucla.edu/stat/r/dae/logit.htm")
 
-mydata <- read.csv("http://www.ats.ucla.edu/stat/data/binary.csv")
+mydata <- read.csv("https://stats.idre.ucla.edu/stat/data/binary.csv")
 
 head(mydata)
 
