@@ -8,7 +8,9 @@ table(mtcars$cyl, mtcars$vs)
 
 ## Ideally, we don't want to overwrite original data variables
 mtcars$vs2 <- factor(mtcars$vs, levels = c(0, 1),
-                     labels = c("vertical", "straight"))
+                     labels = c("v-shaped", "straight"))
+
+CrossTable(mtcars$cyl, mtcars$vs2)
 
 newTable <- table(mtcars$cyl, mtcars$vs2)
 
@@ -29,6 +31,7 @@ t.test(extra ~ group, data = sleep)
 
 ## UCLA Linear Regression Examples
 browseURL("http://scc.stat.ucla.edu/page_attachments/0000/0139/reg_1.pdf")
+summary(mtcars)
 
 ## Example
 data("faithful")

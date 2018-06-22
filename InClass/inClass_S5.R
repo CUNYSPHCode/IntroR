@@ -104,6 +104,38 @@ for (i in 1:100) {
   print(1 + i)
 }
 
+## simple example of using a for loop with character values
+
+
+## vectorized function example
+paste("a character: ", letters)
+
+
+myoutput <- vector("character", length = length(letters))
+myoutput2 <- rep(NA, 26)
+
+for (i in 1:26) {
+  myoutput[i] <- paste("character: ", letters[i])
+}
+
+mtcars
+
+sum_each_row <- rep(NA, 32)
+
+for (i in seq_len(nrow(mtcars))) {
+  sum_each_row[i] <- sum(mtcars[i, ])
+  names(sum_each_row)[i] <- rownames(mtcars[i, ])
+}
+
+sum_each_row
+
+## vectorized row sums
+rowSums(mtcars)
+
+## long way example (non loop)
+myoutput[1] <- paste("character: ", letters[1])
+myoutput[2] <- paste("character: ", letters[2])
+
 
 df
 
