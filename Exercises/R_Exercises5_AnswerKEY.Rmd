@@ -27,9 +27,11 @@ cube(2)
 
 ```{r}
 mat <- matrix(rnorm(20), nrow = 4, ncol = 5)
-sumROW <- c()
+
+sumROW <- rep(NA, 4)
+
 for (i in seq_len(nrow(mat))) {
-   sumROW <- c(sumROW, sum(mat[i, ])) 
+   sumROW[i] <- sum(mat[i, ])
 }
 ## Check the operation worked, you should get a vector of length 4 (for each row in the matrix)
 sumROW
@@ -48,7 +50,7 @@ lapply(newList, dim)
 4. Write a function with an argument called "directory" that counts the number of "csv" files in that directory. (hint: see the `list.files` function)  
 
 ```{r}
-cvsFiles <- function(directory) {
+csv_counter <- function(directory) {
     fileVector <- list.files(path = directory, pattern = ".csv", full.names = TRUE)
     length(fileVector)
 }
@@ -59,7 +61,13 @@ cvsFiles <- function(directory) {
 
 ```{r}
 data("chickwts")
+
 tapply(X = chickwts$weight, INDEX = chickwts$feed, mean)
+
+library(dplyr)
+chickwts %>% group_by(feed) %>% summarise(avg_wt = mean(weight))
+
+aggregate(weight ~ feed, data = chickwts, FUN = mean)
 ```
 
 
