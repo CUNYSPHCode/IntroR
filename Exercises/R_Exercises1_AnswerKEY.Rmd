@@ -2,14 +2,19 @@
 title: "CalculatoR"
 author: "Marcel Ramos"
 date: "June 2, 2016"
-output: html_document
+output:
+  word_document: default
 ---
 
 ## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+This is an R Markdown document. Markdown is a simple formatting syntax for
+authoring HTML, PDF, and MS Word documents. For more details on using R Markdown
+see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+When you click the **Knit** button a document will be generated that includes
+both content as well as the output of any embedded R code chunks within the
+document. You can embed an R code chunk like this:
 
 ```{r}
 "Hello World"
@@ -64,7 +69,8 @@ mean(c(2,3,6))
 
 ## Questions
 
-1. Look at the help documentation for the `class` function. How many arguments can be passed to it?
+1. Look at the help documentation for the `class` function. How many arguments
+can be passed to it?
 
 ```{r}
 ?class
@@ -72,10 +78,12 @@ mean(c(2,3,6))
 
 The `class` function can only take one argument (any R object). 
 
-2. Pull up the help documentation for the `mean` function. What does the `Value` section say this function returns?
+2. Pull up the help documentation for the `mean` function. What does the `Value`
+section say this function returns?
 
 ```{r}
 ?mean
 ```
 
-The value returned by the `mean` function is just the arithmetic mean of the values contained in `x`.
+The value returned by the `mean` function is just the arithmetic mean of the
+values contained in `x`.

@@ -9,12 +9,14 @@ output: word_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-**Note**: Use `Ctrl (Command) + Alt (Option) + I` or go to `Code` > `Insert Chunk` (from the menu) to insert a code block "chunk". 
+**Note**: Use `Ctrl (Command) + Alt (Option) + I` or go to `Code` >
+`Insert Chunk` (from the menu) to insert a code block "chunk". 
 
 ## Exercises
 
 1. Look at the documentation for the `rep` function. 
-**Note:** Before writing anything in the console, try to guess on paper what the function call will look like. 
+**Note:** Before writing anything in the console, try to guess on paper what the
+function call will look like.
 
 Now, use the `rep` function to output the following vectors to the R console:
 
@@ -29,18 +31,19 @@ c) 7, 7, 7, 7, 9, 9, 9, 9
 rep(6, 5)
 rep(c(3,2), 4)
 
-c(rep(7, 4), rep(9, 4))
-# OR
 rep(c(7,9), each = 4)
 
+# also accepted:
+c(rep(7, 4), rep(9, 4))
 ```
 
 
-2. Write a character vector with your 3 favorite food items and assign it to an object called `myFaves`.
+2. Write a character vector with your 3 favorite food items and assign it to an
+object called `myFaves`.
+
 ```{r}
 myFaves <- c("sushi", "ramen", "soba")
 ```
-
 
 3. Create a factor from the `myFaves` character vector. 
 
@@ -49,14 +52,17 @@ factor(myFaves)
 ```
 
 
-4. Create an ordered factor from the `myFaves` character vector by arranging the levels argument in the proper order. 
+4. Create an ordered factor from the `myFaves` character vector by arranging the
+levels argument in the proper order.
 
 ```{r}
 myFaves <- factor(myFaves, levels = c("soba", "sushi", "ramen"), ordered = TRUE)
 myFaves
 ```
 
-5. Load the `mtcars` dataset by running the `data()` function on it. How many columns does the data have? How many rows? What function do you use to look at the car makes and models?
+5. Load the `mtcars` dataset by running the `data()` function on it. How many
+columns does the data have? How many rows? What function do you use to look at
+the car makes and models?
 
 ```{r}
 data(mtcars)
@@ -65,13 +71,15 @@ nrow(mtcars)
 rownames(mtcars)
 ```
 
-6. Use a series of **20** random numbers with a mean of **20** and a standard deviation of **5** to create a matrix with **4** rows. 
+6. Use a series of **20** random numbers with a mean of **20** and a standard
+deviation of **5** to create a matrix with **4** rows.
 
 ```{r}
 matrix(data = rnorm(n = 20, mean = 20, sd = 5), nrow = 4)
 ```
 
-7. Create a list of 2 vectors (a character vector of a, b, and c and a numeric vector of one to ten) with names `element1` and `element2`. 
+7. Create a list of 2 vectors (a character vector of a, b, and c and a numeric
+vector of one to ten) with names `element1` and `element2`.
 
 ```{r}
 list(element1 = c("a", "b", "c"), element2 = 1:10)
