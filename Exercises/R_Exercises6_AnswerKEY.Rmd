@@ -1,0 +1,70 @@
+---
+title: "R Exercises Session 6"
+author: "Introduction to R for Data Management and Analysis"
+date: "June 21, 2016"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exercises
+
+1. You are tasked to test whether there is a difference in mean miles per gallon
+(`mpg`) by type of motor (`vs`) (v-shape or straight). Run a t-test on the
+variables in question. What is the result? Show another way to calculate the
+mean by group. What type of motor has a higher mean miles per gallon? Show your
+code.
+
+```{r}
+data("mtcars")
+## Using the formula input
+t.test(mpg ~ vs, data = mtcars)
+
+## Using vector inputs
+with(mtcars, t.test(mpg[vs == 0], mpg[vs == 1]))
+t.test(mtcars$mpg[mtcars$vs == 0], mtcars$mpg[mtcars$vs == 1])
+```
+
+2. Fit a linear model with the `Orange` dataset. You are investigating how age
+relates to circumference of a tree. Use the `predict` function to estimate the
+circumference of a `500` year old tree. Show your code.
+
+```{r}
+data("Orange")
+
+orange.fit <- lm(circumference ~ age, data = Orange)
+predict(orange.fit, newdata = data.frame(age = 500))
+```
+
+3. Using what you learned, load the `babies.txt` dataset and replace the missing
+values in the smoking variable `smoke`. Run a t-test to see if the average birth
+weight (`bwt`) is significantly different between mothers who smoke and those
+who don't.
+
+```{r}
+babies <- read.table("babies.txt", header = TRUE)
+babies[babies$smoke == 9, ] <- NA
+t.test(bwt ~ smoke, data = babies)
+```
+
+4. Run a linear regression with `gestation`, `smoke`, `age` as predictor of
+birth weight `bwt`. Create a plot of fitted vs residual values using the
+functions learned in class.
+
+```{r}
+babies.fit <- lm(bwt ~ gestation + smoke + age, data = babies)
+plot(fitted(babies.fit), residuals(babies.fit))
+```
+
+## Extra Credit 
+
+5. Using the `lm` object in #4, create a table (`data.frame`) of beta ($\beta$)
+coefficients using the `coef` function on the `summary` of the model. Add
+columns for confidence intervals with `confint`.
+
+```{r}
+cbind(coef(summary(babies.fit)), confint(babies.fit))
+```
+
