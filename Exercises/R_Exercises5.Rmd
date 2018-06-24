@@ -1,7 +1,6 @@
 ---
 title: "R Exercises Session 5"
 author: "Introduction to R for Data Management and Analysis"
-date: "Tuesday, June 19, 2018"
 output: word_document
 ---
 

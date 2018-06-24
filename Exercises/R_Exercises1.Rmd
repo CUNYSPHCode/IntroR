@@ -1,7 +1,6 @@
 ---
 title: "CalculatoR"
-author: "Marcel Ramos"
-date: "Tuesday, June 5, 2018"
+author: "Introduction to R for Data Management and Analysis"
 output: html_document
 ---
 
