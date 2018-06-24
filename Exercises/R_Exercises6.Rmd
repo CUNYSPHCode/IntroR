@@ -11,25 +11,36 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Exercises
 
-1. You are tasked to test whether there is a difference in mean miles per gallon (`mpg`) by type of motor (`vs`) (v-shape or straight). Run a t-test on the variables in question. What is the result? Show another way to calculate the mean by group. What type of motor has a higher mean miles per gallon? Show your code.
+1. You are tasked to test whether there is a difference in mean miles per gallon
+(`mpg`) by type of motor (`vs`) (v-shape or straight). Run a t-test on the
+variables in question. What is the result? Show another way to calculate the
+mean by group. What type of motor has a higher mean miles per gallon? Show your
+code.
 
 ```{r}
 
 ```
 
-2. Fit a linear model with the `Orange` dataset. You are investigating how age relates to circumference of a tree. Use the `predict` function to estimate the circumference of a `500` year old tree. Show your code. 
+2. Fit a linear model with the `Orange` dataset. You are investigating how age
+relates to circumference of a tree. Use the `predict` function to estimate the
+circumference of a `500` year old tree. Show your code.
 
 ```{r}
 
 ```
 
-3. Using what you learned, load the `babies.txt` dataset and replace the missing values in the smoking variable `smoke`. Run a t-test to see if the average birth weight (`bwt`) is significantly different between mothers who smoke and those who don't.
+3. Using what you learned, load the `babies.txt` dataset and set values of '9'
+to missing in the smoking variable (`smoke`). Run a t-test to see if the average
+birth weight (`bwt`) is significantly different between mothers who smoke and
+those who don't.
 
 ```{r}
 
 ```
 
-4. Run a linear regression with `gestation`, `smoke`, `age` as predictor of birth weight `bwt`. Create a plot of fitted vs residual values using the functions learned in class. 
+4. Run a linear regression with `gestation`, `smoke`, `age` as predictor of
+birth weight `bwt`. Create a plot of fitted vs residual values using the
+functions learned in class.
 
 ```{r}
 
@@ -37,7 +48,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Extra Credit 
 
-5. Using the `lm` object in 4, create a table of beta ($\beta$) coefficients using the `coef` function on the `summary` of the model. Add columns for confidence intervals with `confint`.
+5. Using the `lm` object in #4, create a table (`data.frame`) of beta ($\beta$)
+coefficients using the `coef` function on the `summary` of the model. Add
+columns for confidence intervals with `confint`.
 
 ```{r}
 
