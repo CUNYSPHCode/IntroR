@@ -9,35 +9,44 @@ output: word_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-**Note**: Use `Ctrl (Command) + Alt (Option) + I` or go to `Code` > `Insert Chunk` (from the menu) to insert a code block "chunk". 
+**Note**: Use `Ctrl (Command) + Alt (Option) + I` or go to `Code` >
+`Insert Chunk` (from the menu) to insert a code block "chunk".
 
 ## Exercises
 
-1. Create a histogram of the `mtcars` dataset with the `mpg` variable. Change the _x axis_ label to "Miles per Gallon (mpg)".
+1. Create a histogram of the `mtcars` dataset with the `mpg` variable. Change
+the _x axis_ label to "Miles per Gallon (mpg)".
 
 ```{r}
 
 ```
 
-2. Use the `mtcars` dataset to draw a scatterplot of weight `wt` and displacement `disp`. Draw a fit line using the `lm` function and formula notation. 
+2. Use the `mtcars` dataset to draw a scatterplot of weight `wt` and
+displacement `disp`. Draw a fit line using the `lm` function and formula
+notation.
 
 ```{r}
 
 ```
 
-3. Run the "pairs.panels" function from the `psych` package on the `mtcars` dataset. What variables are highly correlated (> |.80|)? What does it tell you about the displacement variable and the number of cylinders? 
+3. Run the "pairs.panels" function from the `psych` package on the `mtcars`
+dataset. What variables are highly correlated (> |.80|)? What does it tell you
+about the displacement variable and the number of cylinders?
 
 ```{r}
 
 ```
 
-4. Create any 4 plots and put them in one single output device using the `par` function. Can you reorder the plots so that you get 4 in one column? Show your code. 
+4. Create any 4 plots and put them in one single output device using the `par`
+function. Can you reorder the plots so that you get 4 in one column? Show your
+code.
 
 ```{r}
 
 ```
 
-5. Use the `iris` dataset to draw boxplots of `Petal.Length` for each of the species. Show your code. 
+5. Use the `iris` dataset to draw boxplots of `Petal.Length` for each of the
+species. Show your code.
 
 ```{r}
 
@@ -45,13 +54,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Extra credit
 
-6. Create correlation matrix using only **numeric** observations in the `mtcars` dataset. Find the correlations that are greater than the absolute value of `.80`. What pairs of variables are highly correlated? Show your code. 
+6. Create correlation matrix using only **numeric** observations in the `mtcars`
+dataset. Find the correlations that are greater than the absolute value of
+`.80`. What pairs of variables are highly correlated? Show your code.
 
 ```{r}
 
 ```
-
-
-
-
 
