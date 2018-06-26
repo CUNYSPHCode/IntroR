@@ -1,0 +1,50 @@
+---
+title: "R Exercises Session 6"
+author: "Introduction to R for Data Management and Analysis"
+date: "Thursday, June 21, 2018"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exercises
+
+1. Take the `pew.csv` dataset and reshape it to get a tally of the number of
+participants by religous affiliation.
+
+```{r}
+
+```
+
+2. Use the `nycflights13` package to add columns to the `flights` dataset from
+the `airports` dataset. Add two columns named `origin_name` and `dest_name`
+that map correctly by the airport code `faa` and return the airport name.
+Use the columns `origin` and destination (`dest`) from flights to do the
+mapping.
+
+```{r}
+
+```
+
+3. Add a new column to your dataset recoding the `month` variable to a factor
+variable. Use the internal R vector `month.name` for your labels.
+
+```{r}
+
+```
+
+4. What month and airport has the most flights?
+
+```{r}
+
+```
+
+5. What is the average, minimum, and maximum yearly temperatures for all listed
+airports in the `weather` dataset?
+
+```{r}
+
+```
+

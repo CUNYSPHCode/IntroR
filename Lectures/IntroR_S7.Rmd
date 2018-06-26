@@ -1,0 +1,63 @@
+---
+title: "Introduction to R for Data Management and Analysis"
+author: "Marcel Ramos"
+date: "Tuesday, June 26, 2018"
+output:
+  beamer_presentation:
+    colortheme: dolphin
+    fonttheme: structureitalicserif
+    theme: CambridgeUS
+  ioslides_presentation: default
+---
+
+```{r setup, include = FALSE, echo = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Notes from previous class
+
+* `t-test` with a formula vs vector
+* object names with a period (`.`)
+* apply over a `data.frame`
+
+# General R Learning Tips
+
+* Troubleshooting is important
+    * Know your errors
+* Know your inputs and your outputs
+* Practice, practice, practice
+* Make use of online resources, help pages
+* Be curious
+    * test your questions with examples
+
+# Troubleshooting
+
+* Getting help within R
+* Getting help outside of R
+* Running code line by line
+
+# Exploring objects
+
+* `head` `tail`
+* `class`
+* `length` or `dim`
+* `dimnames`
+* `attributes`
+
+# Catalogue
+
+* Create a catalog of functions that are useful for a particular task
+* Use your reference websites
+    * R Cookbook by Winston Chang - ggplot2
+
+# Data Analysis Workflow
+
+* RStudio setup
+* import
+* clean
+    * subset / divide
+* reshape
+* summarize
+* explore
+* graph
+* report
