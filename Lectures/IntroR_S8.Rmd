@@ -1,0 +1,36 @@
+---
+title: "Introduction to R for Data Management and Analysis"
+author: "Marcel Ramos"
+date: "Thursday, June 28, 2018"
+output:
+  beamer_presentation:
+    colortheme: dolphin
+    fonttheme: structureitalicserif
+    theme: CambridgeUS
+  ioslides_presentation: default
+---
+
+```{r setup, include = FALSE, echo = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Reporting Tools
+
+* Reproducibility is a major issue across disciplines[^1]
+* Being able to reproduce your _own_ analysis is essential
+* Reviewers may ask to redo your analysis with slight modifications
+* "Future" you will _thank you_ for creating an analysis workflow that
+is easy to follow and well annotated
+* R Markdown is an essential tool for effective communication and
+dissemination of reproducible results
+
+[^1]: \tiny{https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970}
+
+# R Markdown Syntax Introduction
+
+* HTML headers are simplified
+
+```
+## Header 2
+<h2> </h2>
+```
