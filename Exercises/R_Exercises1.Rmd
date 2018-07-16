@@ -1,5 +1,5 @@
 ---
-title: "CalculatoR"
+title: "R Exercise Session 1"
 author: "Introduction to R for Data Management and Analysis"
 output: html_document
 ---
@@ -18,7 +18,7 @@ document. You can embed an R code chunk like this:
 "Hello World"
 ```
 
-## R as a calculator
+## R as a calculator: calculatoR
 
 Here are some common operations that R can do.
 Type some in your R console to try them out.
