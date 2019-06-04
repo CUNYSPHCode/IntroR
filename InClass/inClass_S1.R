@@ -9,7 +9,6 @@ help
 h el p ()
 help    (   topic   =    "mean")
 
-`+`(1, 3)
 1 + 3
 
 ## Assignment with arrow "<-"
@@ -52,11 +51,20 @@ cor(b, cc)
 # File paths (what are they?)
 getwd()
 
+## relative
+"~/github"
+
+## absolute
+"/Users/mramos/github"
+
 ## Change your current working directory
+## On Windows
 setwd("C:/Users/mramos/Documents/IntroR/IntroR/Data")
+## On Mac
+setwd("/Users/mramos/github/IntroR/Data")
 
 ## list all the contents in a directory
-list.files("~/IntroR/IntroR/Data/")
+list.files("~/github/IntroR/IntroR/Data/")
 
 ## shortcut to home directory '~'
 normalizePath("~")
