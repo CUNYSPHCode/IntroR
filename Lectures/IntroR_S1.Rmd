@@ -81,6 +81,13 @@ R to function as a language
 * Console + Help + Figures + Project Management
 * Let's have a look at it!
 
+# What is Git / GitHub?
+
+* GitHub is a public repository of user generated code / analyses
+* Provides a foundation for reproducible reports
+* Versioning is done using `git`
+* The `git` software takes care of versioning of text files
+
 # How do I get started?
 
 * First download the latest R version from [\color{blue}{r-project.org}](https://cloud.r-project.org/)
