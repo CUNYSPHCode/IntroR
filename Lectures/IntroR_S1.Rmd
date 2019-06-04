@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos"
-date: "Tuesday, June 5nd, 2018"
+date: "Tuesday, June 4, 2019"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -39,15 +39,21 @@ output:
 
 | Date          | Topics                           | Assessment |
 |---------------|----------------------------------|------------|
-| Tues. June 5  | Introductions                    | Exercise   |
+| Tues. June 4  | Introductions                    | -          |
 |               | About this class                 |            |
 |               | Features of the R language       |            |
 |               | Getting help and troubleshooting |            |
 |               |                                  |            |
-| Thurs. June 7 | Classes and data types           | Exercise   |
-|               | data.frame                       | and        |
-|               | Import/Export                    | quiz       |
+| Thurs. June 6 | Classes and data types           | Exercise   |
+|               | data.frame                       |            |
+|               | Import/Export                    |            |
 |               | subsets                          |            |
+
+# Announcements
+
+* Slack available at \url{https://cunysphcode.slack.com}
+* In-person attendance is required
+* Syllabus available on Blackboard
 
 # Today's class
 
@@ -57,15 +63,17 @@ output:
 * Getting started
 * Tips
 * Getting help and troubleshooting
-* R as a calculator
 * External resources
+* R as a calculator
 
 # What is R?
 
-* R is a programming language and environment for statistical computing and data visualization.
-* "Base R" refers to the standalone suite of pre-packaged functions that allow R to function as a language.
-* Extensions of the R language are what are called "packages".
-* A **package** is a container of functions that give R additional flexibility.
+* R is a programming language and environment for statistical computing and
+data visualization
+* "Base R" refers to the standalone suite of pre-packaged functions that allow
+R to function as a language
+* Extensions of the R language are what are called "packages"
+* A **package** is a container of functions that give R additional flexibility
 
 # What is RStudio?
 
@@ -73,25 +81,12 @@ output:
 * Console + Help + Figures + Project Management
 * Let's have a look at it!
 
-# How do I get started? 
+# How do I get started?
 
 * First download the latest R version from [\color{blue}{r-project.org}](https://cloud.r-project.org/)
 * Install R with all the default settings
 * Download RStudio from [\color{blue}{RStudio.com}](https://www.rstudio.com/products/rstudio/download/)
-* RStudio allow you to select the R version installed in your system. 
-
-# General tips for learning R
-
-* Learning R will be frustrating
-* Learning a language
-* Practice promotes familiarity
-
-# R Housekeeping tips
-
-* Maintain a clean R "global" environment
-* Save your scripts rather than outputs
-* Use object names that are descriptive
-* Improve readability with clean formatting
+* RStudio allow you to select the R version installed in your system.
 
 # Recommendations for RStudio setup
 
@@ -101,7 +96,7 @@ output:
 
 # Features of the R Language
 
-* case sensitive
+* case sensitive!!
 * Spaces are ignored (except in names)
 * works with functions
 * vectorized operations
@@ -119,7 +114,7 @@ output:
 
 Pseudo code                                   |   Example code
 --------------------------------------------  |   -------------------
-install.packages(packagename)                 | install.packages("dplyr") 
+install.packages(packagename)                 | install.packages("dplyr")
 ?functionname                                 | ?select
 ?package::functionname                        | ?dplyr::select
 ? 'Reserved keyword or symbol' \color{blue}{(or backticks)} | ? '%>%'
@@ -127,15 +122,28 @@ install.packages(packagename)                 | install.packages("dplyr")
 help(package = "loadedpackage")               | help("dplyr")
 browseVignettes("packagename")                | browseVignettes("dplyr")
 
-# First contact with R
+# General tips for learning R
 
-* R as a calculator exercise
+* Learning R will be frustrating
+* Learning a language
+* Practice promotes familiarity
+
+# R Housekeeping tips
+
+* Maintain a clean R "global" environment
+* Save your scripts rather than outputs
+* Use object names that are descriptive
+* Improve readability with clean formatting
 
 # Getting help and troubleshooting
 
 * Critically important
 * "Debugging" your script
 * Step by step, line by line process
+
+# First contact with R
+
+* R as a calculator exercise
 
 # External Resources
 
