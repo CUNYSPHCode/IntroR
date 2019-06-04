@@ -11,11 +11,29 @@ help    (   topic   =    "mean")
 
 1 + 3
 
+## finding out the class / type
+"a"
+class("a")
+class(1)
+class(TRUE)
+TRUE
+
+## what class will this input be?
+class("TRUE")
+
+## What to expect when package is not
+## loaded (using library)
+help(package = "notexist")
+
+## ERROR below when creating a vector
+1, 2, 3, 4, 5
+
 ## Assignment with arrow "<-"
 a <- c(1, 3, 4, 6)
 b <- c("marcel", "ramos")
 
 ## Assignment with equals sign "="
+## (not recommended)
 a = c(1, 3, 4, 7)
 
 ## Operation works on each value in `a`
