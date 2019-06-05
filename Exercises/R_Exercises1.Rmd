@@ -70,5 +70,16 @@ mean(c(2,3,6))
 1. Look at the help documentation for the `class` function. How many arguments
 can be passed to it?
 
+```{r}
+?class
+## only one argument
+```
+
 2. Pull up the help documentation for the `mean` function. What does the `Value`
 section say this function returns?
+
+```{r}
+?mean
+## arithmetic mean
+```
+

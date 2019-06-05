@@ -37,6 +37,7 @@ b <- c("marcel", "ramos")
 a = c(1, 3, 4, 7)
 
 ## Operation works on each value in `a`
+## vectorized operations
 a + 1
 
 object.size(a)
@@ -68,6 +69,7 @@ cor(b, cc)
 
 # File paths (what are they?)
 getwd()
+?getwd
 
 ## relative
 "~/github"
@@ -77,12 +79,12 @@ getwd()
 
 ## Change your current working directory
 ## On Windows
-setwd("C:/Users/mramos/Documents/IntroR/IntroR/Data")
+setwd("C:/Users/mramos/Documents/IntroR/Data")
 ## On Mac
 setwd("/Users/mramos/github/IntroR/Data")
 
 ## list all the contents in a directory
-list.files("~/github/IntroR/IntroR/Data/")
+list.files("~/github/IntroR/Data/")
 
 ## shortcut to home directory '~'
 normalizePath("~")

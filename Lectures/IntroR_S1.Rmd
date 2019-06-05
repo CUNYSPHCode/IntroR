@@ -152,6 +152,11 @@ browseVignettes("packagename")                | browseVignettes("dplyr")
 
 * R as a calculator exercise
 
+# Motivating examples
+
+* \url{http://shiny.rstudio.com/gallery/google-charts.html}
+* \url{https://mramos.shinyapps.io/PowerCalc/}
+
 # External Resources
 
 * [Coursera](https://www.coursera.org)
@@ -160,3 +165,9 @@ browseVignettes("packagename")                | browseVignettes("dplyr")
 * [Quick-R](http://www.statmethods.net/) -
 Mostly for basic and base functions
 * [RStudio Cheatcheets](https://www.rstudio.com/resources/cheatsheets/)
+
+# VIM / Emacs (Extra)
+
+* Tools for 'efficient' typing
+* (Optional) [Vim game](https://vim-adventures.com/)
+* Emacs [download](https://www.gnu.org/software/emacs/download.html)
