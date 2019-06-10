@@ -21,13 +21,13 @@ knitr::opts_chunk$set(echo = FALSE)
 * converting factors to numeric
 * data classes: lists and matrices
 * Up arrow in RStudio
-* Basics of R Markdown
+* RMarkdown basics
 
 # Recap
 
 * Import and Export data
-    * Know your paths
-    * Most export functions include the word "write" (i.e., `write.table`)
+    * Know your paths!
+    * Most export functions include keyword "write" (i.e., `write.table`)
 * Classes (bicycle analogy)
     * can have particular operations
     * some functions are similar across classes
