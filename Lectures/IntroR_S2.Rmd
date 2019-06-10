@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos, MPH"
-date: "Thursday, June 7, 2018"
+date: "Thursday, June 6, 2019"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -16,18 +16,26 @@ output:
 * `...` ellipses
     * additional arguments to "lower level" functions 
     (e.g., `par()` in `plot()`)
+* '+' in the console indicates 'waiting for additional input...'
+* relative vs absolute paths
+    * when to use them?
 * Any questions?
 
 # Brief recap
 
 * Basic features of the language
     * interactive and _interpreted_
+        * commands are entered in the console / via script
+        * the commands are pre-processed in some way before evaluation
     * case sensitive, ignores spaces except between objects and functions
     * an object is any type of variable stored in R (i.e., `data.frame`, `numeric` vector, `function`, etc.)
     * Be familiar with the parts of a function
+        * function name, argument, inputs
     * know your help pages (use `?functionname` or `help("functionname")`)
     * Finding help and troubleshooting are critically important
-    * Help pages can be intimidating but very useful
+        * check for examples online
+        * ask on the #rstats Slack channel
+    * Help pages can be intimidating but useful
 
 # Today's lecture overview
 
@@ -45,14 +53,17 @@ output:
 * Recognizing file types
     * File extensions (e.g., `.tsv`, `.csv`, `.xlsx`, `.txt`, `.sav`, `.sasb7dat`)
 * Show file extensions on Windows
-    * Windows Start button > Control panel > (View by: Large Icons) >
-    Folder options > View tab > Advanced Settings: [__Deselect__]
-    Hide extensions for known file types
+    * Windows File Explorer > View tab > Show File Extensions 
 * Downloading files from the internet
+    * `read.csv()`
+    * `download.file()`
 
 # Packages for reading foreign data
 
 * readr, readxl, haven
+* readr - provides fast and efficient read-in for large files
+* readxl - allows you to read MS Excel files (`.xls`, `.xlsx`)
+* haven - support for SPSS, SAS, and other data
 
 # Exporting Data
 
@@ -103,15 +114,31 @@ output:
 
 # matrix
 
-* Handles only one type of data at a time
+* can handle only one type of data at a time
 * can be character or numeric
 * create using `matrix()` function
 
-# Coercion
+# tibble
 
-+ as.__*(class type here)*__
-+ `as.character`
-+ `as.numeric`
-+ `as.logical`
-+ `as.data.frame`
+* custom tabular data class
+* 'tidyverse' representation of a data.frame
+* a neat print output
+* metadata on the columns (chr, int, etc.)
 
+# Type (class) coercion
+
+* as.__*(class type here)*__
+* `as.character`
+* `as.numeric`
+* `as.logical`
+* `as.data.frame`
+* `as_tibble` (in 'tibble' package)
+
+# Exploratory functions on a data.frame
+
+* head
+* tail
+* dim
+* colnames
+* rownames
+* sapply(x, class)
