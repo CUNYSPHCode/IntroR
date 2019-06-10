@@ -20,45 +20,82 @@ var2 <- 1L:5L
 var2.5 <- 3.5:6.5
 var3 <- c(TRUE, FALSE, TRUE, TRUE)
 
+## relative path
+"~/github/IntroR/Data/"
+## absolute
+"/Users/mramos/github/IntroR/Data/"
+
+## change your working directory
+setwd("~/github/IntroR/Data")
+## inspect your working directory
+getwd()
+
+## point to a file relative to the working directory
+"femaleMiceWeights.csv"
+
+## print the actual value of the 'home' folder
+normalizePath("~")
+
+read.csv(file =
+    "/Users/mramos/github/IntroR/Data/femaleMiceWeights.csv")
+
+## assign data to object called 'mice'
+mice <- read.csv(file =
+    "/Users/mramos/github/IntroR/Data/femaleMiceWeights.csv")
+
+## read csv file from URL
+read.csv(file = "https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/femaleMiceWeights.csv")
+read.csv("https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/femaleMiceWeights.csv")
+
 ## Download file from github
+?download.file
 ## Dataset provided by Data Analysis for the Life Sciences by Rafael Irizarry and Michael I. Love
-download.file("https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/femaleMiceWeights.csv",
-    destfile = "~/Downloads/femaleMiceWeights.csv")
+download.file(
+    url = "https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/femaleMiceWeights.csv",
+    destfile =  "~/Downloads/femaleMiceWeights.csv"
+)
+
+file.exists("~/Downloads/femaleMiceWeights.csv")
 
 download.file("https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/babies.txt",
     destfile = "~/Downloads/babies.txt")
 
 ## Example dataset from http://www.ats.ucla.edu/stat/spss/examples/chp/chpspss_dl.htm
-download("http://www.ats.ucla.edu/stat/spss/examples/chp/p010.sav",
-    destfile = "~/../Downloads/p010.sav")
+download.file("http://www.ats.ucla.edu/stat/spss/examples/chp/p010.sav",
+    destfile = "~/Downloads/p010.sav")
+## install.packages("haven")
+library(haven)
+read_spss("~/Downloads/p010.sav")
 
 library(downloader)
 download("http://www.ats.ucla.edu/stat/spss/examples/chp/p010.sav",
-    destfile = "~/../Downloads/p010.sav")
+    destfile = "~/Downloads/p010.sav")
 
 
-## assign an object named mice from a CSV file 
-mice <- read.csv("C:/Users/mramos/Downloads/IntroR/IntroR/Data/femaleMiceWeights.csv")
+## assign an object named mice from a CSV file
+mice <- read.csv("/Users/mramos/Downloads/femaleMiceWeights.csv")
 
 ## check if file is in that path
-file.exists("C:/Users/mramos/Downloads/IntroR/IntroR/Data/femaleMiceWeights.csv")
+file.exists("/Users/mramos/Downloads/femaleMiceWeights.csv")
 
 
 ## relative file path
-read.csv("~/../Downloads/femaleMiceWeights.csv")
+read.csv("~/Downloads/femaleMiceWeights.csv")
 
 ## absolute file path
-read.csv("C:/Users/mramos/Downloads/femaleMiceWeights.csv")
+read.csv("/Users/mramos/Downloads/femaleMiceWeights.csv")
 
 ### export
 ?write.table
-write.table(mice, "~/../Downloads/micedata.txt")
+write.table(mice, "~/Downloads/micedata.txt")
+## check to see if it was written
+file.exists("~/Downloads/micedata.txt")
 
-write.table(x = mice, file = "~/../Downloads/micedata2.txt")
-write.table(file = "~/../Downloads/micedata2.txt", x = mice)
+write.table(x = mice, file = "~/Downloads/micedata2.txt")
+write.table(file = "~/Downloads/micedata2.txt", x = mice)
 
 ## ERROR
-## write.table("~/../Downloads/micedata2.txt", mice)
+## write.table("~/Downloads/micedata2.txt", mice)
 
 # Packages for importing data
 library(readr)
@@ -78,11 +115,22 @@ read_sas("http://crn.cancer.gov/resources/ctcodes-procedures.sas7bdat")
 download("https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/SampleData.xlsx",
     destfile = "~/Downloads/SampleData.xlsx")
 
-read_excel("Data/SampleData.xlsx", sheet = 2)
+library(readxl)
+getwd()
+read_excel("SampleData.xlsx", sheet = 2)
 
-sampDat <- read_excel("Data/SampleData.xlsx")
+sampDat <- read_excel("SampleData.xlsx")
 
 sampDat$OrderDate
+class(sampDat)
+class(sampDat$OrderDate)
+
+sampDat$Region
+class(sampDat$Region)
+
+mice$Diet
+class(mice)
+
 
 ?as.Date()
 
@@ -100,13 +148,20 @@ as.Date(sampDat$OrderDate, origin = "1899-12-30")
 
 
 # Named vector
-namedNumericVector <- c("a" = 1, "b" = 2, "c" = 3)
+( namedNumericVector <- c("a" = 1, "b" = 2, "c" = 3) )
 
 # Logical operations
 
-truth <- c(TRUE, FALSE, NA)
+( truth <- c(TRUE, FALSE, NA) )
 
 !truth
+
+TRUE | TRUE
+TRUE | FALSE
+FALSE | FALSE
+TRUE & TRUE
+TRUE & FALSE
+FALSE & FALSE
 
 truth | !truth
 
@@ -120,15 +175,23 @@ truth & truth
 truth && truth
 
 # Factors
-charVec <- c("small", "small", "medium", "large", "large", "large")
+( charVec <- c("small", "small", "medium", "large", "large", "large") )
+class(charVec)
 
 factor(charVec)
 
 factor(charVec, levels = c("small", "medium"))
 
-factor(charVec, levels = c("small", "medium"), ordered = TRUE)
+factor(charVec,
+    levels = c("small", "medium"),
+    ordered = TRUE)
 
-size <- factor(charVec, levels = c("small", "medium", "large"), ordered = TRUE)
+(
+size <-
+    factor(charVec,
+        levels = c("small", "medium", "large"),
+        ordered = TRUE)
+)
 
 data()
 data("airquality")
@@ -137,30 +200,47 @@ head(airquality)
 View(airquality)
 
 table(airquality$Month)
+class(airquality$Month)
 
-newMonth <- factor(airquality$Month, levels = c(5:9),
+month <- airquality$Month
+
+newMonth <-
+    factor(month, levels = c(5:9),
     labels = c("May", "June", "July", "August", "September"))
+class(newMonth)
 
 contrasts(newMonth)
 
-sexchar <- rep(c("Male", "Female", "Male"), 3)
+( sexchar <- rep(c("Male", "Female", "Male"), 3) )
+length(sexchar)
 
-sexfactor <- factor(sexchar, levels = c("Male", "Female"))
+( sexfactor <- factor(sexchar, levels = c("Male", "Female")) )
 
 contrasts(sexfactor)
 
-contrasts(relevel(sexfactor, "Female"))
+relevel(sexfactor, "Female")
 
 sexfactor2 <- relevel(sexfactor, "Female")
 
+contrasts(sexfactor2)
+
 ?data.frame
 
-data.frame(var1 = characterVector, var2 = logicalVector, var3 = numericVector)
+data.frame(
+    var1 = characterVector,
+    var2 = logicalVector,
+    var3 = numericVector
+)
 
 ?data
 data()
 data("mtcars")
 data("airquality")
+
+head(mtcars)
+
+library(tibble)
+as_tibble(mtcars)
 
 # Example of Iris array
 data("iris3")
@@ -181,10 +261,24 @@ sapply(mtcars, class)
 ## using character, numeric or logical vectors
 mtcars[ , c("disp", "hp")]
 mtcars[, 1:3]
-mtcars[, c(TRUE, FALSE, TRUE, FALSE , FALSE)]
+mtcars[, c(2, 4, 1)]
+
+1:3 * 2
+# 1:3 * c(2, 2, 2)
+
+length(mtcars)
+
+sub <- c(TRUE, FALSE, TRUE, FALSE , FALSE)
+
+head( mtcars[, sub] )
+
+c(rep(sub, 2), sub[1])
+
 
 ## creating a logical vector from a condition
 ## mice on the chow diet
+class(mice$Diet)
+
 mice$Diet == "chow"
 
 ## take only the mice on the chow diet
@@ -192,24 +286,34 @@ mice[ mice$Diet == "chow", ]
 
 ## subset rows using numeric, logical and character vectors
 mtcars[1:5, ]
-mtcars[1:5, c("mpg"), drop = FALSE]
+
+mtcars[1:5, "mpg", drop = TRUE]
+mtcars[1:5, "mpg", drop = FALSE]
 mtcars[c(TRUE, FALSE) , ]
-mtcars["Honda Civic" ,]
+mtcars["Honda Civic", ]
 
 ## install a package
+install.packages("tidyverse")
+
 install.packages("dplyr")
 library("dplyr")
 
 ?`%>%`
 
 mtcars %>% select(mpg, disp)
+
 select(mtcars, mpg, disp)
+## not an object here
+## mpg
 
 mtcars[, c("mpg", "disp")]
 
 browseVignettes("dplyr")
 
+## tidyverse
 mtcars %>% slice(1:10)
+
+## r base
 mtcars[1:10, ]
 
 ## combine multiple verbs
@@ -218,15 +322,20 @@ mtcars %>% slice(1:10) %>% select(mpg, disp)
 matrix(rnorm(20), nrow = 4)
 matrix(letters[1:20], nrow = 4)
 
+## warning number of rows not a factor of the vector (20)
+matrix(letters[1:20], nrow = 7)
+
+
 myMat <- matrix(letters[1:20], nrow = 4)
 rownames(myMat) <- c("row1", "row2", "row3", "row4")
 myMat
 
 # Coercion
 
-as.character(numericVector)
+# as.character(numericVector)
 as.numeric(c("1", "2", "3", "4"))
 as.data.frame(myMat)
+as_tibble(mtcars)
 ?as.integer
 ?as.complex
 
@@ -239,6 +348,7 @@ class(mean)
 list(a = 1:3, b = 4:8, cc = mtcars)
 list(a = mean, b = sd, d = var)
 
+# Linear Model function (lm)
 ?lm
 
 ## Use the example from lm()
