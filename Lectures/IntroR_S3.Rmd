@@ -127,6 +127,8 @@ knitr::opts_chunk$set(echo = FALSE)
     * concatenate by columns or rows
     * `rbind`: names in columns must match
     * `cbind`: number of rows must match
+* Creating bins from continuous variables
+    * `Hmisc::cut2` - easy way to create categories from numeric variables
 * Tidyverse
     * `join` construct
     * see RStudio cheatsheet

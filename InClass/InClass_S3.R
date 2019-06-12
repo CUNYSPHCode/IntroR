@@ -1,3 +1,6 @@
+## create a vector of numbers
+c(1, 2, 3, 4)
+
 ## recap
 
 fruit <- c("banana", "strawberry", "kiwi")
@@ -7,35 +10,25 @@ contrasts(fruitfactor)
 fruitfactor <- relevel(fruitfactor, ref = "kiwi")
 contrasts(fruitfactor)
 
-## matrices
-
-?matrix
-matrix()
-matrix(rnorm(20), nrow = 4)
-matrix(letters, nrow = 2)
-
-## lists 
-
-list()
-
-list(c("row1", "row2"), c("C.1", "C.2", "C.3"))
-
-list(mean, sd, sqrt)
-
-alist <- list(a = 1:3, b = c("a", "b", "c"))
-
-## data.frames
-as.data.frame(alist)
+fruitpref <- rep(fruit, each = 10)
+factor(fruitpref)
 
 ## NOTES
 ## Setting the levels of a factor
 
 ranks <- c("low", "medium", "high")
-sampleRanks <- sample(ranks, size = 20, replace = TRUE)
+(sampleRanks <- sample(ranks, size = 20, replace = TRUE))
 
 factor(sampleRanks, levels = c("low", "medium", "high"))
 
-sampRank <- factor(sampleRanks, levels = c("high", "medium", "low"))
+(sampRank <- factor(sampleRanks, levels = c("high", "medium", "low")))
+## create factor with two levels only
+(sampRank <- factor(sampleRanks, levels = c("medium", "low")))
+## include levels that were not observed in data
+(sampRank <- factor(sampleRanks, levels = c("medium", "low", "very high")))
+
+# collapse categories
+factor(sampRank, labels = c("medium", "medium", "low"))
 
 levels(sampRank) <- c("a", "b", "c")
 
@@ -55,6 +48,72 @@ as.numeric(as.character(fac))
 ## Factors are stored as numbers internally
 as.numeric(sampRank)
 
+
+randnumb <- rnorm(n = 10, mean = 5, sd = 1)
+
+numfactor <- factor(ceiling(randnumb))
+## correctly coerce "numeric" factor to numeric
+as.numeric(as.character(numfactor))
+
+## matrices
+
+?matrix
+matrix()
+matrix(rnorm(20), nrow = 4)
+matrix(letters, nrow = 2)
+
+## load mtcars data
+data("mtcars")
+mtcars
+
+mtcars$cyl
+
+mtcars$cyl == 4
+
+mtcars[ mtcars$cyl == 4 , ]
+
+## what vehicles have 4 cylinders and HP greater than 70?
+
+mtcars$cyl == 4
+mtcars$hp > 70
+
+mtcars$cyl == 4 & mtcars$hp > 70
+
+cylhp <- mtcars$cyl == 4 & mtcars$hp > 70
+
+mtcars[cylhp, ]
+
+## only evaluates the first element of each vector
+mtcars$cyl == 4 && mtcars$hp > 70
+
+## use with to avoid typing data.frame name
+with(mtcars, cyl == 4 & hp > 70)
+
+# bad practice because it pollutes global environment
+# attach(mtcars)
+cyl <- 1:10
+
+## lists
+
+list()
+
+list(c("row1", "row2"), c("C.1", "C.2", "C.3"))
+
+list(mean, sd, sqrt)
+
+alist <- list(a = 1:3, b = c("a", "b", "c"))
+
+alist[1]
+class(alist[1])
+
+alist[[1]]
+class(alist[[1]])
+
+alist[[1]][[1]]
+class(alist[[1]][[1]])
+
+## data.frames
+as.data.frame(alist)
 
 ## Vector subsets
 vec <- c("a" = 1, "b" = 2, "c" = 3)
@@ -77,21 +136,33 @@ mtcars[, "mpg"]
 mtcars[, c("mpg", "disp")]
 mtcars[, c(1, 3)]
 
-table(mtcars$am)
+table(mtcars$cyl)
 
-## Subset by rows and columns
+## Subset by rows AND columns
 mtcars[1:3, c("mpg", "disp")]
-mtcars %>% slice(1:3) %>% select(mpg, disp)
-
 
 head(mtcars[, 1:3])
 head(mtcars[1:3])
+
+## tidyverse method
+library(dplyr)
+mtcars %>%
+    slice(1:3) %>%
+        select(mpg, disp)
+
+dplyr::slice
+dplyr::slice(mtcars, 1:3)
+
+## piping with %>%
+mtcars %>%
+    select(mpg, disp) %>% head
 
 
 ## Subsets with
 ## Double bracket notation
 
 mtcars[["mpg"]]
+mtcars$mpg
 # Error: mtcars[[c("mpg", "disp")]]
 
 aList <- list(a = 1:3, b = letters[1:3])
@@ -123,19 +194,27 @@ mtcars$highMPG <- mtcars$mpg > 20
 
 head(mtcars)
 
+## tidyverse verb
 mutate(mtcars, highMPG = mpg > 20)
 
-mtcars
+## base R
+mtcars$highMPG <- mtcars$mpg > 20
+head(mtcars)
 
-mtcars[ mtcars$mpg > 20, ]
 
+## practical example of factors using airquality data
 data("airquality")
 
 table(airquality$Month)
 
-airquality$Month2 <- factor(airquality$Month,
-  levels = 5:9, labels = c("May", "June", "July",
-  "August", "September"))
+(
+airquality$Month2 <-
+    factor(airquality$Month,
+        levels = 5:9,
+        labels = c("May", "June", "July",
+            "August", "September"))
+)
+
 head(airquality)
 table(airquality$Month2)
 
@@ -147,34 +226,34 @@ airquality[ airquality$Month2 == "May", ]
 # Sorting data
 
 airquality
-aq <- airquality[1:10, ]
+(aq <- airquality[1:10, ])
+
+order(aq$Temp)
+order(aq$Temp, decreasing = TRUE)
 
 aq[ order(aq$Temp),  ]
 
-order(airquality$Temp)
-
-## tidyverse arrange
-arrange(aq, Temp)
-
-airquality[ order(airquality$Temp), ]
-
-airquality[ order(airquality$Temp, decreasing = TRUE), ]
-
 ## dplyr alternative
+## tidyverse
 
 library(dplyr)
-
-arrange(airquality, Temp)
-arrange(airquality, -Temp)
+arrange(aq, Temp)
+arrange(aq, -Temp)
 
 ## Checking for duplicated rows (none found)
 duplicated(airquality)
+duplicated(
+    rbind(airquality, airquality[5, ])
+)
 head(airquality)
 
 unique(airquality$Day)
 
 ?complete.cases
-complete.cases(airquality)
+dim(airquality)
+
+airquality[1:5, ]
+complete.cases(airquality[1:5, ])
 
 airquality[ complete.cases(airquality), ]
 
@@ -187,6 +266,10 @@ class(. ~ Month)
 
 aggregate(. ~ Month, data = airquality, mean)
 
+data("UCBAdmissions")
+DF <- as.data.frame(UCBAdmissions)
+xtabs(Freq ~ Gender + Admit, DF)
+
 ## dplyr alternative
 library(dplyr)
 
@@ -195,7 +278,21 @@ mean(c(1, 2, NA), na.rm = TRUE)
 
 airquality %>%
   group_by(Month2) %>%
-  summarise_each(funs(mean(., na.rm = TRUE)))
+  summarise_each(
+      list(mean = ~ mean(., na.rm = TRUE)))
+
+airquality %>%
+  group_by(Month2) %>%
+  summarise_each(
+      list(mean = ~ mean(., na.rm = TRUE),
+           sd = ~ sd(., na.rm = TRUE))
+  )
+
+# finding NA values within a vector
+is.na(airquality$Solar.R)
+
+# using logical vector to subset
+airquality[!is.na(airquality$Solar.R), ]
 
 ## Merging
 rownames(mtcars)
@@ -209,6 +306,7 @@ B <- mtcars[, 1:4]
 merge(x = A, y = B, by = "row.names")
 
 # merge(x = A, y = B, by.x = A$ID, by.y = B$ID2)
+# merge(x = A, y = B, by = "IDvar")
 ?merge
 
 
@@ -227,18 +325,34 @@ merge(A, B2, by.x = "ID1", by.y = "ID2")
 
 ## Binding
 ## Adding rows and columns
+## by the columns
 cbind(
 letters[1:10],
 rev(letters[11:20])
 )
 
-rbind(
-letters[1:10],
-rev(letters[11:20])
+cbind.data.frame(
+first = letters[1:10],
+second = rev(letters[11:20])
 )
 
-rbind()
-cbind()
+## stacking
+rbind(
+    letters[1:10],
+    rev(letters[11:20])
+)
+
+(aa <-
+    rbind.data.frame(
+        letters[1:10],
+        rev(letters[11:20])
+    )
+)
+
+## set names in a data.frame
+colnames(aa) <- letters[1:10]
+
+## ERROR: differing number of rows
 cbind(A, B2)
 
 ## Binning
@@ -258,14 +372,14 @@ cut2(num, g = 4)
 # Put 10 observations in each group
 cut2(num, m = 10)
 
-## Transformations 
+## Transformations
 
-## Adding a variable
+## Adding a variable in base R
 mtcars$logDis <- log(mtcars$disp)
 
 head(mtcars)
 
-## with dplyr
+## with the tidyverse (dplyr)
 
 mtcars %>% mutate(lDis = log(disp))
 mtcars %>% transmute(lDis = log(disp))
