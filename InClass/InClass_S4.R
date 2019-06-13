@@ -1,3 +1,21 @@
+## generating data.frame
+
+data.frame()
+data.frame(column1 = 1:3, column2 = c("a", "b", "c"))
+
+options("stringsAsFactors")
+
+data.frame(column1 = 1:3, column2 = c("a", "b", "c"), stringsAsFactors = FALSE)
+
+## a small example for plotting
+?plot
+var_x <- rnorm(1000)
+var_y <- var_x + rnorm(1000)
+
+## from ?plot: plot(x, y, ...)
+plot(var_x, var_y, pch = 18)
+plot(var_x, var_y, pch = 18, main = "My first Scatterplot")
+plot(var_x, var_y, pch = 18, main = "My first Scatterplot", xlim = c(-5, 5))
 # install.packages("nycflights13")
 library(nycflights13)
 library(dplyr)
@@ -97,6 +115,12 @@ axis(side = 2, at = 20:30)
 title(main = "Custom Plot 1")
 abline(h = 22)
 
+## boxplot with dots
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+p <- ggplot(ToothGrowth, aes(x=dose, y=len)) +
+    geom_boxplot()
+p + geom_dotplot(binaxis='y', stackdir='center', dotsize=1)
+
 ## Violin plot (ggplot2)
 library(ggplot2)
 qplot(factor(cyl), mpg, data = mtcars, geom = "violin")
@@ -152,6 +176,11 @@ pp + facet_grid(. ~ sex)
 pp + facet_grid(day ~ sex)
 
 pp + facet_wrap(~ day, ncol = 2)
+
+## visualizing categorical data
+## install.packages("vcd")
+library(vcd)
+mosaic(HairEyeColor, shade = TRUE, legend = TRUE)
 
 ## saving your output
 

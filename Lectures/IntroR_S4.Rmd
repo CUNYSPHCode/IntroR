@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos, MPH"
-date: "Thursday, June 14, 2018"
+date: "Thursday, June 13, 2019"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -22,6 +22,27 @@ knitr::opts_chunk$set(echo = FALSE)
 * Aggregating
 * Reshaping your data
 
+# Outline for today
+
+* Review exercises
+* Combining data manipulations
+* Reshaping data
+* Plotting in base R
+* Exploratory Data Analysis
+* Intro to ggplot2
+* Saving graphics
+
+# But first, a quote...
+
+> The data may not contain the answer. The combination of some data and an
+aching desire for an answer does not ensure that a reasonable answer can be
+extracted from a given body of data. -John Tukey
+
+# Review
+
+* Exercises
+* Creating a `data.frame`
+
 # Using the `nycflights13` dataset
 
 ```{r, echo = TRUE, message = FALSE, warning = FALSE}
@@ -31,6 +52,13 @@ flights %>% group_by(carrier) %>%
             count = n()) %>% left_join(airlines) %>%
     arrange(avg_depdelay) %>% head
 ```
+
+# Reshaping data
+
+* Useful to prepare data for visualizations
+* long vs wide
+* long format - multiple observations per row (survival data)
+* wide format - a single observation per row
 
 # Reshaping data using `gather`
 
@@ -60,14 +88,19 @@ income, religion : variables to gather
 n : variable in cells 
 -religion means all except religion
 
-# Using `group_by`
+# `group_by` operations
+
+* Allow users to group different levels of categories of 1 or more variables
+* Efficient summirization
+
+# Using `group_by` (1)
 
 ```{r, echo = TRUE}
 pew %>% gather(income, n, -religion) %>%
   group_by(income) %>% summarise(totals = sum(n))
 ```
 
-# Using `group_by`
+# Using `group_by` (2)
 
 ```{r, echo = TRUE}
 pew %>% gather(income, n, -religion) %>%
@@ -77,7 +110,7 @@ pew %>% gather(income, n, -religion) %>%
 # Plotting and Graphing
 
 * Exploratory Data Analysis
-* Base graphics
+* Base R graphics
 * Intro `ggplot2`
 * Saving graphics
 
@@ -91,33 +124,47 @@ pew %>% gather(income, n, -religion) %>%
 
 * Informal representation data
 * Looking for patterns, outliers, etc.
+* Get familiar with your data!
 
 # Types of graphs
 
 * Historgram
 * Scatterplot
     * Scatterplot matrix
-* Boxplots
+* Boxplots / dotplots (`ggplot2`)
 * Violin plots (`ggplot2`)
 * Q-Q plots
+* Mosaic plots
+* and many more!
 
 # `par` function
 
 * Check parameters for graphing
+* Allows you to control the finer details of plotting
 
 # `ggplot2` - Grammar of Graphics
 
 * Different syntax
-* Powerful operations
+    * Slight learning curve
+* Plots are built in layers
+* Operations add layers to the plot
 
-# Saving output to file
+# Saving outputs
 
-* Formats
+* Common formats for saving plots:
     * PDF
     * SVG
     * PNG/TIFF
+* but there are more
 
-End in `dev.off()`
+End in `dev.off()` for closing the graphics window
 
 `ggplot2` graphics may require a `print` before it gets rendered in the
 file. 
+
+# Recommended resources
+
+* [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/)
+    * Claus O. Wilke
+* [R Graphics Cookbook](http://www.cookbook-r.com/Graphs/)
+    * Winston Chang
