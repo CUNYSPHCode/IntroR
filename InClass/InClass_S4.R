@@ -30,29 +30,36 @@ head(flights)
 
 table(flights$carrier)
 
-flights %>% group_by(carrier) %>%
-  summarize(avg_depdelay = mean(dep_delay, na.rm = TRUE), count = n()) %>%
+summary_flights <- flights %>% group_by(carrier) %>%
+  summarize(avg_depdelay = mean(dep_delay, na.rm = TRUE),
+    count = n()) %>%
   left_join(airlines) %>% arrange(avg_depdelay)
 
-data(iris)
+data("iris")
 install.packages("tidyr")
 library(tidyr)
-longiris <- gather(tbl_df(iris), key = measure, n, Sepal.Length:Petal.Width) %>%
+longiris <-
+    iris %>%
+    gather(key = measure, n, Sepal.Length:Petal.Width) %>%
   separate(measure, c("type", "dimension"))
 
 longiris %>% group_by(Species, type, dimension)
 # Graphing
 
+pew <- read.csv("Data/pew.csv")
+pew %>% gather(income, n, -religion) %>%
+    group_by(income) %>% summarize(totals = sum(n))
+
 # Generate random numbers
-set.seed(123)
 rating <- rnorm(200)
 
 head(rating)
 
 rating2 <- rnorm(200, mean = .8)
 
-dat <- data.frame(cond = factor(rep(c("A", "B"), each = 200)),
-                  rating = c(rating, rating2))
+dat <- data.frame(
+    cond = factor(rep(c("A", "B"), each = 200)),
+    rating = c(rating, rating2))
 
 hist(rating)
 
@@ -122,13 +129,14 @@ title(main = "Custom Plot 1")
 abline(h = 22)
 
 ## boxplot with dots
+library(ggplot2)
 ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+
 p <- ggplot(ToothGrowth, aes(x=dose, y=len)) +
     geom_boxplot()
 p + geom_dotplot(binaxis='y', stackdir='center', dotsize=1)
 
 ## Violin plot (ggplot2)
-library(ggplot2)
 qplot(factor(cyl), mpg, data = mtcars, geom = "violin")
 
 ## Q-Q plots
