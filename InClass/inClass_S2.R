@@ -8,7 +8,7 @@ c(1, 3, 5, "1")
 
 ?plot
 var_x <- rnorm(1000)
-var_y <- var_x + rnorm(1000)
+var_y <- rnorm(1000)
 
 ## from ?plot: plot(x, y, ...)
 plot(var_x, var_y, pch = 18)

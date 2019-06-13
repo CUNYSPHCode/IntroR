@@ -21,6 +21,10 @@ knitr::opts_chunk$set(echo = FALSE)
 * Formulas
 * Aggregating
 * Reshaping your data
+* Downloading files from GitHub
+    * Use the 'raw' button when at the page
+    * Use Git GUI software
+        * https://git-scm.com/download/gui/windows
 
 # Outline for today
 

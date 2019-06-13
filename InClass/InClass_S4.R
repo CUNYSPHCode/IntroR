@@ -3,19 +3,25 @@
 data.frame()
 data.frame(column1 = 1:3, column2 = c("a", "b", "c"))
 
+## ERROR
+data.frame(column1 = 1:3, column2 = c("a", "b", "c", "d"))
+
 options("stringsAsFactors")
 
-data.frame(column1 = 1:3, column2 = c("a", "b", "c"), stringsAsFactors = FALSE)
+data.frame(column1 = 1:3, column2 = c("a", "b", "c"),
+    stringsAsFactors = FALSE)
 
 ## a small example for plotting
 ?plot
 var_x <- rnorm(1000)
-var_y <- var_x + rnorm(1000)
+var_y <- rnorm(1000)
 
 ## from ?plot: plot(x, y, ...)
 plot(var_x, var_y, pch = 18)
+plot(var_x, var_y, pch = 12)
 plot(var_x, var_y, pch = 18, main = "My first Scatterplot")
 plot(var_x, var_y, pch = 18, main = "My first Scatterplot", xlim = c(-5, 5))
+
 # install.packages("nycflights13")
 library(nycflights13)
 library(dplyr)

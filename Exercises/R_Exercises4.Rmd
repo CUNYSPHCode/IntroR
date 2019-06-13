@@ -37,15 +37,15 @@ about the displacement variable and the number of cylinders?
 ```
 
 4. Create any 4 plots and put them in one single output device using the `par`
-function. Can you reorder the plots so that you get 4 in one column? Show your
-code.
+function (hint: look at `mfrow`, `mfcol`). Can you reorder the plots so that you
+get 4 in one column? Show your code.
 
 ```{r}
 
 ```
 
-5. Use the `iris` dataset to draw boxplots of `Petal.Length` for each of the
-species. Show your code.
+5. Use the `iris` dataset to draw boxplots of `Petal.Length` by species. Show
+your code.
 
 ```{r}
 
@@ -53,9 +53,10 @@ species. Show your code.
 
 ## Extra credit
 
-6. Create correlation matrix using only **numeric** observations in the `mtcars`
-dataset. Find the correlations that are greater than the absolute value of
-`.80`. What pairs of variables are highly correlated? Show your code.
+6. Create correlation matrix (use `cor()`) using only **numeric** observations
+in the `mtcars` dataset. Find the correlations that are greater than the
+absolute value of `.80` (with a logical vector). What pairs of variables are
+highly correlated? Show your code.
 
 ```{r}
 
