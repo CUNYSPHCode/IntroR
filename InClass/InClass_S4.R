@@ -197,9 +197,13 @@ library(vcd)
 mosaic(HairEyeColor, shade = TRUE, legend = TRUE)
 
 ## saving your output
+## use a sandwhich
 
 pdf("myPlot.pdf")
+
 # enter plot code here #
+mosaic(HairEyeColor, shade = TRUE, legend = TRUE)
+
 dev.off()
 
 pdf("filename.pdf", width = 5, height = 5)

@@ -161,10 +161,19 @@ pew %>% gather(income, n, -religion) %>%
     * PNG/TIFF
 * but there are more
 
-End in `dev.off()` for closing the graphics window
+# Output sandwhich
 
-`ggplot2` graphics may require a `print` before it gets rendered in the
-file. 
+* Start with a function `pdf`, `png`, `jpeg`, etc.
+
+![](2012-r-xl-vegetable-sandwich-with-dill-sauce.jpg){ width=50% }
+
+* End in `dev.off()` for closing the graphics window
+
+# Saving plots in `ggplot2`
+
+* `ggplot2` graphics require a `print` (or a call) before it gets rendered in
+the file.
+* `ggsave` - added to make it easier to save plotting objects
 
 # Recommended resources
 
