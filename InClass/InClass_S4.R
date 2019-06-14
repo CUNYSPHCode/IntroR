@@ -169,6 +169,13 @@ rafalib::mypar()
 
 mypar()
 
+par(mfrow = c(4, 1))
+
+plot(rnorm(1000), rnorm(1000))
+plot(rnorm(1000), rnorm(1000))
+plot(rnorm(1000), rnorm(1000))
+plot(rnorm(1000), rnorm(1000))
+
 ?mypar
 
 plot(cars)

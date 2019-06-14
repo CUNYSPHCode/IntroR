@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos, MPH"
-date: "Tuesday, June 19, 2018"
+date: "Tuesday, June 18, 2019"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -14,11 +14,6 @@ output:
 library(knitr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
-# Announcements
-
-* Posted Google Doc for terminology
-* Exercises will be submitted on BlackBoard
 
 # Notes on Thursday's lecture
 
@@ -34,7 +29,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * Exploratory Data Analysis
 * Graphics device
     * the default window / pane for all your plots
-    * save to external files (pdf, png, etc.)
+    * save to external files (`pdf`, `png`, etc.)
 
 
 # Today's lecture topics
