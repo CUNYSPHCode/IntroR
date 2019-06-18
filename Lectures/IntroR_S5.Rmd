@@ -15,6 +15,11 @@ library(knitr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+# Announcements
+
+* Exercise 4
+* Next week (conference)
+
 # Notes on Thursday's lecture
 
 * [\color{blue}{Interactivity}](http://mramos.shinyapps.io/obView)
@@ -24,13 +29,28 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Review
 
+* Notes on RMarkdown format
+    * `install.packages` - installation needed once only, install via the
+    console
+* Settings in RStudio
+    * Default to plot inline
+    * Plot in plotting window (more space)
 * Plotting systems in R
-* base, lattice, ggplot2
+    * base, lattice, ggplot2
 * Exploratory Data Analysis
 * Graphics device
     * the default window / pane for all your plots
     * save to external files (`pdf`, `png`, etc.)
 
+# Code reading practice
+
+* See `inClass_S5.R` file
+    * First create a linear model from variables
+    * Use `broom::tidy` on linear model object
+    * Add a couple of columns using the `mutate` function
+    * Remove teams that are missing using `is.na` and restrict to 2015
+    * Reorder teams by some metric `estimate` and use `geom_pointrange`
+    * Flip coordinates and add some labels
 
 # Today's lecture topics
 
@@ -42,26 +62,34 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Examples
 
-* Replacing missing values with NA
-* Using a `for` loop
-* Using a `function`
+* Generate data using `replicate` and `sample` functions
+* Replacing missing values with `NA`
+* When to use a `for` loop
+* When to write a `function`
 
 # `for` loops
 
 * Repeat code a certain number of times
-* `for` <_variable_> in <_sequence of numbers_> {  }
+* Usually reserved for simple operations
+* `for` <_variable_> in <_sequence of numbers_> { operation }
 * Each step is visible
 * Purpose may not be immediately clear
 
 # Functions
 
 * Extend the language
+    * Portable
 * Group operations for _ideally_ one purpose
 * _Pure_ functions
+* Well defined inputs and output (usually)
 
 # Functionals
 
 * An argument that itself is a function
 * Many functions can accept other functions as an arguments
+    * lapply
 * Make coding more efficient and customizeable
+* Increased flexibility but add a layer of complexity
+* Why use them? 
+    * To avoid loops and simplify code
 

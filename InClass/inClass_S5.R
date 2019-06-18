@@ -19,7 +19,8 @@ rafalib::mypar()
 
 plot(x = c(1, 10), y = c(1, 6), ylab = "", ylim = c(0, 6),
      type = "n", axes = FALSE, xlab = "Odds Ratio", log = "x",
-     xlim = c(0.01, 15))
+     xlim = c(0.01, 15)
+)
 
 axis(side = 1, at = c(0.01, 0.5, 1, 2, 5, 10))
 
@@ -31,6 +32,18 @@ segments(x0 = 18, x1 = 20, y0 = 2.9, y1 = 3)
 text(x = .02, y = 1:6, labels = results[["country"]], font = 2)
 abline(v = 1, lty = 2)
 title(main = "Odds Ratios for CVD Risk by Country")
+
+## ggplot version
+library(ggplot2)
+library(dplyr)
+
+results %>% ggplot(aes(x = reorder(country, OR), y = OR,
+                       ymin = lowerCI,
+                       ymax = higherCI)) +
+    geom_pointrange(shape = 18) + ylab("Odds Ratio") +
+    scale_y_log10() + coord_flip() +
+    xlab("Country") + geom_hline(yintercept = 1, linetype = "dashed") +
+    theme_bw()
 
 ## From website
 ## https://gist.github.com/seanjtaylor/
@@ -54,26 +67,20 @@ broom::tidy(m) %>%
   geom_hline(yintercept = 0.0, linetype = 'dashed') +
   theme_bw()
 
-## ggplot version
-library(ggplot2)
-library(dplyr)
-
-results %>% ggplot(aes(x = reorder(country, OR), y = OR,
-                       ymin = lowerCI,
-                       ymax = higherCI)) +
-    geom_pointrange(shape = 18) + ylab("Odds Ratio") +
-    scale_y_log10() + coord_flip() +
-    xlab("Country") + geom_hline(yintercept = 1, linetype = "dashed") +
-    theme_bw()
-
 ## Repetitive code
 ## Example from Advanced R by Hadley Wickham
 set.seed(1014)
-df <- data.frame(replicate(6, sample(c(1:10, -99), 6, rep = TRUE)))
+df <- data.frame(replicate(6, sample(c(1:10, -99), 6, replace = TRUE)))
+names(df) <- letters[1:6]
 
 ## Not working but rewritten for reability
+library(magrittr)
 df2 <- c(1:10, -99) %>% sample(6, replace = TRUE) %>% replicate(6, .) %>% data.frame
-names(df) <- letters[1:6]
+
+## QUIRK with replicate
+df3 <- replicate(6,
+    c(1:10, -99) %>% sample(6, replace = TRUE)
+) %>% data.frame
 
 ## look at df
 df
@@ -93,6 +100,7 @@ set.seed(1014)
 df <- data.frame(replicate(6, sample(c(1:10, -99), 6, rep = TRUE)))
 # See it
 df
+
 # Here we have loop that goes through every column and checks for any
 # -99 values and replaces them with NA
 ## Note: NA is not a character vector!
@@ -137,8 +145,6 @@ myoutput[1] <- paste("character: ", letters[1])
 myoutput[2] <- paste("character: ", letters[2])
 
 
-df
-
 ## We create a function
 fix_missing <- function(a_vector) {
     a_vector[a_vector ==  -99] <- NA
@@ -153,6 +159,7 @@ fix_missing(df$d)
 ## looking at examples and understanding them
 
 ## If you're using windows, drives will have letters
+## taken from the Coursera Data Science Specialization
 mydatalocation <- "E:/data/specdata/"
 
 list.files(mydatalocation, pattern = ".csv", full.names = TRUE)
