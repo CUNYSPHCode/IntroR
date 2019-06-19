@@ -7,6 +7,7 @@ browseURL("https://mramos.shinyapps.io/obView/")
 
 ## Involved Example
 library(rafalib)
+rafalib::mypar()
 
 results <- data.frame(OR = c(1.05, 2.04, 9.81, 1.91, 3.54, 0.28),
            lowerCI = c(0.43, 0.74, 3.72, 0.56, 1.24, 0.08),
@@ -15,7 +16,6 @@ results <- data.frame(OR = c(1.05, 2.04, 9.81, 1.91, 3.54, 0.28),
                        "Suisse", "Belgique"))
 results
 
-rafalib::mypar()
 
 plot(x = c(1, 10), y = c(1, 6), ylab = "", ylim = c(0, 6),
      type = "n", axes = FALSE, xlab = "Odds Ratio", log = "x",
@@ -37,13 +37,17 @@ title(main = "Odds Ratios for CVD Risk by Country")
 library(ggplot2)
 library(dplyr)
 
-results %>% ggplot(aes(x = reorder(country, OR), y = OR,
-                       ymin = lowerCI,
-                       ymax = higherCI)) +
+(
+    myfancyplot <- results %>%
+    ggplot(aes(x = reorder(country, OR), y = OR,
+        ymin = lowerCI, ymax = higherCI)) +
     geom_pointrange(shape = 18) + ylab("Odds Ratio") +
     scale_y_log10() + coord_flip() +
     xlab("Country") + geom_hline(yintercept = 1, linetype = "dashed") +
     theme_bw()
+)
+## save my plot to pdf
+ggsave("fancyplotfile.pdf", plot = myfancyplot)
 
 ## From website
 ## https://gist.github.com/seanjtaylor/
@@ -75,15 +79,21 @@ names(df) <- letters[1:6]
 
 ## Not working but rewritten for reability
 library(magrittr)
-df2 <- c(1:10, -99) %>% sample(6, replace = TRUE) %>% replicate(6, .) %>% data.frame
+
+df2 <- c(1:10, -99) %>%
+    sample(6, replace = TRUE) %>%
+    replicate(6, .) %>%
+    data.frame
 
 ## QUIRK with replicate
 df3 <- replicate(6,
     c(1:10, -99) %>% sample(6, replace = TRUE)
 ) %>% data.frame
 
+names(df3) <- letters[1:6]
+
 ## look at df
-df
+df3
 
 # What you don't want to do but will start out doing...
 # repetitive code
@@ -104,6 +114,15 @@ df
 # Here we have loop that goes through every column and checks for any
 # -99 values and replaces them with NA
 ## Note: NA is not a character vector!
+seq_along(df)
+seq_along(data.frame())
+
+seq_len(ncol(df))
+ncol(df)
+
+# df[, 1][ df[, 1] == -99 ] <- NA
+# df[, 2][ df[, 2] == -99 ] <- NA
+
 for (i in seq_along(df)) {
     df[, i][ df[,i] == -99 ] <- NA
 }
@@ -111,6 +130,12 @@ for (i in seq_along(df)) {
 for (i in 1:100) {
   print(1 + i)
 }
+
+for (char in c("a", "b", "c")) {
+    print(paste(1, char))
+}
+
+paste(1, c("a", "b", "c"))
 
 ## simple example of using a for loop with character values
 
@@ -124,6 +149,13 @@ myoutput2 <- rep(NA, 26)
 
 for (i in 1:26) {
   myoutput[i] <- paste("character: ", letters[i])
+}
+
+# first step
+# myoutput[1] <- paste("character ", letters[1])
+
+for (i in 1:26) {
+    myoutput[i] <- paste("character ", letters[i])
 }
 
 mtcars
@@ -151,9 +183,20 @@ fix_missing <- function(a_vector) {
     return(a_vector)
 }
 
+## function name and assignment operator
+fix_missing <-
+## 'function' keyword ## function argument(s)
+    function(a_vector)
+{ # open
+    ## function body (operations)
+    a_vector[a_vector ==  -99] <- NA
+    return(a_vector)
+} # close
+
 # Make sure you have -99 in df
 df
 names(df) <- letters[1:6]
+
 fix_missing(df$d)
 
 ## looking at examples and understanding them
@@ -168,10 +211,30 @@ complete <- function(directory, id=1:332){
     monitorFile <- list.files(directory, pattern = ".csv", full.names=TRUE)
     nobs <- vector(mode = "numeric", length = length(id))
     for (i in id) {
-        nobs[i] <- sum(complete.cases(read.csv(monitorFile[i])))
+        nobs[i] <-
+            sum(
+                complete.cases(
+                    read.csv(monitorFile[i])
+                )
+            )
     }
     data.frame(filename = basename(monitorFile[id]), nobs=nobs)
 }
+
+## example to 'print' file and dim as output
+dimfiles <- function(directory) {
+    datafiles <- list.files(directory, pattern = ".csv", full.names = TRUE)
+    for (file in datafiles) {
+        print(
+            c(file, dim(
+                read.csv(file, header = TRUE)
+                )
+            )
+        )
+    }
+}
+
+dimfiles("~/github/IntroR/Data/")
 
 complete(mydatalocation, id = 1:3)
 complete(mydatalocation)
@@ -181,7 +244,12 @@ complete(mydatalocation)
 ## *apply family
 
 ## lapply
+data("mtcars")
+data("iris")
+data("cars")
+
 datasets <- list(mtcars, iris, cars)
+class(datasets)
 
 dim(mtcars)
 dim(iris)
@@ -196,7 +264,11 @@ dim(datasets[[3]])
 lapply(datasets, dim)
 
 lapply(df, fix_missing)
+
 as.data.frame(lapply(df, fix_missing))
+
+## neat trick to replace data.frame 'guts' with list output
+df[] <- lapply(df, fix_missing)
 
 table(mtcars$cyl)
 ## Functions can be applied by groups with tapply
@@ -211,7 +283,8 @@ funlist <- list(meanFUN = mean, sdFUN = sd, varFUN = var)
 
 lapply(funlist, function(f) f(numeric_vec))
 
-myfun <- list(meanFUN = function(x) {mean(x, na.rm = TRUE)} ,  sdFUN = sd, varFUN = var)
+myfun <- list(meanFUN = function(x) {mean(x, na.rm = TRUE)} ,
+    sdFUN = sd, varFUN = var)
 ## See the names of the functions
 names(myfun)
 
