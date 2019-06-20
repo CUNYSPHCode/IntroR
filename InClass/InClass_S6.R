@@ -1,8 +1,10 @@
 ## Data Analysis
 # install.packages("gmodels")
-
+data("mtcars")
 library(gmodels)
 CrossTable(mtcars$cyl, mtcars$vs)
+
+xtabs(~ cyl + vs, data = mtcars)
 
 table(mtcars$cyl, mtcars$vs)
 
@@ -24,13 +26,15 @@ fisher.test(newTable)
 ?t.test
 
 ## Student's sleep data
+data("sleep")
+head(sleep)
 plot(extra ~ group , data = sleep)
 
 ## Using formula notation
 t.test(extra ~ group, data = sleep)
 
 ## UCLA Linear Regression Examples
-browseURL("http://scc.stat.ucla.edu/page_attachments/0000/0139/reg_1.pdf")
+browseURL("https://stats.idre.ucla.edu/r/seminars/introduction-to-regression-in-r/")
 summary(mtcars)
 
 ## Example
@@ -39,6 +43,8 @@ data("faithful")
 head(faithful, 10)
 
 eruption.lm <- lm(eruptions ~ waiting, data = faithful)
+plot(eruptions ~ waiting, data= faithful)
+abline(eruption.lm, lwd = 3)
 
 fitted(eruption.lm)
 summary(eruption.lm)
@@ -61,7 +67,7 @@ head( augment(eruption.lm) )
 glance(eruption.lm)
 
 ## Logistic regression using GLM
-browseURL("http://www.ats.ucla.edu/stat/r/dae/logit.htm")
+browseURL("https://stats.idre.ucla.edu/r/dae/logit-regression/")
 
 mydata <- read.csv("https://stats.idre.ucla.edu/stat/data/binary.csv")
 
@@ -70,7 +76,8 @@ head(mydata)
 summary(mydata)
 
 mydata$rank2 <- factor(mydata$rank)
-mydata$admit2 <- factor(mydata$admit, levels = c(0,1), labels = c("reject", "admit"))
+mydata$admit2 <- factor(mydata$admit, levels = c(0,1),
+    labels = c("reject", "admit"))
 
 summary(mydata)
 

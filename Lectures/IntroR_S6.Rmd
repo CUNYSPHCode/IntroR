@@ -127,11 +127,22 @@ functionname <- function(argument1 = "default1",
 # Linear Regression
 
 * `lm` function
-* [\color{blue}{UCLA example}](http://scc.stat.ucla.edu/page_attachments/0000/0139/reg_1.pdf)
+* [\color{blue}{UCLA walk-through}](https://stats.idre.ucla.edu/r/seminars/introduction-to-regression-in-r/)
 
 # Logistic Regression and Odds Ratios
 
 * `glm` function
 * `Odds Ratio` calculation
-* [\color{blue}{UCLA example}](http://www.ats.ucla.edu/stat/r/dae/logit.htm)
+* [\color{blue}{UCLA tutorial}](https://stats.idre.ucla.edu/r/dae/logit-regression/)
 
+# Community driven development
+
+![](communitydev.png)
+
+# GitHub assignment (next week)
+
+* Signup on https://github.com/
+* Look for the assignment to be posted under https://github.com/CUNYSPHcode/
+* Fork the repository (will contain an `.Rmd` file)
+* Upload your `.Rmd` file with the answers
+* Create a pull request to submit your `.Rmd` file
