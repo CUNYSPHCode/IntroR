@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos"
-date: "Thursday, June 21, 2018"
+date: "Thursday, June 20, 2019"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -17,13 +17,22 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Announcements
 
-* Last in-person class on Tuesday
-* Review Session - data analysis workflow
-* Extra credit assignment
+* Last in-person class
+* Next online classes
+    * Data Analysis workflow
+    * Reporting and reproducibility
+* Review session on Tuesday?
 
 # Notes on Tuesday's lecture
 
 * Questions on the material
+* Breakdown bigger problems into small manageable steps
+
+# Working in R
+
+![](catprogram.jpeg)
+
+# Notes on Tuesday's lecture (cont.)
 
 *\large{Pseudocode}*
 \normalsize{}
@@ -36,8 +45,8 @@ for (variable in vector) {
 ```
 * `function` structure
 ```{r, eval = FALSE, echo=TRUE}
-functionname <- function(argument1 = "default",
-                         argument2 = "default") {
+functionname <- function(argument1 = "default1",
+                         argument2 = "default2") {
     myresult <- anotherfunction(argument1, argument2)
         return(myresult)
 }
@@ -47,19 +56,37 @@ functionname <- function(argument1 = "default",
 
 ![funs](Functions.png)
 
-# Notes on Tuesday's lecture
+# Notes on Tuesday's lecture (cont..)
 
 * Functions are powerful tools
 * Minimize errors
 * Create a set of operations to achieve a goal
 * Easy to write
-* Loops are useful but are not easily extendable
+    * Predictable input
+    * Predictable output
+* Loops are useful but are not easily extensible
+
+# Why don't we use Excel?
+
+![](excel_example.jpg){ height=75% }
+
+# Ranking Statistical Software
+
+![](revolved.png)
+
+# Mini Review Session
+
+* [\color{blue}{Zero-level R Tutorial}](http://qe4policy.ec.unipi.it/wp-content/uploads/2015/10/RTutorial-Level0.pdf)
+
+# Common Errors and Troubleshooting
+
+* [\color{blue}{R Basics Chapter}](https://ismayc.github.io/rbasics-book/6-errors.html)
 
 # Data Analysis
 
 * R is particularly good at statistics
 * Packages with new methods get published faster
-* Extensibility is an advantage compared to other software
+* Extensibility is an MAJOR advantage compared to other software
 
 # The basics
 
@@ -73,11 +100,14 @@ functionname <- function(argument1 = "default",
 * `CrossTable` function
 * `table` function
 
-# Tests
+# Statistical Tests
 
 * `chisq.test` function
+    * categorical 2x2
 * `fisher.test` function
+    * categorical with correction
 * `t.test` function
+    * categorical (2 levels) & continuous
 
 # Useful functions to apply on model objects
 
