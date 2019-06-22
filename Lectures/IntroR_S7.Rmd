@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos"
-date: "Tuesday, June 26, 2018"
+date: "Tuesday, June 25, 2019"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -33,24 +33,32 @@ knitr::opts_chunk$set(echo = FALSE)
 # Troubleshooting
 
 * Getting help within R
+    * Documentation pages (examples)
 * Getting help outside of R
+    * stackoverflow.com
+    * Quick-R website
 * Running code line by line
+    * Identify where in the script the error is occuring
+    * Isolate the issue by breaking the process into small pieces
 
 # Exploring objects
 
-* `head` `tail`
+* `head` & `tail`
 * `class`
 * `length` or `dim`
 * `dimnames`
 * `attributes`
 * `str`
-* `args` on a function
+* `args` on a function name
 
 # Catalogue
 
 * Create a catalog of functions that are useful for a particular task
-* Use your reference websites
+* Use your reference websites / textbooks
     * R Cookbook by Winston Chang - ggplot2
+    * Quick-R
+    * R for Data Science - Hadley Wickham
+    * Handbook for Statistical Analyses using R - 3rd Ed.
 
 # Data Analysis Workflow
 

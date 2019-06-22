@@ -19,14 +19,25 @@ orange.lm <- lm(circumference ~ age, data = Orange)
 ## apply over the columns of a dataset, give it just the data.frame as input
 lapply(mtcars, is.numeric)
 vapply(mtcars, is.numeric, FUN.VALUE = logical(1L))
-vapply(mtcars, is.numeric, FUN.VALUE = TRUE)
+vapply(mtcars, FUN = is.numeric, FUN.VALUE = TRUE)
+vapply(mtcars, is.numeric, FUN.VALUE = FALSE)
 
 mtcars$vs2 <- factor(mtcars$vs, levels = 0:1,
   labels = c("v-shaped", "straight"))
 
 ## dropping columns
+library(dplyr)
 select(mtcars, -vs)
-mtcars[, -which(names(mtcars) == "vs")]
+
+## base R 
+names(mtcars)
+names(mtcars) == "vs"
+! names(mtcars) == "vs"
+
+mtcars[, ! names(mtcars) == "vs" ]
+
+mtcars[ , -which(names(mtcars) == "vs")]
+mtcars[ , c(-7, -8, -9) ]
 
 
 ??order
@@ -85,12 +96,16 @@ head(classds)
 
 table(classds$BOROUGH)
 
+classds$BOROUGH == 99
+
 classds[classds$BOROUGH == 99, "BOROUGH"] <- NA
 table(classds$BOROUGH, useNA = "always")
 
 classds$BOROUGH != 99
 
 bronx1 <- classds[classds$BOROUGH == 1, ]
+table(bronx1$BOROUGH, useNA = "always")
+
 bronx2 <- classds[classds$BOROUGH == 1 & !is.na(classds$BOROUGH), ]
 
 !TRUE
@@ -119,6 +134,7 @@ pew %>% gather(income, n, -religion) %>% head
 library(reshape2)
 
 summary(Indometh)
+head(Indometh)
 wide <- reshape(Indometh, v.names = "conc", idvar = "Subject",
                 timevar = "time", direction = "wide")
 wide
@@ -127,6 +143,7 @@ table(wide$Subject)
 ## summarize / aggregate
 data(mtcars)
 mtcarsnum <- mtcars[, -which(names(mtcars) == c("am", "vs"))]
+mtcarsnum <- mtcars[, ! names(mtcars) %in% c("am", "vs")]
 aggregate(. ~ cyl, data = mtcarsnum, mean)
 
 aggregate(mpg ~ cyl, data = mtcarsnum, mean)
