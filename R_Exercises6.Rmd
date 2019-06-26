@@ -1,0 +1,81 @@
+---
+title: "R Exercises Session 6"
+author: "Introduction to R for Data Management and Analysis"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exercises
+
+1. You are tasked to test whether there is a difference in mean miles per gallon
+(`mpg`) by type of motor (`vs`) (v-shape or straight). Run a t-test on the
+variables in question. What is the result? Show another way to calculate the
+mean by group. What type of motor has a higher mean miles per gallon? Show your
+code.
+
+```{r}
+data("mtcars")
+t.test(mpg ~ vs, data = mtcars)
+
+#We reject the null hypothesis of no difference in mpg by motor, and accept the alt hypothesis that there is a sigificant difference; we know this because the p-value is extremely significant (less than .01)
+#The straight motor (value=1) has a higher mean miles per gallon than the v-shaped (value=0) -- 24.6mpg vs 16.6mpg
+```
+
+2. Fit a linear model with the `Orange` dataset. You are investigating how age
+relates to circumference of a tree. Use the `predict` function to estimate the
+circumference of a `500` year old tree. Show your code.
+
+```{r}
+data("Orange")
+circum.lm <- lm(circumference ~ age, data=Orange)
+predict(circum.lm, data.frame(age=500), interval = "predict")
+
+#prediction circumference of ~ 70.8 
+```
+
+3. Using what you learned, load the `babies.txt` dataset and set values of '9'
+to missing in the smoking variable (`smoke`). Run a t-test to see if the average
+birth weight (`bwt`) is significantly different between mothers who smoke and
+those who don't.
+
+```{r}
+
+babies <- read.table("~/Downloads/babies.txt", header = TRUE)
+babies$smoke[babies$smoke == 9] <- NA
+t.test(bwt ~ smoke, data = babies)
+
+#We reject the null hypothesis of no difference in avg birth weight between mothers who smoke and don't smoke, and accept the alt hypothesis that there is a significant difference. Mean for non-smokers is 123, while smokers is 114.1.
+
+```
+
+4. Run a linear regression with `gestation`, `smoke`, `age` as predictor of
+birth weight `bwt`. Create a plot of fitted vs residual values using the
+functions learned in class.
+
+```{r}
+
+bwt.lm <- lm(bwt ~ gestation + smoke + age, data=babies)
+x <- fitted(bwt.lm)
+y <- residuals(bwt.lm)
+plot(x ~ y, data=babies, xlab="Fitted", ylab="Residuals")
+
+```
+
+## Extra Credit 
+
+5. Using the `lm` object in #4, create a table (`data.frame`) of beta ($\beta$)
+coefficients using the `coef` function on the `summary` of the model. Add
+columns for confidence intervals with `confint`.
+
+```{r}
+summbtw.lm <- as.data.frame( 
+  coef( summary(bwt.lm) 
+        ) 
+  )
+cbind(summbtw.lm, confint(bwt.lm) )
+
+```
+
