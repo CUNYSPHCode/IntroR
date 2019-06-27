@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos"
-date: "Thursday, June 28, 2018"
+date: "Thursday, June 27, 2019"
 output:
   beamer_presentation:
     colortheme: dolphin
