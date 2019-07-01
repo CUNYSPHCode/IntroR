@@ -10,19 +10,34 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 1. Create a `Header2` header below with the name "Answer 1".
-
+# Header
+"Answer 1"
 
 2. Add an unordered list (in Markdown syntax) of your favorite food dishes and
 add their ingredients as sub-items in the list. You should enter at least two
 dishes with two ingredients each.
-
+* Sushi
+ + rice
+ + vinegar
+ + fish
+* Noodle soup
+ + chicken
+ + cilantro
+ + noodle
 
 3. Add an R code chunk below. Show the `summary` of the `Orange` dataset. Run a
 linear regression using the `lm` function to predict `circumference` from `age`
 and assign the result. Show the `summary` of the fit object that you assigned. 
 
+data("Orange")
+head(Orange)
+Orange.lm <-lm(circumference~age, data = Orange)
+Orange
+summary(Orange)
+summary(Orange.lm)
 
 4. Add a link below (_in RMarkdown format_) to your favorite R reference website.
+[My_Favorite_website](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 
 
 5. Replace the author field in the `yaml` header with your name and `knit` the
