@@ -1,7 +1,6 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos"
-date: "Tuesday, June 4, 2019"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -39,12 +38,12 @@ output:
 
 | Date          | Topics                           | Assessment |
 |---------------|----------------------------------|------------|
-| Tues. June 4  | Introductions                    | -          |
+| Tues. June 2  | Introductions                    | -          |
 |               | About this class                 |            |
 |               | Features of the R language       |            |
 |               | Getting help and troubleshooting |            |
 |               |                                  |            |
-| Thurs. June 6 | Classes and data types           | Exercise   |
+| Thurs. June 4 | Classes and data types           | Exercise   |
 |               | data.frame                       |            |
 |               | Import/Export                    |            |
 |               | subsets                          |            |
@@ -52,14 +51,14 @@ output:
 # Announcements
 
 * Slack available at \url{https://cunysphcode.slack.com}
-* In-person attendance is required
 * Syllabus available on Blackboard
+* Zoom link in syllabus
 
 # Today's class
 
 * Installation
 * R and the RStudio interface
-* Basic features of the language
+* Basic features of the R language
 * Getting started
 * Tips
 * Getting help and troubleshooting
@@ -85,8 +84,8 @@ R to function as a language
 
 * GitHub is a public repository of user generated code / analyses
 * Provides a foundation for reproducible reports
-* Versioning is done using `git`
-* The `git` software takes care of versioning of text files
+* Versioning is done using software called `git`
+* `git` takes care of versioning of all files in a repository (project)
 
 # How do I get started?
 
