@@ -11,7 +11,7 @@ output:
 
 # Introduction to R
 
-\huge{Welcome!}
+Welcome!
 
 # Introductions
 
