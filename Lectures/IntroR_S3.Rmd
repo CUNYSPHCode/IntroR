@@ -1,7 +1,6 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos, MPH"
-date: "Tuesday, June 11, 2019"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -17,8 +16,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Notes on the Thursday's lecture
 
+* Importing data
 * Changing the levels of a factor
-* converting factors to numeric
+* converting between data types
 * data classes: lists and matrices
 
 # Lists
@@ -29,7 +29,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * generating random numbers and matrix
 * Up arrow in RStudio
-* RMarkdown basics
+* Some RMarkdown basics
 
 # Recap
 
@@ -45,6 +45,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * subsetting using vectors
     * Accessing columns with `[` and `$`
 * coercion (`as.`**classname**)
+* R Exercise 1 and 2
 
 # Motivation
 
@@ -54,6 +55,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Learning R requires constant practice
 * Persistence
+* Find fun exercises
+* Follow along with the live coding examples
 * Enjoy it!
 
 # Expectations
@@ -68,6 +71,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Data Manipulation Overview
 
+* Inspecting a data.frame
+    * dimension
+    * rownames, colnames
+    * head
 * Subsetting (cont.)
     * vectors and `[` with character, numeric, logical
     * `lists` and `[` / `$`
