@@ -13,8 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Exercises
 
-1. Load the `iris` dataset. Take only the observations that have a `Petal.Width`
-greater than `2.0`.
+1. Load the `iris` dataset using `data`. Take only the observations that have a
+`Petal.Width` greater than `2.0`.
 Show your code. 
 
 ```{r}
@@ -28,26 +28,23 @@ each `Species` with the `table` function.
 
 ```
 
-3. Load the `mtcars` dataset. `arrange` or `order` the dataset by decreasing
-order in `mpg`.
+3. Load the `mtcars` dataset. Extract the 'hp' variable and use the `order` function
+on the vector.
 
 ```{r}
 
 ```
 
-4. Apply `aggregate` or `summarize_each` to the mtcars dataset with a mean for
-each of the categories in the `cyl` or cylinder column. What cylinder category
-gets the most miles per gallon? What cylinder category has the highest mean
-weight (`wt`)? Show your code.
+4. Take the mean of 'hp' and the mean of 'disp' or displacement. Which mean is higher? Show your code.
 
 ```{r}
 
 ```
 
 5. Consider a systematic error for the weight scale used in the `ChickWeight`
-dataset. The reading on each of the weights was consistently 5 grams lower than
-the actual weight. Create a new column in the `ChickWeight` dataset to adjust
-for the measurement error. Show your work.
+dataset as obtained via the `data` function. The reading on each of the weights
+was consistently 5 grams lower than the actual weight. Create a new variable
+to adjust for the measurement error. Show your work.
 
 ```{r}
 
