@@ -1,7 +1,6 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos, MPH"
-date: "Thursday, June 13, 2019"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -15,16 +14,45 @@ library(knitr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Notes on last Tuesday's lecture
+# Announcements
 
-* Examples with pipes
-* Formulas
-* Aggregating
-* Reshaping your data
 * Downloading files from GitHub
     * Use the 'raw' button when at the page
     * Use Git GUI software
         * https://git-scm.com/download/gui/windows
+    * Use functions that work with URLs (`read.csv`)
+* Additional topics to cover
+    * Formulas
+    * Aggregating
+    * Reshaping your data
+
+# Formula notation in R
+
+* Uses the `~` for denoting a formula
+    * `y ~ m*x + b`
+* Good for specifying linear models
+* Mainly used in base R code
+* Useful for creating crosstabs!
+    * `xtabs(A ~ B, data = blue)`
+* Look out for `formula` class inputs
+    * see `?xtabs`
+    * see `?t.test`
+* Usually requires a `data` input / argument in a supported function
+
+# Sorting and aggregating data
+
+* `order` function - returns an index of ordered positions
+* tidyverse: `arrange` - returns the arranged data
+* `aggregate` - summarize data by a categorical variable
+    * `aggregate(mtcars$mpg, by = list(mtcars$cyl), FUN = "mean")`
+* `tapply`
+    * `tapply(mtcars$mpg, mtcars$cyl, mean)`
+* tidyverse: `group_by` and `summarize`
+
+# Transformations / Manipulations
+
+* long to wide format
+* `dplyr` and `tidyr` packages
 
 # Outline for today
 
@@ -52,9 +80,10 @@ extracted from a given body of data. -John Tukey
 ```{r, echo = TRUE, message = FALSE, warning = FALSE}
 library(nycflights13); library(dplyr)
 flights %>% group_by(carrier) %>%
-  summarise(avg_depdelay = mean(dep_delay, na.rm = TRUE),
-            count = n()) %>% left_join(airlines) %>%
-    arrange(avg_depdelay) %>% head
+  summarise(avg_depdelay = mean(dep_delay, na.rm = TRUE), count = n()) %>%
+    left_join(airlines) %>%
+      arrange(avg_depdelay) %>%
+        head
 ```
 
 # Reshaping data
@@ -82,15 +111,15 @@ library(readr)
 (pew <- read_csv("../Data/pew.csv"))
 ```
 
-# Gather dataset
+# Long dataset
 
 ```{r, echo = TRUE}
-pew %>% gather(income, n, -religion) %>% head
+pew %>% pivot_longer(-religion, names_to = "income", values_to = "count") %>% head
 ```
 
-income, religion : variables to gather 
-n : variable in cells 
--religion means all except religion
+* `-religion` - don't include religion when reshaping
+* `names_to` - create an income variable out of the columns
+* `values_to` - cell values are counts
 
 # `group_by` operations
 
@@ -100,15 +129,15 @@ n : variable in cells
 # Using `group_by` (1)
 
 ```{r, echo = TRUE}
-pew %>% gather(income, n, -religion) %>%
-  group_by(income) %>% summarise(totals = sum(n))
+pew %>% pivot_longer(-religion, names_to = "income", values_to = "count") %>%
+  group_by(income) %>% summarise(totals = sum(count))
 ```
 
 # Using `group_by` (2)
 
 ```{r, echo = TRUE}
-pew %>% gather(income, n, -religion) %>%
-  group_by(religion) %>% summarise(totals = sum(n))
+pew %>% pivot_longer(-religion, names_to = "income", values_to = "count") %>%
+  group_by(religion) %>% summarise(totals = sum(count))
 ```
 
 # Plotting and Graphing
