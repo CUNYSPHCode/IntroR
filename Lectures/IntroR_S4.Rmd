@@ -30,18 +30,21 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Uses the `~` for denoting a formula
     * `y ~ m*x + b`
+    * on the left, the outcome (`y`)
+    * on the right, the variables (`x`s)
 * Good for specifying linear models
 * Mainly used in base R code
 * Useful for creating crosstabs!
-    * `xtabs(A ~ B, data = blue)`
+    * `xtabs(~ A + B, data = blue)`
 * Look out for `formula` class inputs
     * see `?xtabs`
     * see `?t.test`
+    * see `?lm`
 * Usually requires a `data` input / argument in a supported function
 
 # Sorting and aggregating data
 
-* `order` function - returns an index of ordered positions
+* `order` function - which rows are lowest to highest?
 * tidyverse: `arrange` - returns the arranged data
 * `aggregate` - summarize data by a categorical variable
     * `aggregate(mtcars$mpg, by = list(mtcars$cyl), FUN = "mean")`
@@ -78,7 +81,8 @@ extracted from a given body of data. -John Tukey
 # Using the `nycflights13` dataset
 
 ```{r, echo = TRUE, message = FALSE, warning = FALSE}
-library(nycflights13); library(dplyr)
+library(nycflights13)
+library(dplyr)
 flights %>% group_by(carrier) %>%
   summarise(avg_depdelay = mean(dep_delay, na.rm = TRUE), count = n()) %>%
     left_join(airlines) %>%
@@ -114,7 +118,8 @@ library(readr)
 # Long dataset
 
 ```{r, echo = TRUE}
-pew %>% pivot_longer(-religion, names_to = "income", values_to = "count") %>% head
+pew %>% pivot_longer(-religion, names_to = "income",
+  values_to = "count") %>% head
 ```
 
 * `-religion` - don't include religion when reshaping
