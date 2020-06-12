@@ -84,10 +84,9 @@ extracted from a given body of data. -John Tukey
 library(nycflights13)
 library(dplyr)
 flights %>% group_by(carrier) %>%
-  summarise(avg_depdelay = mean(dep_delay, na.rm = TRUE), count = n()) %>%
-    left_join(airlines) %>%
-      arrange(avg_depdelay) %>%
-        head
+  summarise(avg_depdelay = mean(dep_delay, na.rm = TRUE),
+    count = n()) %>% left_join(airlines) %>%
+      arrange(avg_depdelay) %>% head
 ```
 
 # Reshaping data
@@ -97,28 +96,27 @@ flights %>% group_by(carrier) %>%
 * long format - multiple observations per row (survival data)
 * wide format - a single observation per row
 
-# Reshaping data using `gather`
+# Reshaping using `pivot_wider`
 
 ```{r, echo = TRUE, message = FALSE}
-data(iris); library(tidyr)
-longdata <- gather(tbl_df(iris), key = measure, n,
-  Sepal.Length:Petal.Width) %>% separate(measure, c("type",
-    "dimension"))
-longdata %>% group_by(Species, type, dimension) %>%
-  summarise(avg_dim = mean(n, na.rm = TRUE))
+library(tidyr); library(tidycensus)
+
+us_rent_income
+
+us_rent_income %>%
+  pivot_wider(names_from = variable, values_from = c(estimate, moe))
 ```
 
-# Pew example
+# Reshaping using `pivot_longer`
 
 ```{r, echo = TRUE}
-library(readr)
-(pew <- read_csv("../Data/pew.csv"))
+relig_income
 ```
 
 # Long dataset
 
 ```{r, echo = TRUE}
-pew %>% pivot_longer(-religion, names_to = "income",
+relig_income %>% pivot_longer(-religion, names_to = "income",
   values_to = "count") %>% head
 ```
 
@@ -134,14 +132,16 @@ pew %>% pivot_longer(-religion, names_to = "income",
 # Using `group_by` (1)
 
 ```{r, echo = TRUE}
-pew %>% pivot_longer(-religion, names_to = "income", values_to = "count") %>%
+relig_income %>% pivot_longer(-religion,
+  names_to = "income", values_to = "count") %>%
   group_by(income) %>% summarise(totals = sum(count))
 ```
 
 # Using `group_by` (2)
 
 ```{r, echo = TRUE}
-pew %>% pivot_longer(-religion, names_to = "income", values_to = "count") %>%
+relig_income %>% pivot_longer(-religion,
+  names_to = "income", values_to = "count") %>%
   group_by(religion) %>% summarise(totals = sum(count))
 ```
 
