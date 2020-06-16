@@ -49,7 +49,8 @@ inches?
 
 ```
 
-5. Use a formula and the `boxplot` function to show the distribution of `Petal.Length` by `Species` in the `iris` dataset.
+5. Use a formula and the `boxplot` function to show the distribution of
+`Petal.Length` by `Species` in the `iris` dataset.
 
 ```{r}
 
