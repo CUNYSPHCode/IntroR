@@ -1,13 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos, MPH"
-date: "Tuesday, June 18, 2019"
-output:
-  beamer_presentation:
-    colortheme: dolphin
-    fonttheme: structureitalicserif
-    theme: CambridgeUS
-  ioslides_presentation: default
+output: github_document
 ---
 
 ```{r setup, include = FALSE, echo = FALSE}
@@ -17,30 +11,34 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Announcements
 
-* Exercise 4
-* Next week (conference)
+* Review Exercise 4 in class
+* Interactivity: http://mramos.shinyapps.io/obView
 
-# Notes on Thursday's lecture
+# Topics to review
 
-* [\color{blue}{Interactivity}](http://mramos.shinyapps.io/obView)
-* Plotting Odds Ratios
-    * Base graphics
-    * ggplot2
-
-# Review
-
-* Notes on RMarkdown format
+* `install.packages` vs `library`
+    * `install.packages` - run in the console once (if successful)
+        * downloads the package from the internet and installs it
+        * _installation_ does not make the functions immediately available!
+    * `library` - makes functions available in a package
+* Notes for using RMarkdown
     * `install.packages` - installation needed once only, install via the
-    console
+    _console_
+    * do not include `install.packages` in the RMarkdown file
+    * do not include help functions in the code, that's FYI only
+    * load a package using `library("pkgname")`
+    * loading makes the functions available for use
+
+# Topics to review (2)
+
+* Make use of the example code
+    * `library(dplyr); mtcars %>% ...`
 * Settings in RStudio
     * Default to plot inline
     * Plot in plotting window (more space)
-* Plotting systems in R
-    * base, lattice, ggplot2
-* Exploratory Data Analysis
-* Graphics device
-    * the default window / pane for all your plots
-    * save to external files (`pdf`, `png`, etc.)
+    * Change the settings in Tools > Global Options > RMarkdown
+* Avoid `attach`
+    * Creates a mess of your global environment
 
 # Code reading practice
 
@@ -51,19 +49,60 @@ knitr::opts_chunk$set(echo = FALSE)
     * Remove teams that are missing using `is.na` and restrict to 2015
     * Reorder teams by some metric `estimate` and use `geom_pointrange`
     * Flip coordinates and add some labels
+* Don't worry about the specifics
+* Understand the gist of what is happening
+* Use what we know to look up functions: `?`, `help`, Google
 
 # Today's lecture topics
 
+* Exploratory Data Analysis
+* Types of graphs
+* Plotting systems in R
 * Repetitive code
-* `for` loops
-* Functions
-* Functionals and functional programming
-    * `apply` family
+    * `for` loops
+    * Functions
+    * Functionals and functional programming
+        * `apply` family
 
-# Examples
+# Exploratory Data Analysis
 
-* Generate data using `replicate` and `sample` functions
-* Replacing missing values with `NA`
+* Informal representation data
+* Looking for patterns, outliers, etc.
+* Get familiar with your data!
+
+# Types of graphs
+
+* Historgram
+* Scatterplot
+    * Scatterplot matrix
+* Boxplots / dotplots (`ggplot2`)
+* Violin plots (`ggplot2`)
+* Q-Q plots
+* Mosaic plots
+* and many more!
+
+# Plotting plotting systems in R
+
+* Plotting Odds Ratios
+    * Base graphics
+    * ggplot2
+* Base R graphics
+    * standard way of plotting
+* lattice
+    * easier paneling
+* `ggplot2`
+    * a dialect for plotting data
+    * takes time to get used to
+* Saving graphics
+
+# Repetitive operations
+
+* What strategies work to reduce the amount of repetitive coding?
+    * `for` loops
+    * `function`
+* Instances where you might repeat code
+    * Replacing missing values with `NA`
+    * Data cleaning operations
 * When to use a `for` loop
 * When to write a `function`
 
@@ -73,14 +112,14 @@ knitr::opts_chunk$set(echo = FALSE)
 * Usually reserved for simple operations
 * `for` <_variable_> in <_sequence of numbers_> { operation }
 * Each step is visible
-* Purpose may not be immediately clear
+* Purpose of the loop may not be immediately clear
 
 # Functions
 
 * Extend the language
     * Portable
 * Group operations for _ideally_ one purpose
-* _Pure_ functions
+* _Pure_ functions - input is the same class as the output
 * Well defined inputs and output (usually)
 
 # Functionals
@@ -90,6 +129,6 @@ knitr::opts_chunk$set(echo = FALSE)
     * lapply
 * Make coding more efficient and customizeable
 * Increased flexibility but add a layer of complexity
-* Why use them? 
+* Why use them?
     * To avoid loops and simplify code
 
