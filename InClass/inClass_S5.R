@@ -1,53 +1,4 @@
-## Graph examples
-# ovView
-## open a URL in a browser
-browseURL("https://mramos.shinyapps.io/obView/")
-
-## Odds ratio plots
-
-## Involved Example
-library(rafalib)
-rafalib::mypar()
-
-results <- data.frame(OR = c(1.05, 2.04, 9.81, 1.91, 3.54, 0.28),
-           lowerCI = c(0.43, 0.74, 3.72, 0.56, 1.24, 0.08),
-           higherCI = c(2.55, 5.62, 25.87, 6.55, 10.14, 1.00),
-           country = c("Allemange", "France", "Italie", "Royaume-Uni",
-                       "Suisse", "Belgique"))
-results
-
-
-plot(x = c(1, 10), y = c(1, 6), ylab = "", ylim = c(0, 6),
-     type = "n", axes = FALSE, xlab = "Odds Ratio", log = "x",
-     xlim = c(0.01, 15)
-)
-
-axis(side = 1, at = c(0.01, 0.5, 1, 2, 5, 10))
-
-points(x= results[, "OR"], y = 1:6, pch = 18)
-segments(x0 = results[["lowerCI"]], x1 = results[["higherCI"]],
-         y0 = 1:6, y1 = 1:6)
-segments(x0 = 18, x1 = 20, y0 = 3.1, y1 = 3)
-segments(x0 = 18, x1 = 20, y0 = 2.9, y1 = 3)
-text(x = .02, y = 1:6, labels = results[["country"]], font = 2)
-abline(v = 1, lty = 2)
-title(main = "Odds Ratios for CVD Risk by Country")
-
-## ggplot version
-library(ggplot2)
-library(dplyr)
-
-(
-    myfancyplot <- results %>%
-    ggplot(aes(x = reorder(country, OR), y = OR,
-        ymin = lowerCI, ymax = higherCI)) +
-    geom_pointrange(shape = 18) + ylab("Odds Ratio") +
-    scale_y_log10() + coord_flip() +
-    xlab("Country") + geom_hline(yintercept = 1, linetype = "dashed") +
-    theme_bw()
-)
-## save my plot to pdf
-ggsave("fancyplotfile.pdf", plot = myfancyplot)
+# READING PRACTICE
 
 ## From website
 ## https://gist.github.com/seanjtaylor/
@@ -71,54 +22,114 @@ broom::tidy(m) %>%
   geom_hline(yintercept = 0.0, linetype = 'dashed') +
   theme_bw()
 
+
+## MOTIVATION
+
+# INTERACTIVITY
+
+# ovView
+
+## open a URL in a browser
+browseURL("https://mramos.shinyapps.io/obView/")
+
+
+
+## BASE R
+
+## Odds ratio plots
+## Involved Example
+library(rafalib)
+rafalib::mypar()
+
+results <- data.frame(OR = c(1.05, 2.04, 9.81, 1.91, 3.54, 0.28),
+           lowerCI = c(0.43, 0.74, 3.72, 0.56, 1.24, 0.08),
+           higherCI = c(2.55, 5.62, 25.87, 6.55, 10.14, 1.00),
+           country = c("Allemange", "France", "Italie", "Royaume-Uni",
+                       "Suisse", "Belgique"))
+results
+
+plot(x = c(1, 10), y = c(1, 6), ylab = "", ylim = c(0, 6),
+     type = "n", axes = FALSE, xlab = "Odds Ratio", log = "x",
+     xlim = c(0.01, 15)
+)
+
+axis(side = 1, at = c(0.01, 0.5, 1, 2, 5, 10))
+
+points(x= results[, "OR"], y = 1:6, pch = 18)
+segments(x0 = results[["lowerCI"]], x1 = results[["higherCI"]],
+         y0 = 1:6, y1 = 1:6)
+segments(x0 = 18, x1 = 20, y0 = 3.1, y1 = 3)
+segments(x0 = 18, x1 = 20, y0 = 2.9, y1 = 3)
+text(x = .02, y = 1:6, labels = results[["country"]], font = 2)
+abline(v = 1, lty = 2)
+title(main = "Odds Ratios for CVD Risk by Country")
+
+## LATTICE
+
+data(mtcars)
+
+mtcars$gear.f <- factor(mtcars$gear, levels = c(3,4,5),
+    labels = c("3gears", "4gears", "5gears"))
+mtcars$cyl.f <- factor(mtcars$cyl, levels = c(4,6,8),
+   labels = c("4cyl","6cyl","8cyl"))
+
+library(lattice)
+
+bwplot(cyl.f ~ mpg | gear.f, data = mtcars,
+   ylab="Cylinders", xlab="Miles per Gallon",
+   main="Mileage by Cylinders and Gears",
+   layout=c(1,3)
+)
+
+data(quakes)
+
+stripplot(depth ~ factor(mag), data = quakes,
+    jitter.data = TRUE, alpha = 0.6,
+    main = "Depth of earthquake epicenters by magnitude",
+    xlab = "Magnitude (Richter)",
+    ylab = "Depth (km)")
+
+## GGPLOT version
+library(ggplot2)
+library(dplyr)
+
+(
+    myfancyplot <- results %>%
+    ggplot(aes(x = reorder(country, OR), y = OR,
+        ymin = lowerCI, ymax = higherCI)) +
+    geom_pointrange(shape = 18) + ylab("Odds Ratio") +
+    scale_y_log10() + coord_flip() +
+    xlab("Country") + geom_hline(yintercept = 1, linetype = "dashed") +
+    theme_bw()
+)
+
+## save my plot to pdf
+ggsave("fancyplotfile.pdf", plot = myfancyplot)
+
 ## Repetitive code
-## Example from Advanced R by Hadley Wickham
-set.seed(1014)
-df <- data.frame(replicate(6, sample(c(1:10, -99), 6, replace = TRUE)))
-names(df) <- letters[1:6]
-
-## Not working but rewritten for reability
-library(magrittr)
-
-df2 <- c(1:10, -99) %>%
-    sample(6, replace = TRUE) %>%
-    replicate(6, .) %>%
-    data.frame
-
-## QUIRK with replicate
-df3 <- replicate(6,
-    c(1:10, -99) %>% sample(6, replace = TRUE)
-) %>% data.frame
-
-names(df3) <- letters[1:6]
+df <- data.frame(
+    a = c(1, -99, 4, 5, 6),
+    b = c(1, 2, 3, -99, 1),
+    c = c(-99, 3, 4, 5, 6)
+)
 
 ## look at df
-df3
+df
 
 # What you don't want to do but will start out doing...
 # repetitive code
 df$a[df$a == -99] <- NA
 df$b[df$b == -99] <- NA
 df$c[df$c == -99] <- NA
-df$d[df$d == -99] <- NA
-df$e[df$e == -99] <- NA
-df$f[df$g == -99] <- NA
 
 # We can try a loop..
 # Regenerate the data
-set.seed(1014)
-df <- data.frame(replicate(6, sample(c(1:10, -99), 6, rep = TRUE)))
-# See it
-df
 
 # Here we have loop that goes through every column and checks for any
 # -99 values and replaces them with NA
 ## Note: NA is not a character vector!
 seq_along(df)
-seq_along(data.frame())
-
-seq_len(ncol(df))
-ncol(df)
+1:3
 
 # df[, 1][ df[, 1] == -99 ] <- NA
 # df[, 2][ df[, 2] == -99 ] <- NA
