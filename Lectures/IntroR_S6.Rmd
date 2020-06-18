@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos"
-date: "Thursday, June 20, 2019"
+date: "Session 6"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -17,33 +17,49 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Announcements
 
-* Last in-person class
-* Next online classes
+* One more week to go
+* Next classes
     * Data Analysis workflow
     * Reporting and reproducibility
-* Review session on Tuesday?
 
-# Notes on Tuesday's lecture
+# Topics for today
 
-* Questions on the material
-* Breakdown bigger problems into small manageable steps
+* Review for loops, plotting systems
+* Functions / functionals
+* Example where we use functions and loops
+* Overview of summary tables and statistical tests
 
 # Working in R
 
 ![](catprogram.jpeg)
 
-# Notes on Tuesday's lecture (cont.)
+# Functions
+
+* Extend the language
+    * Portable
+* Group operations for _ideally_ one purpose
+* _Pure_ functions - input is the same class as the output
+* Well defined inputs and output
+* Save you from repeating code
+* Open up the possibilities in R
+
+# Structure of a loop
 
 *\large{Pseudocode}*
 \normalsize{}
 
 * `for` loop structure
+
 ```{r, eval=FALSE, echo=TRUE}
 for (variable in vector) {
-    # < enter code here > 
-} 
+    # < enter code here >
+}
 ```
+
+# Structure of a function
+
 * `function` structure
+
 ```{r, eval = FALSE, echo=TRUE}
 functionname <- function(argument1 = "default1",
                          argument2 = "default2") {
@@ -65,6 +81,23 @@ functionname <- function(argument1 = "default1",
     * Predictable input
     * Predictable output
 * Loops are useful but are not easily extensible
+
+# Functionals
+
+* Functional - an argument to a function that it itself is a function
+* Many functions can accept other functions as an arguments
+    * aggregate, tapply, lapply, sapply, apply, etc.
+* Make coding more efficient and _customizeable_
+* Increased flexibility but add a layer of complexity
+* Why use them?
+    * To simplify code and avoid repetition
+
+# Air Pollutants Example
+
+* R Programming on Coursera
+* Write a function
+* Read multiple files at once
+* Compute a summary statistic
 
 # Why don't we use Excel?
 
@@ -99,13 +132,14 @@ functionname <- function(argument1 = "default1",
 * `gmodels` package
 * `CrossTable` function
 * `table` function
+    * `prop.table`
 
 # Statistical Tests
 
 * `chisq.test` function
     * categorical 2x2
 * `fisher.test` function
-    * categorical with correction
+    * categorical with correction for small cells
 * `t.test` function
     * categorical (2 levels) & continuous
 
@@ -146,3 +180,4 @@ functionname <- function(argument1 = "default1",
 * Fork the repository (will contain an `.Rmd` file)
 * Upload your `.Rmd` file with the answers
 * Create a pull request to submit your `.Rmd` file
+
