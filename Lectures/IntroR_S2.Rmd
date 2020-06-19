@@ -1,7 +1,6 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
-author: "Marcel Ramos, MPH"
-date: "Thursday, June 6, 2019"
+author: "Session 2"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -12,10 +11,12 @@ output:
 
 # Notes on last week's lecture
 
-* Using `c()` with mixed data types
-* `...` ellipses
-    * additional arguments to "lower level" functions 
-    (e.g., `par()` in `plot()`)
+* Pull up documentation
+* Common data types
+    * integer
+    * logical
+    * character
+* Use `c()` to create a 'vector'
 * '+' in the console indicates 'waiting for additional input...'
 * relative vs absolute paths
     * when to use them?
@@ -28,17 +29,18 @@ output:
         * commands are entered in the console / via script
         * the commands are pre-processed in some way before evaluation
     * case sensitive, ignores spaces except between objects and functions
-    * an object is any type of variable stored in R (i.e., `data.frame`, `numeric` vector, `function`, etc.)
+    * an object is any type of variable stored in R (i.e., `data.frame`, `vector`, `function`, etc.)
     * Be familiar with the parts of a function
         * function name, argument, inputs
-    * know your help pages (use `?functionname` or `help("functionname")`)
+    * know how to get help (use `?functionname` or `help("functionname")`)
     * Finding help and troubleshooting are critically important
         * check for examples online
-        * ask on the #rstats Slack channel
+        * ask on the #programming Slack channel
     * Help pages can be intimidating but useful
 
 # Today's lecture overview
 
+* creating objects (assignment)
 * Importing and Exporting Data
 * Classes and Data types in R
     * `data.frame`
@@ -47,6 +49,16 @@ output:
     * using brackets and dollar signs (`[`, `$`)
     * using vector operands
 * More troubleshooting
+
+# Assignment
+
+* Use the `<-` arrow to assign to an object (variable)
+* The object being created is on the left-hand side (LHS) 
+* LHS can have any arbitrary name
+* `object <- value`
+* The output or return value of an operation on the RHS is the 'value'
+* RHS can be anything that R 'understands'
+* _Without_ assignment the output will not be 'saved'!
 
 # Importing and Exporting Data
 
@@ -61,9 +73,9 @@ output:
 # Packages for reading foreign data
 
 * readr, readxl, haven
-* readr - provides fast and efficient read-in for large files
-* readxl - allows you to read MS Excel files (`.xls`, `.xlsx`)
-* haven - support for SPSS, SAS, and other data
+    * readr - provides fast and efficient read-in for large files
+    * readxl - allows you to read MS Excel files (`.xls`, `.xlsx`)
+    * haven - support for SPSS, SAS, and other data
 
 # Exporting Data
 
@@ -84,7 +96,7 @@ output:
 
 # Vectors, classes, and functions
 
-* Vectors of class (may be named):
+* Vectors of class
     * character, integer, numeric, logical, complex, raw (bytes)
     * factor: discrete levels
         * mostly used in regressions
@@ -105,12 +117,16 @@ output:
 * Handle multiple data types in one
 * Can contain vectors, data.frames, and even functions
 * The `data.frame` is a special type of list
+* Use the `list` function to create a `list`
 
 # data.frame
 
 * A unique type of list with uniform lengths in all elements
 * Great for data analysis
 * Most common class you will use to do analysis
+* The return value of most import functions is usually a form
+of a `data.frame`
+* Use `data.frame` to create a `data.frame`
 
 # matrix
 
@@ -121,18 +137,18 @@ output:
 # tibble
 
 * custom tabular data class
-* 'tidyverse' representation of a data.frame
+* 'tidyverse' representation of a `data.frame`
 * a neat print output
 * metadata on the columns (chr, int, etc.)
 
 # Type (class) coercion
 
 * as.__*(class type here)*__
-* `as.character`
-* `as.numeric`
-* `as.logical`
-* `as.data.frame`
-* `as_tibble` (in 'tibble' package)
+    * `as.character`
+    * `as.numeric`
+    * `as.logical`
+    * `as.data.frame`
+    * `as_tibble` (in 'tibble' package)
 
 # Exploratory functions on a data.frame
 
