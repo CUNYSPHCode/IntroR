@@ -188,13 +188,14 @@ seq_along(df)
 1:3
 
 # df[, 1][ df[, 1] == -99 ] <- NA
-# df[, 2][ df[, 2] == -99 ] <- NA
 
 for (i in seq_along(df)) {
   
-    df[, i][ df[,i] == -99 ] <- NA
+    df[, i][ df[, i] == -99 ] <- NA
     
 }
+
+df
 
    df$c[df$c == -99] <- NA
    
@@ -211,7 +212,7 @@ for (i in 1:3) {
 
 df
 
-for (i in 1:100) {
+for (i in 1:5) {
   print(1 + i)
 }
 
