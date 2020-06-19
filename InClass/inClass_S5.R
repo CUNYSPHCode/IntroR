@@ -25,6 +25,11 @@ broom::tidy(m) %>%
 
 ## MOTIVATION
 
+
+data.frame(
+  fruits = c("banana", "pineapple", "tomato")
+)
+
 # INTERACTIVITY
 
 # ovView
@@ -41,16 +46,24 @@ browseURL("https://mramos.shinyapps.io/obView/")
 library(rafalib)
 rafalib::mypar()
 
-results <- data.frame(OR = c(1.05, 2.04, 9.81, 1.91, 3.54, 0.28),
-           lowerCI = c(0.43, 0.74, 3.72, 0.56, 1.24, 0.08),
-           higherCI = c(2.55, 5.62, 25.87, 6.55, 10.14, 1.00),
-           country = c("Allemange", "France", "Italie", "Royaume-Uni",
-                       "Suisse", "Belgique"))
+results <- data.frame(
+  OR = c(1.05, 2.04, 9.81, 1.91, 3.54, 0.28),
+  lowerCI = c(0.43, 0.74, 3.72, 0.56, 1.24, 0.08),
+  higherCI = c(2.55, 5.62, 25.87, 6.55, 10.14, 1.00),
+  country = c("Allemange", "France", "Italie", "Royaume-Uni",
+    "Suisse", "Belgique")
+)
 results
 
-plot(x = c(1, 10), y = c(1, 6), ylab = "", ylim = c(0, 6),
-     type = "n", axes = FALSE, xlab = "Odds Ratio", log = "x",
-     xlim = c(0.01, 15)
+# this is where the saving starts
+png("mybaseRplot.png")
+# pdf("mybaseRplot.pdf")
+
+
+plot(
+  x = c(1, 10), y = c(1, 6), ylab = "", ylim = c(0, 6),
+  type = "n", axes = FALSE, xlab = "Odds Ratio", log = "x",
+  xlim = c(0.01, 15)
 )
 
 axis(side = 1, at = c(0.01, 0.5, 1, 2, 5, 10))
@@ -58,20 +71,28 @@ axis(side = 1, at = c(0.01, 0.5, 1, 2, 5, 10))
 points(x= results[, "OR"], y = 1:6, pch = 18)
 segments(x0 = results[["lowerCI"]], x1 = results[["higherCI"]],
          y0 = 1:6, y1 = 1:6)
+# plotting outside the area
 segments(x0 = 18, x1 = 20, y0 = 3.1, y1 = 3)
 segments(x0 = 18, x1 = 20, y0 = 2.9, y1 = 3)
+
 text(x = .02, y = 1:6, labels = results[["country"]], font = 2)
 abline(v = 1, lty = 2)
 title(main = "Odds Ratios for CVD Risk by Country")
+
+# this is where the plotting ends
+dev.off()
+
 
 ## LATTICE
 
 data(mtcars)
 
 mtcars$gear.f <- factor(mtcars$gear, levels = c(3,4,5),
-    labels = c("3gears", "4gears", "5gears"))
+    labels = c("3 gears", "4 gears", "5 gears"))
 mtcars$cyl.f <- factor(mtcars$cyl, levels = c(4,6,8),
-   labels = c("4cyl","6cyl","8cyl"))
+   labels = c("4 cyl","6 cyl","8 cyl"))
+
+mtcars$gear.f
 
 library(lattice)
 
@@ -89,6 +110,12 @@ stripplot(depth ~ factor(mag), data = quakes,
     xlab = "Magnitude (Richter)",
     ylab = "Depth (km)")
 
+stripplot(depth ~ factor(mag), data = quakes,
+          alpha = 0.6,
+          main = "Depth of earthquake epicenters by magnitude",
+          xlab = "Magnitude (Richter)",
+          ylab = "Depth (km)")
+
 ## GGPLOT version
 library(ggplot2)
 library(dplyr)
@@ -97,14 +124,25 @@ library(dplyr)
     myfancyplot <- results %>%
     ggplot(aes(x = reorder(country, OR), y = OR,
         ymin = lowerCI, ymax = higherCI)) +
-    geom_pointrange(shape = 18) + ylab("Odds Ratio") +
+    geom_pointrange(shape = 18) +
+    ylab("Odds Ratio") +
     scale_y_log10() + coord_flip() +
     xlab("Country") + geom_hline(yintercept = 1, linetype = "dashed") +
     theme_bw()
 )
 
 ## save my plot to pdf
+getwd()
+
+# relative path
 ggsave("fancyplotfile.pdf", plot = myfancyplot)
+
+## save to a different location (full path with abbreviation)
+ggsave("~/Documents/fancyplotfile.pdf", plot = myfancyplot)
+
+
+
+
 
 ## Repetitive code
 df <- data.frame(
@@ -113,12 +151,30 @@ df <- data.frame(
     c = c(-99, 3, 4, 5, 6)
 )
 
+
+
+
+
 ## look at df
 df
+
+df$a == -99
+df$b == -99
+df$c == -99
+
+
 
 # What you don't want to do but will start out doing...
 # repetitive code
 df$a[df$a == -99] <- NA
+
+df
+
+777 # don't know
+888 # refused
+999 # missing
+
+
 df$b[df$b == -99] <- NA
 df$c[df$c == -99] <- NA
 
@@ -135,8 +191,25 @@ seq_along(df)
 # df[, 2][ df[, 2] == -99 ] <- NA
 
 for (i in seq_along(df)) {
+  
     df[, i][ df[,i] == -99 ] <- NA
+    
 }
+
+   df$c[df$c == -99] <- NA
+   
+# df[, 2][ df[, 2] == -99 ] <- NA
+   df[, 1]
+   df[, 2]
+   df[, 3]
+
+for (i in 1:3) {
+  
+  df[, i][ df[, i] == -99 ] <- NA
+  
+}
+
+df
 
 for (i in 1:100) {
   print(1 + i)
@@ -156,11 +229,15 @@ paste("a character: ", letters)
 
 
 myoutput <- vector("character", length = length(letters))
+myoutput <- vector("character", length = 26)
 myoutput2 <- rep(NA, 26)
 
 for (i in 1:26) {
   myoutput[i] <- paste("character: ", letters[i])
 }
+myoutput
+
+
 
 # first step
 # myoutput[1] <- paste("character ", letters[1])
