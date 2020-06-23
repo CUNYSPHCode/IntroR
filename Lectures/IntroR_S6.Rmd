@@ -186,7 +186,7 @@ functionname <- function(argument1 = "default1",
 
 ![](communitydev.png)
 
-# GitHub assignment (next week)
+# GitHub assignment (assigned next week)
 
 * Signup on https://github.com/
 * Look for the assignment to be posted under https://github.com/CUNYSPHcode/

@@ -37,7 +37,7 @@ those who don't.
 
 ```
 
-4. Run a linear regression with `gestation`, `smoke`, `age` as predictor of
+4. Run a linear regression with `gestation`, `smoke`, `age` as predictors of
 birth weight `bwt`. Create a plot of fitted vs residual values using the
 functions learned in class.
 
