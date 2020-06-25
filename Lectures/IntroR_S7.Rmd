@@ -72,11 +72,18 @@ knitr::opts_chunk$set(echo = FALSE)
 # Data Analysis Workflow
 
 * RStudio setup
-* import data
+* Maintain a clean environment
+  * No restoring .RData
+  * Never save workspace on exit
+* export and import data
 * clean
     * subset / divide
-* reshape
-* summarize
-* explore
+* reshape (wide / long)
+* summarize / aggregate
+* visually explore (EDA)
 * graph
+  * ggplot2
+  * baseR
+  * lattice
 * report
+  * rmarkdown
