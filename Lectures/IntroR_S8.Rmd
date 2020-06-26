@@ -88,4 +88,5 @@ output: word_document
 
 # OpenCaseStudies Example
 
-* [\color{blue}{Health Expenditures}](https://opencasestudies.github.io/ocs-healthexpenditure/ocs-healthexpenditure.html) link
+* [\color{blue}{Health Expenditures}](https://opencasestudies.github.io/ocs-healthexpenditure/ocs-healthexpenditure.html) webpage
+* [\color{green}{GitHub repository}](https://github.com/opencasestudies/ocs-healthexpenditure)
