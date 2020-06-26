@@ -23,11 +23,12 @@ and assign the result. Show the `summary` of the fit object that you assigned.
 
 4. Add a RMarkdown format link below to your favorite R reference website.
 
+[My Favorite](https://rstudio.com)
 
 5. Replace the author field in the `yaml` header with your name and then
 successfully `knit` the RMarkdown document into a Word document.
 
 
 6. Follow the instructions at https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
-to submit your assignment via GitHub.
+to submit your assignment via GitHub to the https://github.com/CUNYSPHCode/IntroR repository.
 
