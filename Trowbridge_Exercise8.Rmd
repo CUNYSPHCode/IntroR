@@ -1,0 +1,56 @@
+---
+title: "Exercise 8: Practice with R Markdown"
+author: "Patricia Trowbridge"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Create a level 2 header below in Markdown with the name "Answer 1".
+
+# **ANSWER  LEVEL 1 IN BOLD **
+
+## *ANSWER LEVEL 2 IN ITALICS*
+
+
+2. Add an unordered Markdown list of your favorite food dishes and
+add their ingredients as sub-items in the list. You should enter at least two
+dishes with two ingredients each.
+
+
+* ENCHILADAS
+    + ground red chiles
+    + corn tortillas
+* GREEN SALAD
+    + leafy vegetables
+    + nuts
+
+3. Add an R code chunk below. Show the `summary` of the `Orange` dataset. Run a
+linear regression using the `lm` function to predict `circumference` from `age`
+and assign the result. Show the `summary` of the fit object that you assigned. 
+
+```{r}
+data("Orange")
+summary(Orange)
+
+
+orange.lmfit <- lm(circumference ~ age, data = Orange)
+
+summary(orange.lmfit)
+
+```
+
+4. Add a RMarkdown format link below to your favorite R reference website.
+
+
+[R Cookbook link](https://r-graphics.org/)
+
+5. Replace the author field in the `yaml` header with your name and then
+successfully `knit` the RMarkdown document into a Word document.
+
+
+6. Follow the instructions at https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
+to submit your assignment via GitHub to the https://github.com/CUNYSPHCode/IntroR repository.
+
