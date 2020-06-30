@@ -1,7 +1,7 @@
 ---
 title: "R Exercises Session 8"
-author: "Introduction to R for Data Management and Analysis"
-date: "Thursday, June 28, 2018"
+author: "Muhammad Salim"
+date: "Tuesday, June 30, 2020"
 output: word_document
 ---
 
@@ -11,19 +11,36 @@ knitr::opts_chunk$set(echo = TRUE)
 
 1. Create a `Header2` header below with the name "Answer 1".
 
+## ANSWER 1
 
 2. Add an unordered list (in Markdown syntax) of your favorite food dishes and
 add their ingredients as sub-items in the list. You should enter at least two
 dishes with two ingredients each.
 
+* BIRYANI
+    + chicken
+    + cooked rice
+* FRUIT SALAD
+    + Watermelon
+    + grapes
 
 3. Add an R code chunk below. Show the `summary` of the `Orange` dataset. Run a
 linear regression using the `lm` function to predict `circumference` from `age`
 and assign the result. Show the `summary` of the fit object that you assigned. 
 
+```{r}
+data("Orange")
+summary(Orange)
+
+
+lin.reg <- lm(circumference ~ age, data = Orange)
+
+summary(lin.reg)
+```
 
 4. Add a link below (_in RMarkdown format_) to your favorite R reference website.
 
+[R Cookbook link](https://r-graphics.org/)
 
 5. Replace the author field in the `yaml` header with your name and `knit` the
 RMarkdown document into a Word document (make sure that the document 'knits').
