@@ -1,7 +1,7 @@
 ---
 title: "R Exercises Session 8"
-author: "Introduction to R for Data Management and Analysis"
-output: word_document
+author: Leen Feliciano
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -10,21 +10,73 @@ knitr::opts_chunk$set(echo = TRUE)
 
 1. Create a level 2 header below in Markdown with the name "Answer 1".
 
+# Session 8 R Markdown
+## Answer 1
 
 2. Add an unordered Markdown list of your favorite food dishes and
 add their ingredients as sub-items in the list. You should enter at least two
 dishes with two ingredients each.
 
+### My favorite foods and their ingredients
+*Chocolate Banana Nice Cream
+  * 2 cups vanilla soymilk
+  * 2-4 ripe bananas
+  * 2 tsps Hersheys unsweetened chocolate powder
+  * 1 scoop garden of life chocolate protein powder
+  * Ghirardelli Intense Dark 72% Cacao squares crumbled
+*Mangu with Red Onion and Salami
+  * ripe and green plantains
+  * cold water
+  * margarine or butter to taste
+  * salt to taste
+  * red onion sauteed in apple cider vinegar
+  * salami cut into thin slices and fried in oil or butter
+* Homemade Super Salad
+  * 1 cup mushrooms cut in quarters
+  * 1/2 can of black beans
+  * 1 cup red, green, and yellow peppers diced 
+  * 1/4 onion
+  * 1 tsp garlic
+  * chicken bouillon powder to taste
+  * 1 head of lettuce
+  * 2 or more cups of spinach
+  * 1 whole avocado 
+  * 2 hardboiled eggs
+* Tuna Fish Sandwich
+  * 2 slices whole grain bread with seeds
+  * 1 can white albacore tuna in water
+  * 1-2 tsp apple cider vinegar
+  * pinch of minced garlic if desired
+  * 6-8 manzanilla olives
+  * mayonnaise to taste
+  * salt to taste
 
 3. Add an R code chunk below. Show the `summary` of the `Orange` dataset. Run a
 linear regression using the `lm` function to predict `circumference` from `age`
 and assign the result. Show the `summary` of the fit object that you assigned. 
 
+```{r}
+summary (Orange)
+
+fit_1 <- lm(circumference ~ age, data = Orange)
+
+summary(fit_1)
+
+```
+
 
 4. Add a RMarkdown format link below to your favorite R reference website.
 
+[My Fave R Reference Website](https://github.com/CUNYSPHCode/IntroR)
+
 5. Replace the author field in the `yaml` header with your name and then
 successfully `knit` the RMarkdown document into a Word document.
+
+---
+title: "R Exercises Session 8"
+author: Leen Feliciano
+output: html_document
+---
 
 
 6. Follow the instructions at https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
