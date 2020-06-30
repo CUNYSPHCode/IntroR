@@ -12,6 +12,8 @@ babies[babies$smoke == 9, "smoke"]
 
 babies[babies$smoke == 9, "smoke"] <- NA
 
-is.na(babies$smoke)
+any( is.na(babies$smoke) )
+
+babies[is.na(babies$smoke), ]
 
 babies[is.na(babies$smoke), "smoke"]

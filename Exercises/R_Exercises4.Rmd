@@ -58,7 +58,7 @@ inches?
 
 ## Extra credit
 
-6. Select 3 **numeric** variables by subsetting the mtcars datset. See the
+6. Select 3 **numeric** variables by subsetting the mtcars dataset. See the
 `?mtcars` for more information about the columns. Save the `data.frame` to an
 object / variable. Create correlation matrix (using `cor()`) with the
 **numeric** observations in the subset. Find the correlations that are greater

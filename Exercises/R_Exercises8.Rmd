@@ -1,7 +1,6 @@
 ---
 title: "R Exercises Session 8"
 author: "Introduction to R for Data Management and Analysis"
-date: "Thursday, June 28, 2018"
 output: word_document
 ---
 
@@ -9,10 +8,10 @@ output: word_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-1. Create a `Header2` header below with the name "Answer 1".
+1. Create a level 2 header below in Markdown with the name "Answer 1".
 
 
-2. Add an unordered list (in Markdown syntax) of your favorite food dishes and
+2. Add an unordered Markdown list of your favorite food dishes and
 add their ingredients as sub-items in the list. You should enter at least two
 dishes with two ingredients each.
 
@@ -22,11 +21,12 @@ linear regression using the `lm` function to predict `circumference` from `age`
 and assign the result. Show the `summary` of the fit object that you assigned. 
 
 
-4. Add a link below (_in RMarkdown format_) to your favorite R reference website.
+4. Add a RMarkdown format link below to your favorite R reference website.
+
+5. Replace the author field in the `yaml` header with your name and then
+successfully `knit` the RMarkdown document into a Word document.
 
 
-5. Replace the author field in the `yaml` header with your name and `knit` the
-RMarkdown document into a Word document (make sure that the document 'knits').
-First clone the `CUNYSPHcode/IntroR_FinalAssignment` onto your GitHub account.
-Then, create a pull request on GitHub with the **modified** RMarkdown file. 
+6. Follow the instructions at https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
+to submit your assignment via GitHub to the https://github.com/CUNYSPHCode/IntroR repository.
 
