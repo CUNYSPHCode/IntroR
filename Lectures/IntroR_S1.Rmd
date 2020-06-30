@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
-author: "Marcel Ramos"
+author: "Session 1"
 output:
   beamer_presentation:
     colortheme: dolphin

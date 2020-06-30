@@ -24,6 +24,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Topics for today
 
+* Merging datasets
 * Review for loops, plotting systems
 * Functions / functionals
 * Example where we use functions and loops
@@ -32,6 +33,18 @@ knitr::opts_chunk$set(echo = FALSE)
 # Working in R
 
 ![](catprogram.jpeg)
+
+# Merging datasets
+
+* `rbind` / `cbind` functions require equal dimensions
+  * whether binding by rows or columns
+  * row binding requires same column names (`colnames`)
+* `merge` function allows binding between unequal dims
+  * `by` argument to tell R what IDs to use
+  * no sorting required
+* tidyverse: `*_join` type of functions
+  * `full_join`
+  * auto-insertion of `NA` values
 
 # Functions
 
@@ -173,7 +186,7 @@ functionname <- function(argument1 = "default1",
 
 ![](communitydev.png)
 
-# GitHub assignment (next week)
+# GitHub assignment (assigned next week)
 
 * Signup on https://github.com/
 * Look for the assignment to be posted under https://github.com/CUNYSPHcode/

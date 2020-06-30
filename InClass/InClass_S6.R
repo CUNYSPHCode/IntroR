@@ -1,8 +1,134 @@
+
+frutti <- data.frame(
+  fruits = c("banana", "pineapple", "tomato")
+)
+
+prezzi <- data.frame(
+  price = c(0.5, 5, 0.75)
+)
+
+dim(frutti)
+dim(prezzi)
+
+cbind(frutti, prezzi)
+
+extrafruits <- data.frame(
+  fruits = c("cherry", "grapes", "oranges", "watermelon"),
+  price = rep(1, 4)
+)
+dim(extrafruits)
+
+rbind(frutti, extrafruits)
+
+?merge
+
+merge(frutti, extrafruits, by = "fruits", all = TRUE)
+
+merge(extrafruits, frutti, by = "fruits", all = FALSE)
+
+library(dplyr)
+library("dplyr")
+
+full_join(frutti, extrafruits, by = "fruits")
+
+
+
+
+cube <- function(number = 1) {
+    number^3
+}
+
+cube
+
+cube()
+
+cube(2)
+
+cube(3843)
+
+cube <- function(number) {
+  number^3
+}
+
+cube()
+
+cube(2)
+
+
+data("mtcars")
+
+aggregate(x = mtcars$mpg,
+        by = list(mtcars$cyl),
+        FUN = function(number) {
+          c(sum(number), mean(number), sd(number))
+        })
+
+aggregate(x = mtcars$mpg,
+          by = list(mtcars$cyl),
+          FUN = mean)
+
+aggregate(x = mtcars$mpg,
+          by = list(mtcars$cyl),
+          FUN = sum)
+
+aggregate(x = mtcars$mpg,
+          by = list(mtcars$cyl),
+          FUN = sd)
+
+
+### SPEC DATA Example
+
+getwd()
+
+spec1 <- read.csv("Data/specdata/001.csv", header = TRUE)
+head(spec1)
+dim(spec1)
+summary(spec1$sulfate)
+
+folder <- "Data/specdata/"
+
+mean_sulfite <- function(folder) {
+  
+  files <- list.files(folder, pattern = "*.csv", full.names = TRUE)
+  
+  mean_stat <- vector(mode = "numeric", length = length(files))
+  
+  names(mean_stat) <- basename(files)
+  
+  for (i in seq_along(files)) {
+    monitor_df <- read.csv(files[i], header = TRUE)
+    sulfate_levels <- monitor_df[["sulfate"]]
+    mean_stat[i] <- round(mean(sulfate_levels, na.rm = TRUE), 2)
+  }
+  
+  mean_stat
+}
+
+mean_readings <- mean_sulfite("Data/specdata/")
+
+barplot(mean_readings)
+
+
+
 ## Data Analysis
 # install.packages("gmodels")
 data("mtcars")
-library(gmodels)
+
+table(mtcars$cyl)
+?prop.table
+prop.table(table(mtcars$cyl)) * 100
+
+mean(mtcars$mpg)
+sd(mtcars$mpg)
+
+
+# install.packages("gmodels")
+library("gmodels")
 CrossTable(mtcars$cyl, mtcars$vs)
+
+## combining logical conditions
+mtcars[ mtcars$cyl == 4 & mtcars$vs == 0, ]
+
 
 xtabs(~ cyl + vs, data = mtcars)
 
@@ -10,11 +136,19 @@ table(mtcars$cyl, mtcars$vs)
 
 ## Ideally, we don't want to overwrite original data variables
 mtcars$vs2 <- factor(mtcars$vs, levels = c(0, 1),
-                     labels = c("v-shaped", "straight"))
+  labels = c("v-shaped", "straight"))
+table(mtcars$vs2)
 
 CrossTable(mtcars$cyl, mtcars$vs2)
 
 newTable <- table(mtcars$cyl, mtcars$vs2)
+
+# install.packages("vcd")
+library(vcd)
+
+data("HairEyeColor")
+mosaic(HairEyeColor, shade = TRUE)
+
 
 ## Chi-square test
 chisq.test(newTable)

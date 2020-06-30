@@ -1,7 +1,6 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
 author: "Marcel Ramos"
-date: "Thursday, June 27, 2019"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -13,6 +12,18 @@ output:
 ```{r setup, include = FALSE, echo = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+# Review Session
+
+* Questions from previous class
+* Typical workflow using R
+
+# Topics to cover
+
+* Reporting tools
+* RMarkdown syntax basics
+* Analysis example
+  * OpenCaseStudies - Health Expenditure
 
 # Reporting Tools
 
@@ -28,7 +39,7 @@ dissemination of reproducible results
 
 # R Markdown Syntax
 
-1. Visit the [\huge{\color{blue}{RStudio Tutorial}}](https://rmarkdown.rstudio.com/lesson-1.html)
+1. Visit the [\color{blue}{RStudio Tutorial}](https://rmarkdown.rstudio.com/lesson-1.html)
 page
 
 2. Go through the first 9 lessons up to and including [\color{blue}{Output Formats}](https://rmarkdown.rstudio.com/lesson-9.html)
@@ -36,3 +47,46 @@ page
 3. Download the RStudio Cheatsheet [\color{blue}{here}](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)[^2]
 
 [^2]: https://www.rstudio.com/resources/cheatsheets/
+
+# Rmd header
+
+* yaml 'front matter'
+* yaml stands for 'YAML ain't markup language'
+* A special type of syntax similar to JSON for configurations
+* Driven by a key value pairs
+```
+---
+title: "Session 8"
+output: word_document
+---
+```
+* Tells R what kind of output to generate and how
+
+# Rmd vs Md
+
+* `Rmd` Supports R code
+* `md` is an intermediate between `Rmd` and `HTML`
+* `Rmd` > `md` > `HTML`
+* When the output is `HTML`
+* `md` is a popular format for GitHub READMEs
+
+# Bioconductor 2020 Workshops (real-world example)
+
+* [\color{green}{Bioc2020 Workshops}](https://bioc2020.bioconductor.org/workshops)
+* Use an Rmd to generate an md file
+* Run the R code in the chunks
+* Use the md file to publish on the website
+
+# RMarkdown basics
+
+* Opening an Rmd file in RStudio
+* Simplifies HTML
+  * `#` means `<h1>` or level 1 header
+* Documents need to be generated using `knit`
+* create lists using the asterisk or dash
+* Nesting lists
+
+# OpenCaseStudies Example
+
+* [\color{blue}{Health Expenditures}](https://opencasestudies.github.io/ocs-healthexpenditure/ocs-healthexpenditure.html) webpage
+* [\color{green}{GitHub repository}](https://github.com/opencasestudies/ocs-healthexpenditure)

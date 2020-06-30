@@ -1,7 +1,6 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
-author: "Marcel Ramos"
-date: "Tuesday, June 25, 2019"
+author: "Session 7"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -16,9 +15,18 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Notes from previous class
 
+* `lm` and friends
 * `t-test` with a formula vs vector
 * object names with a period (`.`)
 * apply over a `data.frame`
+
+# Today's outline
+
+* Learning tips
+* Troubleshooting
+* Exploratory functions
+* GitHub basics
+* Data Analysis Workflow
 
 # General R Learning Tips
 
@@ -29,6 +37,16 @@ knitr::opts_chunk$set(echo = FALSE)
 * Make use of online resources, help pages
 * Be curious
     * test your questions with examples
+* Create a catalog...
+    
+# Catalogue
+
+* Create a catalog of functions that are useful for a particular task
+* Use your reference websites / textbooks
+    * R Cookbook by Winston Chang - ggplot2
+    * Quick-R
+    * R for Data Science - Hadley Wickham
+    * Handbook for Statistical Analyses using R - 3rd Ed.
 
 # Troubleshooting
 
@@ -49,25 +67,23 @@ knitr::opts_chunk$set(echo = FALSE)
 * `dimnames`
 * `attributes`
 * `str`
-* `args` on a function name
-
-# Catalogue
-
-* Create a catalog of functions that are useful for a particular task
-* Use your reference websites / textbooks
-    * R Cookbook by Winston Chang - ggplot2
-    * Quick-R
-    * R for Data Science - Hadley Wickham
-    * Handbook for Statistical Analyses using R - 3rd Ed.
+* `args` on a function
 
 # Data Analysis Workflow
 
 * RStudio setup
-* import
+* Maintain a clean environment
+  * No restoring .RData
+  * Never save workspace on exit
+* export and import data
 * clean
     * subset / divide
-* reshape
-* summarize
-* explore
+* reshape (wide / long)
+* summarize / aggregate
+* visually explore (EDA)
 * graph
+  * ggplot2
+  * baseR
+  * lattice
 * report
+  * rmarkdown

@@ -22,7 +22,7 @@ code.
 
 2. Fit a linear model with the `Orange` dataset. You are investigating how age
 relates to circumference of a tree. Use the `predict` function to estimate the
-circumference of a `500` year old tree. Show your code.
+circumference of a `500` day old tree. Show your code.
 
 ```{r}
 
@@ -37,7 +37,7 @@ those who don't.
 
 ```
 
-4. Run a linear regression with `gestation`, `smoke`, `age` as predictor of
+4. Run a linear regression with `gestation`, `smoke`, `age` as predictors of
 birth weight `bwt`. Create a plot of fitted vs residual values using the
 functions learned in class.
 
