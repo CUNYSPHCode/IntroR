@@ -43,6 +43,5 @@ summary(fitted.Orange)
 successfully `knit` the RMarkdown document into a Word document.
 
 
-6. Follow the instructions at https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
-to submit your assignment via GitHub to the https://github.com/CUNYSPHCode/IntroR repository.
+
 
