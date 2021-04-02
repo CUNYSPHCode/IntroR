@@ -1,6 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
-author: "Session 7"
+author: "Marcel Ramos, MPH"
+date: "Session 7"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -38,7 +39,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * Be curious
     * test your questions with examples
 * Create a catalog...
-    
+
 # Catalogue
 
 * Create a catalog of functions that are useful for a particular task

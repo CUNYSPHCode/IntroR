@@ -1,6 +1,7 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
-author: "Session 2"
+author: "Marcel Ramos, MPH"
+date: "Session 2"
 output:
   beamer_presentation:
     colortheme: dolphin
@@ -53,7 +54,7 @@ output:
 # Assignment
 
 * Use the `<-` arrow to assign to an object (variable)
-* The object being created is on the left-hand side (LHS) 
+* The object being created is on the left-hand side (LHS)
 * LHS can have any arbitrary name
 * `object <- value`
 * The output or return value of an operation on the RHS is the 'value'
@@ -65,7 +66,7 @@ output:
 * Recognizing file types
     * File extensions (e.g., `.tsv`, `.csv`, `.xlsx`, `.txt`, `.sav`, `.sasb7dat`)
 * Show file extensions on Windows
-    * Windows File Explorer > View tab > Show File Extensions 
+    * Windows File Explorer > View tab > Show File Extensions
 * Downloading files from the internet
     * `read.csv()`
     * `download.file()`
@@ -89,7 +90,7 @@ output:
 
 # What are classes?
 
-* R objects have class attributes 
+* R objects have class attributes
 * Define what functions/operations can be performed
 * `class()` function
 * Examples
@@ -100,13 +101,13 @@ output:
     * character, integer, numeric, logical, complex, raw (bytes)
     * factor: discrete levels
         * mostly used in regressions
-        * set reference by `relevel`ing categories 
+        * set reference by `relevel`ing categories
         * `relevel` does not work with ordered factors
     * missing (`NA`)
-* Tabular classes: 
+* Tabular classes:
     * `data.frame`
     * `matrix`
-* Non-tabular: 
+* Non-tabular:
     * `function`
     * `list`
     * `array`
