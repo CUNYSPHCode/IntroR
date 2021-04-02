@@ -22,38 +22,38 @@ knitr::opts_chunk$set(echo = FALSE)
 # Topics to review
 
 * `install.packages` vs `library`
-  * `install.packages` - run in the console once (if successful)
-    * downloads the package from the internet and installs it
-    * _installation_ does not make the functions immediately available!
-  * `library` - makes functions available in a package
+    * `install.packages` - run in the console once (if successful)
+        * downloads the package from the internet and installs it
+        * _installation_ does not make the functions immediately available!
+    * `library` - makes functions available in a package
 * Notes for using RMarkdown
-  * `install.packages` - installation needed once only, install via the
-  _console_
-  * do not include `install.packages` in the RMarkdown file
-  * do not include help functions in the code, that's FYI only
-  * load a package using `library("pkgname")`
-  * loading makes the functions available for use
+    * `install.packages` - installation needed once only, install via the
+    _console_
+    * do not include `install.packages` in the RMarkdown file
+    * do not include help functions in the code, that's FYI only
+    * load a package using `library("pkgname")`
+    * loading makes the functions available for use
 
 # Topics to review (2)
 
 * Make use of the example code
-  * `library(dplyr); mtcars %>% ...`
+    * `library(dplyr); mtcars %>% ...`
 * Settings in RStudio
-  * Default to plot inline
-  * Plot in plotting window (more space)
-  * Change the settings in Tools > Global Options > RMarkdown
+    * Default to plot inline
+    * Plot in plotting window (more space)
+    * Change the settings in Tools > Global Options > RMarkdown
 * Avoid `attach`
-  * Creates a mess of your global environment
+    * Creates a mess of your global environment
 
 # Code reading practice
 
 * See `inClass_S5.R` file
-  * First create a linear model from variables
-  * Use `broom::tidy` on linear model object
-  * Add a couple of columns using the `mutate` function
-  * Remove teams that are missing using `is.na` and restrict to 2015
-  * Reorder teams by some metric `estimate` and use `geom_pointrange`
-  * Flip coordinates and add some labels
+    * First create a linear model from variables
+    * Use `broom::tidy` on linear model object
+    * Add a couple of columns using the `mutate` function
+    * Remove teams that are missing using `is.na` and restrict to 2015
+    * Reorder teams by some metric `estimate` and use `geom_pointrange`
+    * Flip coordinates and add some labels
 * Don't worry about the specifics
 * Understand the gist of what is happening
 * Use what we know to look up functions: `?`, `help`, Google
@@ -64,10 +64,10 @@ knitr::opts_chunk$set(echo = FALSE)
 * Types of graphs
 * Plotting systems in R
 * Repetitive code
-  * `for` loops
-  * Functions
-  * Functionals and functional programming
-    * `apply` family
+    * `for` loops
+    * Functions
+    * Functionals and functional programming
+        * `apply` family
 
 # Exploratory Data Analysis
 
@@ -79,7 +79,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Historgram
 * Scatterplot
-  * Scatterplot matrix
+    * Scatterplot matrix
 * Boxplots / dotplots (`ggplot2`)
 * Violin plots (`ggplot2`)
 * Q-Q plots
@@ -89,25 +89,25 @@ knitr::opts_chunk$set(echo = FALSE)
 # Plotting plotting systems in R
 
 * Plotting Odds Ratios
-  * Base graphics
-  * ggplot2
+    * Base graphics
+    * ggplot2
 * Base R graphics
-  * standard way of plotting
+    * standard way of plotting
 * lattice
-  * easier paneling
+    * easier paneling
 * `ggplot2`
-  * a dialect for plotting data
-  * takes time to get used to
+    * a dialect for plotting data
+    * takes time to get used to
 * Saving graphics
 
 # Repetitive operations
 
 * What strategies work to reduce the amount of repetitive coding?
-  * `for` loops
-  * `function`
+    * `for` loops
+    * `function`
 * Instances where you might repeat code
-  * Replacing missing values with `NA`
-  * Data cleaning operations
+    * Replacing missing values with `NA`
+    * Data cleaning operations
 * When to use a `for` loop
 * When to write a `function`
 

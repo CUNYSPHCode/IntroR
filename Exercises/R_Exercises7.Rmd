@@ -10,8 +10,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Exercises
 
-1. Take the `pew.csv` dataset and reshape it to get a tally of the number of
-participants by religous affiliation.
+1. Take the `relig_income` dataset from the `tidyr` package (see `?data`) and
+reshape it to get a tally of the number of participants by religous
+affiliation.
 
 ```{r}
 
@@ -34,14 +35,15 @@ variable. Use the internal R vector `month.name` for your labels.
 
 ```
 
-4. What month and airport has the most flights?
+4. What month and airport has the most flights? How do you show this result
+with code?
 
 ```{r}
 
 ```
 
 5. What is the average, minimum, and maximum yearly temperatures for all listed
-airports in the `weather` dataset?
+airports in the `weather` dataset (from the `nycflights13` package)?
 
 ```{r}
 

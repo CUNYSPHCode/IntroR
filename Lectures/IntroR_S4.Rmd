@@ -156,7 +156,7 @@ relig_income %>% pivot_longer(-religion,
 
 * 'Base' graphics
 * lattice
-* ggplot2 
+* ggplot2
 
 # Exploratory Data Analysis
 
@@ -174,11 +174,6 @@ relig_income %>% pivot_longer(-religion,
 * Q-Q plots
 * Mosaic plots
 * and many more!
-
-# `par` function
-
-* Check parameters for graphing
-* Allows you to control the finer details of plotting
 
 # `ggplot2` - Grammar of Graphics
 
