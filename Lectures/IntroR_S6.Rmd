@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R for Data Management and Analysis"
-author: "Marcel Ramos"
+author: "Marcel Ramos, MPH"
 date: "Session 6"
 output:
   beamer_presentation:
