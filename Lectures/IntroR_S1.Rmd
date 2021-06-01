@@ -38,12 +38,12 @@ Welcome!
 
 | Date          | Topics                           | Assessment |
 |---------------|----------------------------------|------------|
-| Tues. June 2  | Introductions                    | -          |
+| Tues. June 1  | Introductions                    | -          |
 |               | About this class                 |            |
 |               | Features of the R language       |            |
 |               | Getting help and troubleshooting |            |
 |               |                                  |            |
-| Thurs. June 4 | Classes and data types           | Exercise   |
+| Thurs. June 3 | Classes and data types           | Exercise   |
 |               | data.frame                       |            |
 |               | Import/Export                    |            |
 |               | subsets                          |            |
@@ -56,14 +56,25 @@ Welcome!
 
 # Today's class
 
-* Installation
-* R and the RStudio interface
-* Basic features of the R language
-* Getting started
-* Tips
+* Installation / RStudio Cloud
+* What is R, RStudio, Git, GitHub?
+* How do I get started?
+* Recommendations for RStudio setup
+* Features of the R language
+* What is a function?
+* Getting help within R
+* General / R housekeeping tips
 * Getting help and troubleshooting
-* External resources
-* R as a calculator
+* In-class exercises
+* Motivating Examples
+* Learning R Trello Board
+* Q & A
+
+# Installation / RStudio Cloud
+
+* We will use RStudio Cloud first
+  * https://www.rstudio.com/products/cloud/
+* Install R and RStudio later
 
 # What is R?
 
@@ -110,13 +121,14 @@ R to function as a language
 * help pages
 * `?reserved`
 
-# Recognizing a function
+# What is a function?
 
+* a series of steps wrapped up into a single command
 * a name followed by parentheses `help()`
 * arguments (e.g., `functionname(argument1 = "default")`)
 * input / output
 
-# Useful tips for learning R
+# Getting help within R
 
 Pseudo code                                   |   Example code
 --------------------------------------------  |   -------------------
@@ -128,7 +140,7 @@ install.packages(packagename)                 | install.packages("dplyr")
 help(package = "loadedpackage")               | help("dplyr")
 browseVignettes("packagename")                | browseVignettes("dplyr")
 
-# General tips for learning R
+# General tips
 
 * Learning R will be frustrating
 * Learning a language
@@ -147,26 +159,26 @@ browseVignettes("packagename")                | browseVignettes("dplyr")
 * "Debugging" your script
 * Step by step, line by line process
 
-# First contact with R
+# In-class Exercises
 
 * R as a calculator exercise
 
 # Motivating examples
 
 * \url{http://shiny.rstudio.com/gallery/google-charts.html}
-* \url{https://mramos.shinyapps.io/PowerCalc/}
+* \url{https://shiny.sph.cuny.edu/PowerCalc/}
 
-# External Resources
+# Learning R Trello Board
 
-* [Coursera](https://www.coursera.org)
-* [edX](https://www.edX.org)
-* [RStudio](https://www.rstudio.com/resources/training/online-learning/#R)
-* [Quick-R](http://www.statmethods.net/) -
-Mostly for basic and base functions
-* [RStudio Cheatcheets](https://www.rstudio.com/resources/cheatsheets/)
+* Link is also in the syllabus
+* https://trello.com/b/7VsveLu5
 
 # VIM / Emacs (Extra)
 
 * Tools for 'efficient' typing
 * (Optional) [Vim game](https://vim-adventures.com/)
 * Emacs [download](https://www.gnu.org/software/emacs/download.html)
+
+# Q & A
+
+* Questions?
