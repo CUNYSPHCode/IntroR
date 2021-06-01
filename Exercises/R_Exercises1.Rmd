@@ -18,6 +18,80 @@ document. You can embed an R code chunk like this:
 "Hello World"
 ```
 
+## File extensions
+
+* Tell the computer how to read a file. 
+* The file extension for RMarkdown files is `.Rmd` and for R scripts
+is `.R`. 
+* Check your operating system configurations for how to make these visible.
+
+With this in mind, the name of this file in R is a single character-type string:
+
+```{r}
+"R_Exercises1.Rmd"
+```
+
+## File paths
+
+* File paths differ in appearance by system
+* There are two types of file paths
+  * relative
+  * absolute
+
+In RMarkdown files, the easiest to use is the _relative_ file path,
+when the file is in the **same** folder as the `.Rmd` file.
+
+A file path is relative because it is in reference to a _current_ working
+directory. To know what directory is the current one in R, use:
+
+```{r}
+getwd()
+```
+
+Not that the return of this function is a single character-type string with
+the foward slashes (denoting folders). We expect a path to a folder from 
+`getwd()`.
+
+### Relative
+
+Therefore a relative file path in this directory would look like this:
+
+```{r}
+"R_Exercises.Rmd"
+```
+
+It can also look like this:
+
+```{r}
+"./R_Exercises1.Rmd"
+```
+
+The `.` in a path always represents the current working directory.
+
+### Absolute
+
+The absolute file path is comprised of the full path to the current working
+directory and the file or folder name.
+
+### Try it
+
+Use `file.choose()` to get an absolute path printed in the console after
+selecting a file.
+
+```{r,eval=FALSE}
+file.choose()
+```
+
+The result of this operation when we choose the current `.Rmd` file looks like
+this:
+
+```{r}
+"C:\\Users\\SPHStaff\\Documents\\Courses\\IntroR\\Exercises\\R_Exercises1.Rmd"
+```
+
+On Windows, we either use the double blackslash or a single forward slash
+to separate folders.
+
 ## R as a calculator: calculatoR
 
 Here are some common operations that R can do.
