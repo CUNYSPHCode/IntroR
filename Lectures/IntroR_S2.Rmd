@@ -10,13 +10,9 @@ output:
   ioslides_presentation: default
 ---
 
-# Notes on last week's lecture
+# Notes on last lecture
 
 * Pull up documentation
-* Common data types
-    * integer
-    * logical
-    * character
 * Use `c()` to create a 'vector'
 * '+' in the console indicates 'waiting for additional input...'
 * relative vs absolute paths
@@ -28,7 +24,7 @@ output:
 * Basic features of the language
     * interactive and _interpreted_
         * commands are entered in the console / via script
-        * the commands are pre-processed in some way before evaluation
+        * the commands are pre-processed before evaluation
     * case sensitive, ignores spaces except between objects and functions
     * an object is any type of variable stored in R (i.e., `data.frame`, `vector`, `function`, etc.)
     * Be familiar with the parts of a function
@@ -41,48 +37,25 @@ output:
 
 # Today's lecture overview
 
-* creating objects (assignment)
+* Common classes in R
+    * vector types
+        * numeric
+        * logical
+        * character
+    * tabular types e.g., `data.frame`
+    * other types
+* Creating objects (assignment)
+* Class type coercion
 * Importing and Exporting Data
-* Classes and Data types in R
-    * `data.frame`
-    * data type coercion
-* Subsetting
+* Subsetting (time-permitting)
     * using brackets and dollar signs (`[`, `$`)
     * using vector operands
-* More troubleshooting
 
-# Assignment
+# Common data types (vectors)
 
-* Use the `<-` arrow to assign to an object (variable)
-* The object being created is on the left-hand side (LHS)
-* LHS can have any arbitrary name
-* `object <- value`
-* The output or return value of an operation on the RHS is the 'value'
-* RHS can be anything that R 'understands'
-* _Without_ assignment the output will not be 'saved'!
-
-# Importing and Exporting Data
-
-* Recognizing file types
-    * File extensions (e.g., `.tsv`, `.csv`, `.xlsx`, `.txt`, `.sav`, `.sasb7dat`)
-* Show file extensions on Windows
-    * Windows File Explorer > View tab > Show File Extensions
-* Downloading files from the internet
-    * `read.csv()`
-    * `download.file()`
-
-# Packages for reading foreign data
-
-* readr, readxl, haven
-    * readr - provides fast and efficient read-in for large files
-    * readxl - allows you to read MS Excel files (`.xls`, `.xlsx`)
-    * haven - support for SPSS, SAS, and other data
-
-# Exporting Data
-
-* `write.table()`
-* `write.csv()` / `write_csv()`
-* `write_delim()`
+* numeric - `c(1, 2, 3)` or `1:3`
+* logical - `c(TRUE, FALSE)`
+* character - `c("A", "B")`
 
 # Classes in R
 
@@ -113,13 +86,6 @@ output:
     * `array`
     * custom classes
 
-# list
-
-* Handle multiple data types in one
-* Can contain vectors, data.frames, and even functions
-* The `data.frame` is a special type of list
-* Use the `list` function to create a `list`
-
 # data.frame
 
 * A unique type of list with uniform lengths in all elements
@@ -128,6 +94,16 @@ output:
 * The return value of most import functions is usually a form
 of a `data.frame`
 * Use `data.frame` to create a `data.frame`
+
+# Exploratory functions on a data.frame
+
+* head
+* tail
+* dim
+* colnames
+* rownames
+* sapply(x, class)
+
 
 # matrix
 
@@ -142,6 +118,23 @@ of a `data.frame`
 * a neat print output
 * metadata on the columns (chr, int, etc.)
 
+# list
+
+* Handle multiple data types in one
+* Can contain vectors, data.frames, and even functions
+* The `data.frame` is a special type of list
+* Use the `list` function to create a `list`
+
+# Assignment (object creation)
+
+* Use the `<-` arrow to assign to an object (variable)
+* The object being created is on the left-hand side (LHS)
+* LHS can have any arbitrary name
+* pseudocode: `object <- value`
+* The output or return value of an operation on the RHS is the 'value'
+* RHS can be anything that R 'understands'
+* _Without_ assignment the output will not be 'saved'!
+
 # Type (class) coercion
 
 * as.__*(class type here)*__
@@ -151,11 +144,26 @@ of a `data.frame`
     * `as.data.frame`
     * `as_tibble` (in 'tibble' package)
 
-# Exploratory functions on a data.frame
+# Importing and Exporting Data
 
-* head
-* tail
-* dim
-* colnames
-* rownames
-* sapply(x, class)
+* Recognizing file types
+    * File extensions (e.g., `.tsv`, `.csv`, `.xlsx`, `.txt`, `.sav`, `.sasb7dat`)
+* Show file extensions on Windows
+    * Windows File Explorer > View tab > Show File Extensions
+* Downloading files from the internet
+    * `read.csv()`
+    * `download.file()`
+
+# Packages for reading foreign data
+
+* readr, readxl, haven
+    * readr - provides fast and efficient read-in for large files
+    * readxl - allows you to read MS Excel files (`.xls`, `.xlsx`)
+    * haven - support for SPSS, SAS, and other data
+
+# Exporting Data
+
+* `write.table()`
+* `write.csv()` / `write_csv()`
+* `write_delim()`
+
