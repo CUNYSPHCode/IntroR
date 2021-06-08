@@ -17,10 +17,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Notes on the Thursday's lecture
 
-* Importing data
-* Changing the levels of a factor
-* converting between data types
-* data classes: lists and matrices
+* data classes: tabular / non-tab, vectors, lists, and matrices
+* assignment `<-`
+* extract vector from `data.frame` with `$`
+* converting between data types (`as.numeric`)
+* importing and exporting data
 
 # Lists
 
@@ -30,22 +31,28 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * generating random numbers and matrix
 * Up arrow in RStudio
-* Some RMarkdown basics
+* more on RMarkdown
 
 # Recap
 
-* Import and Export data
-    * Know your paths!
-    * Most export functions include keyword "write" (i.e., `write.table`)
 * Classes (bicycle analogy)
     * can have particular operations
     * some functions are similar across classes
     * identify a class by using the `class` function
+* Assignment creates objects and puts them in the .GlobalEnv (see `ls()`)
 * Factors and levels
-* `data.frames` and `lists`
-* subsetting using vectors
-    * Accessing columns with `[` and `$`
+    * Changing the levels of a factor
+* `data.frames` and `lists` - `fruit_stand` dataset
 * coercion (`as.`**classname**)
+* Import and Export data
+    * Know your paths!
+    * Most export functions include keyword "write" (i.e., `write.table`)
+    * Use relative paths for Rmd files
+        * Put the data and file in the same folder
+    * You can use absolute paths for interactive sessions (console)
+* subsetting using vectors
+    * Accessing rows and columns with `[`
+    * Extract a vector with `$`
 * R Exercise 1 and 2
 
 # Motivation
@@ -54,9 +61,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Motivation (cont.)
 
-* Learning R requires constant practice
+* Learning R requires practice
 * Persistence
-* Find fun exercises
+* Find fun exercises (Trello Board)
 * Follow along with the live coding examples
 * Enjoy it!
 
@@ -79,8 +86,8 @@ knitr::opts_chunk$set(echo = FALSE)
 * Subsetting (cont.)
     * vectors and `[` with character, numeric, logical
     * `lists` and `[` / `$`
-    * double brackets `[[`
-    * with conditions
+    * double bracket extraction `[[`
+    * using conditions
 * Sorting and aggregating data
 * removing duplicated records
 * removing records with `NA`
@@ -96,14 +103,14 @@ knitr::opts_chunk$set(echo = FALSE)
 * `$` extracts a vector from a `data.frame`
 * `[[` extracts and reduces to a single vector where possible from a
 `data.frame` or `list`
-* conditions help us specify what section of the data we want
+* conditions help us specify what parts of the data we want
     * `sex == "males"`
     * `age >= 18`
 
 # Sorting and aggregating data
 
 * `order` function - returns an index of ordered positions
-* tidyverse: `arrange` - returns the arranged data
+* tidyverse equivalent: `arrange` - returns the arranged data
 
 # Formula notation in R
 
@@ -151,8 +158,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Working with data
     * Tools at your disposal
-    * String together powerful functions
-    * Organization is key
+    * String together functions to reach a desired outcome
+    * Add comments to code to explain steps
 * Recognize how data should be represented
-    * long vs wide
+    * long - longitudinal data
+    * wide - survey data
 * Recognize what data format is best for visualization
+    * ggplot2 may want long data
+

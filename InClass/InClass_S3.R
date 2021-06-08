@@ -1,7 +1,4 @@
-## create a vector of numbers
-c(1, 2, 3, 4)
-
-## recap
+## releveling factors
 
 fruit <- c("banana", "strawberry", "kiwi")
 fruitfactor <- factor(fruit)
