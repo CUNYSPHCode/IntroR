@@ -1,3 +1,56 @@
+?c
+c(1, 2, 3, 4, 5)
+1:5
+seq(from = 1, to = 5, by = 1)
+
+# logical vector
+c(TRUE, FALSE)
+
+# character vector
+c("A", "B", "C", "DEF")
+
+?factor
+letters
+factor(letters, labels = "letter")
+
+factor(x = c("A", "B", "C"), labels = c("a", "b", "c") )
+
+## error: x is not the same length as labels
+factor(x = 1:5 , labels = c("a", "b", "c"))
+
+factor(x = 1:5 , labels = "a")
+
+## have a look at more datasets
+data()
+
+
+data("mtcars")
+class(mtcars)
+?mtcars
+
+factor(
+    x = mtcars$am,
+    levels = c(0, 1),
+    labels = c("automatic", "manual")
+)
+
+c(1, 3, NA)
+is.na( c(1, 3, NA) )
+
+mtcars
+
+data("ToothGrowth")
+ToothGrowth
+data("airquality")
+length(letters)
+length(c("A", "B"))
+
+matrix(data = letters, nrow = 2, ncol = 13)
+
+class(
+    matrix(data = letters, nrow = 2, ncol = 13)
+)
+
 # Code run in class
 
 # Mixed data types vector
@@ -6,19 +59,71 @@ c("a", 1, TRUE, NA)
 ## mixed data types default to character
 c(1, 3, 5, "1")
 
-?plot
-var_x <- rnorm(1000)
-var_y <- rnorm(1000)
+Mean(1:10)
+mean(1:10)
 
-## from ?plot: plot(x, y, ...)
-plot(var_x, var_y, pch = 18)
-plot(var_x, var_y, pch = 18, main = "My first Scatterplot")
-plot(var_x, var_y, pch = 18, main = "My first Scatterplot", xlim = c(-5, 5))
+mean( x = c(3, 5, 7, 9) )
 
-var1 <- c("blue", "black", "yellow")
-var2 <- 1L:5L
-var2.5 <- 3.5:6.5
-var3 <- c(TRUE, FALSE, TRUE, TRUE)
+mean( x = 5, 3, 7, 9 )
+
+
+sum(c(3, 5, 7, 9)) / 4
+
+
+
+class(1:10)
+class(c(TRUE, FALSE))
+class("A")
+
+?data.frame
+
+data.frame(
+    fruit = c("banana", "orange", "apple"),
+    price = c(.50, .25, .80),
+    quantity = c(10, 20, 5)
+)
+
+?head
+head(x = mtcars, n = 3)
+tail(x = mtcars, n = 3)
+
+dim(mtcars)
+
+colnames(mtcars)
+names(mtcars)
+
+rownames(mtcars)
+
+?sapply
+sapply(mtcars, class)
+class(mtcars$mpg)
+
+# install a package
+install.packages("tibble")
+# error: object 'tibble' not found
+# install.packages(tibble)
+
+# load the package
+library("tibble")
+# library(tibble)
+
+tibble(
+    fruit = c("banana", "orange", "apple"),
+    price = c(.50, .25, .80),
+    quantity = c(10, 20, 5)
+)
+
+as_tibble(mtcars)
+
+fruit_stand <- data.frame(
+    fruit = c("banana", "orange", "apple"),
+    price = c(.50, .25, .80),
+    quantity = c(10, 20, 5)
+)
+
+fruit_stand
+
+## review
 
 ## relative path
 "~/github/IntroR/Data/"
@@ -33,9 +138,6 @@ getwd()
 ## point to a file relative to the working directory
 "femaleMiceWeights.csv"
 
-## print the actual value of the 'home' folder
-normalizePath("~")
-
 read.csv(file =
     "/Users/mramos/github/IntroR/Data/femaleMiceWeights.csv")
 
@@ -43,19 +145,26 @@ read.csv(file =
 mice <- read.csv(file =
     "/Users/mramos/github/IntroR/Data/femaleMiceWeights.csv")
 
+?read.csv
+
 ## read csv file from URL
 read.csv(file = "https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/femaleMiceWeights.csv")
 read.csv("https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/femaleMiceWeights.csv")
 
 ## Download file from github
 ?download.file
+
+normalizePath("~")
+
 ## Dataset provided by Data Analysis for the Life Sciences by Rafael Irizarry and Michael I. Love
 download.file(
     url = "https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/femaleMiceWeights.csv",
-    destfile =  "~/Downloads/femaleMiceWeights.csv"
+    destfile =  "~/femaleMiceWeights.csv"
 )
 
-file.exists("~/Downloads/femaleMiceWeights.csv")
+file.exists("/home/rstudio/Downloads/femaleMiceWeights.csv")
+
+file.choose()
 
 download.file("https://raw.githubusercontent.com/CUNYSPHCode/IntroR/master/Data/babies.txt",
     destfile = "~/Downloads/babies.txt")

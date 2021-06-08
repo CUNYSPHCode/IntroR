@@ -10,6 +10,10 @@ output:
   ioslides_presentation: default
 ---
 
+# Announcements
+
+* Fill out the registration form on BB
+
 # Notes on last lecture
 
 * Pull up documentation
