@@ -17,15 +17,14 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Announcements
 
-* Downloading files from GitHub
-    * Use the 'raw' button when at the page
-    * Use Git GUI software
-        * https://git-scm.com/download/gui/windows
-    * Use functions that work with URLs (`read.csv`)
 * Additional topics to cover
     * Formulas
     * Aggregating
     * Reshaping your data
+* Piping operator `magrittr::%>%` or `|>` (new)
+    * Takes the LHS as input to the RHS
+    * Readable
+    * Allows easy command chaining
 
 # Formula notation in R
 
@@ -37,7 +36,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * Mainly used in base R code
 * Useful for creating crosstabs!
     * `xtabs(~ A + B, data = blue)`
-* Look out for `formula` class inputs
+* Look for `formula` class inputs
     * see `?xtabs`
     * see `?t.test`
     * see `?lm`
@@ -53,15 +52,10 @@ knitr::opts_chunk$set(echo = FALSE)
     * `tapply(mtcars$mpg, mtcars$cyl, mean)`
 * tidyverse: `group_by` and `summarize`
 
-# Transformations / Manipulations
-
-* long to wide format
-* `dplyr` and `tidyr` packages
-
 # Outline for today
 
 * Review exercises
-* Combining data manipulations
+* Using `dplyr` to combine data manipulations
 * Reshaping data
 * Plotting in base R
 * Exploratory Data Analysis
@@ -76,8 +70,7 @@ extracted from a given body of data. -John Tukey
 
 # Review
 
-* Exercises
-* Creating a `data.frame`
+* Exercises 1 - 3
 
 # Using the `nycflights13` dataset
 
@@ -190,6 +183,7 @@ relig_income %>% pivot_longer(-religion,
     * SVG
     * PNG/TIFF
 * but there are more
+* `ggsave`
 
 # Output sandwhich
 
@@ -211,3 +205,4 @@ the file.
     * Claus O. Wilke
 * [R Graphics Cookbook](http://www.cookbook-r.com/Graphs/)
     * Winston Chang
+

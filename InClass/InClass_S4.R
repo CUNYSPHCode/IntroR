@@ -11,17 +11,6 @@ options("stringsAsFactors")
 data.frame(column1 = 1:3, column2 = c("a", "b", "c"),
     stringsAsFactors = FALSE)
 
-## a small example for plotting
-?plot
-var_x <- rnorm(1000)
-var_y <- rnorm(1000)
-
-## from ?plot: plot(x, y, ...)
-plot(var_x, var_y, pch = 18)
-plot(var_x, var_y, pch = 12)
-plot(var_x, var_y, pch = 18, main = "My first Scatterplot")
-plot(var_x, var_y, pch = 18, main = "My first Scatterplot", xlim = c(-5, 5))
-
 # install.packages("nycflights13")
 library(nycflights13)
 library(dplyr)
@@ -46,8 +35,8 @@ longiris <-
 longiris %>% group_by(Species, type, dimension)
 # Graphing
 
-pew <- read.csv("Data/pew.csv")
-pew %>% gather(income, n, -religion) %>%
+# from tidyr
+relig_income %>% gather(income, n, -religion) %>%
     group_by(income) %>% summarize(totals = sum(n))
 
 # Generate random numbers
@@ -64,11 +53,6 @@ dat <- data.frame(
 hist(rating)
 
 hist(rating, breaks = 20, col = "#CCCCFF", freq = FALSE)
-
-boundaries <- seq(-3, 3.6, by = .6)
-
-hist(rating, breaks = boundaries)
-text(x = -2, y = 40, labels = "text")
 
 ## clear graphics output
 dev.off()
