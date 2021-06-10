@@ -1,15 +1,143 @@
 ## releveling factors
 
 fruit <- c("banana", "strawberry", "kiwi")
+class(fruit)
 fruitfactor <- factor(fruit)
+class(fruitfactor)
+
 contrasts(fruitfactor)
+levels(fruitfactor)
 
 fruitfactor <- relevel(fruitfactor, ref = "kiwi")
 contrasts(fruitfactor)
 
-fruitpref <- rep(fruit, each = 10)
-factor(fruitpref)
+factor(fruit, ordered = TRUE)
+var <- factor(fruit, levels =  c("banana", "strawberry", "kiwi"), ordered = TRUE)
 
+
+data("mtcars")
+head(mtcars)
+
+## subset rows
+mtcars$cyl == 8
+class(mtcars$cyl == 8)
+cars8 <- mtcars[ mtcars$cyl == 8 ,  ]
+mtcars[ "Ferrari Dino", ]
+mtcars[9:11, ]
+head(cars8)
+
+## subset by columns
+
+# mtcars[ , c("mpg", "cyl", "Disp") ]
+
+mtcars[ , c("mpg", "cyl", "disp") ]
+mtcars[ , 1:3 ]
+names(mtcars)
+
+sel <- c( rep(TRUE, 3) , rep(FALSE, 8) )
+
+mtcars[ , sel ]
+
+
+
+?`==`
+
+mtcars[[1]]
+
+mtcars[["mpg"]]
+mtcars[ , "mpg"]
+
+# mtcars[ , "mpg", drop = FALSE]
+
+
+?`[`
+
+a <- list(element1 = c("a", "b", "c"), element2 = 1:10)
+a[["element1"]]
+a[["blue"]]
+
+a[[1]]
+
+a[1]
+class(a[1])
+
+# blue
+a$element1
+
+# $element1
+mtcars$mpg
+
+?mtcars
+
+# select only the cars that have automatic transmission (am is 1)
+mtcars$am
+mtcars$am == 1
+mtcars[ mtcars$am == 1 , ]
+
+mtcars$am == 1 
+mtcars$mpg >= 30
+
+## & AND
+manual_30mpg <- mtcars$am == 1 & mtcars$mpg >= 30
+
+## | OR
+mtcars$am == 1 | mtcars$mpg >= 30
+cbind(
+  mtcars$am == 1,
+  mtcars$mpg >= 30,
+  mtcars$am == 1 | mtcars$mpg >= 30,
+  mtcars$am == 1 & mtcars$mpg >= 30
+)
+
+cyl4 <- mtcars[ mtcars$cyl  == 4, ]
+cyl6 <- mtcars[ mtcars$cyl == 6, ]
+head(cyl4)
+head(cyl6)
+
+rbind(cyl4, cyl6)
+
+
+mtcars[ manual_30mpg , ]
+
+
+
+
+
+order(mtcars$mpg)
+
+mtcars[order(mtcars$mpg), ]
+
+dplyr::arrange(mtcars, mpg)
+
+# install.packages("dplyr")
+library(dplyr)
+arrange(mtcars, -mpg)
+
+head(mtcars)
+
+table(mtcars$cyl)
+
+var <- mtcars[ mtcars$cyl == 4, ]
+mean(var$mpg)
+
+aggregate(mpg ~ cyl, data = mtcars, FUN = mean)
+
+?tapply
+
+tapply(X = mtcars$mpg, INDEX = mtcars$cyl, FUN = mean)
+
+mtcars %>% group_by(cyl) %>% summarise( mean_mpg = mean(mpg) )
+
+
+mtcars$newvar <- mtcars$mpg + 5
+head(mtcars)
+
+
+is.na(c(1, NA))
+
+
+# as.ordered(fruit)
+levels(var)
 ## NOTES
 ## Setting the levels of a factor
 
