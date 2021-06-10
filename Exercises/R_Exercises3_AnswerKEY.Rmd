@@ -1,7 +1,6 @@
 ---
 title: "R Exercises Session 3"
 author: "Introduction to R for Data Management and Analysis"
-date: "June 9, 2016"
 output: word_document
 ---
 
@@ -10,13 +9,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 **Note**: Use `Ctrl (Command) + Alt (Option) + I` or go to `Code` >
-`Insert Chunk` (from the menu) to insert a code block "chunk". 
+`Insert Chunk` (from the menu) to insert a code block "chunk".
 
 ## Exercises
 
 1. Load the `iris` dataset. Take only the observations that have a `Petal.Width`
 greater than `2.0`.
-Show your code. 
+Show your code.
 
 ```{r}
 iris[ iris$Petal.Width > 2.0 ,]
@@ -55,7 +54,7 @@ mtcars2 <- aggregate(. ~ cyl, data = mtcars, FUN = mean)
 mtcars2[which(mtcars2$wt == max(mtcars2$wt)),]
 ```
 
-Cars with 4 cylinders have the highest mean miles per gallon. 
+Cars with 4 cylinders have the highest mean miles per gallon.
 Cars with 8 cylinders have the highest mean weight (shown in thousands of
 pounds).
 
@@ -65,6 +64,7 @@ the actual weight. Create a new column in the `ChickWeight` dataset to adjust
 for the measurement error. Show your work.
 
 ```{r}
+data("ChickWeight")
 ## See the names in the dataset
 names(ChickWeight)
 

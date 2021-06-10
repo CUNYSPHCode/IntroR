@@ -1,7 +1,6 @@
 ---
 title: "CalculatoR"
 author: "Marcel Ramos"
-date: "June 2, 2016"
 output:
   word_document: default
 ---
@@ -76,7 +75,7 @@ can be passed to it?
 ?class
 ```
 
-The `class` function can only take one argument (any R object). 
+The `class` function can only take one argument (any R object).
 
 2. Pull up the help documentation for the `mean` function. What does the `Value`
 section say this function returns?

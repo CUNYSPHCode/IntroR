@@ -1,7 +1,6 @@
 ---
 title: "R Exercises Session 2"
 author: "Introduction to R for Data Management and Analysis"
-date: "June 7, 2016"
 output: word_document
 ---
 
@@ -10,11 +9,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 **Note**: Use `Ctrl (Command) + Alt (Option) + I` or go to `Code` >
-`Insert Chunk` (from the menu) to insert a code block "chunk". 
+`Insert Chunk` (from the menu) to insert a code block "chunk".
 
 ## Exercises
 
-1. Look at the documentation for the `rep` function. 
+1. Look at the documentation for the `rep` function.
 **Note:** Before writing anything in the console, try to guess on paper what the
 function call will look like.
 
@@ -45,7 +44,7 @@ object called `myFaves`.
 myFaves <- c("sushi", "ramen", "soba")
 ```
 
-3. Create a factor from the `myFaves` character vector. 
+3. Create a factor from the `myFaves` character vector.
 
 ```{r}
 factor(myFaves)
