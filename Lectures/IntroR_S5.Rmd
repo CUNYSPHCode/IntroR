@@ -18,21 +18,20 @@ knitr::opts_chunk$set(echo = FALSE)
 # Announcements
 
 * Review Exercise 4 in class
-* Interactivity: http://mramos.shinyapps.io/obView
 
 # Topics to review
 
 * `install.packages` vs `library`
     * `install.packages` - run in the console once (if successful)
-        * downloads the package from the internet and installs it
+        * downloads the package from the internet and **installs** it
         * _installation_ does not make the functions immediately available!
-    * `library` - makes functions available in a package
+    * `library` - makes functions available in a package by **loading** it
 * Notes for using RMarkdown
     * `install.packages` - installation needed once only, install via the
     _console_
     * do not include `install.packages` in the RMarkdown file
     * do not include help functions in the code, that's FYI only
-    * load a package using `library("pkgname")`
+    * load a package using `library("pkgname")` before using its functions
     * loading makes the functions available for use
 
 # Topics to review (2)
@@ -43,7 +42,7 @@ knitr::opts_chunk$set(echo = FALSE)
     * Default to plot inline
     * Plot in plotting window (more space)
     * Change the settings in Tools > Global Options > RMarkdown
-* Avoid `attach`
+* Avoid `attach()`!
     * Creates a mess of your global environment
 
 # Code reading practice
@@ -61,20 +60,32 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Today's lecture topics
 
-* Exploratory Data Analysis
-* Types of graphs
-* Plotting systems in R
+* Plotting Systems
+    * Types of graphs
+    * `ggplot2`
+    * Saving outputs
 * Repetitive code
     * `for` loops
     * Functions
     * Functionals and functional programming
         * `apply` family
 
+# Plotting systems in R
+
+* Three main systems:
+    * 'Base' graphics
+        * Already installed with R
+    * lattice
+        * Less common
+    * ggplot2
+        * Most popular
+        * Syntax is different
+
 # Exploratory Data Analysis
 
 * Informal representation data
 * Looking for patterns, outliers, etc.
-* Get familiar with your data!
+* Getting familiar with your data!
 
 # Types of graphs
 
@@ -87,19 +98,42 @@ knitr::opts_chunk$set(echo = FALSE)
 * Mosaic plots
 * and many more!
 
-# Plotting plotting systems in R
+# `ggplot2` - Grammar of Graphics
 
-* Plotting Odds Ratios
-    * Base graphics
-    * ggplot2
-* Base R graphics
-    * standard way of plotting
-* lattice
-    * easier paneling
-* `ggplot2`
-    * a dialect for plotting data
-    * takes time to get used to
-* Saving graphics
+* Different syntax
+    * Slight learning curve
+* Plots are built in layers
+* Operations add layers to the plot
+
+# Saving outputs
+
+* Common formats for saving plots:
+    * PDF
+    * SVG
+    * PNG/TIFF
+* but there are more
+* `ggsave`
+
+# Output sandwhich
+
+* Start with a function `pdf`, `png`, `jpeg`, etc.
+
+![](2012-r-xl-vegetable-sandwich-with-dill-sauce.jpg){ width=50% }
+
+* End in `dev.off()` for closing the graphics window
+
+# Saving plots in `ggplot2`
+
+* `ggplot2` graphics require a `print` (or a call) before it gets rendered in
+the file.
+* `ggsave` - added to make it easier to save plotting objects
+
+# Recommended resources
+
+* [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/)
+    * Claus O. Wilke
+* [R Graphics Cookbook](http://www.cookbook-r.com/Graphs/)
+    * Winston Chang
 
 # Repetitive operations
 
@@ -109,8 +143,10 @@ knitr::opts_chunk$set(echo = FALSE)
 * Instances where you might repeat code
     * Replacing missing values with `NA`
     * Data cleaning operations
-* When to use a `for` loop
+* When to use a `for` loop / `lapply`
+    * When you want to apply a series of operations more than once
 * When to write a `function`
+    * When you run a series of operations more than once
 
 # `for` loops
 
@@ -122,17 +158,19 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Functions
 
-* Extend the language
-  * Portable
+* Main mechanism for extending the language
+  * Packages make these portable
 * Group operations for _ideally_ one purpose
 * _Pure_ functions - input is the same class as the output
-* Well defined inputs and output (usually)
+* Well defined inputs and outputs (usually)
 
 # Functionals
 
 * An argument that itself is a function
 * Many functions can accept other functions as an arguments
   * lapply
+  * tapply
+  * summarize
 * Make coding more efficient and customizeable
 * Increased flexibility but add a layer of complexity
 * Why use them?
