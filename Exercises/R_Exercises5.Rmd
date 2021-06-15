@@ -13,22 +13,24 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Exercises
 
-1. Write a small function that takes a number as an input and raises it to the
-power of `3`. Name this function `cube`.
+1. Write a simple function that takes a number as an input and raises it to the
+power of `3`. Name this function `cube`. See `?Arithmetic`.
 
 ```{r}
 
 ```
 
-2. Create a `4` by `5` matrix of random numbers and assign it. Write a `for`
-loop that takes the `sum` of each of the rows and returns a vector of row sums.
+2. Create a `4` by `5` matrix of random numbers using `rnorm` and assign it.
+Write a `for` loop that takes the `sum` of each of the rows and returns a
+vector of row sums.
 
 ```{r}
 
 ```
 
-3. Create a list of 2 `mtcars` datasets, one in each element/component and
-assign it. Now use an `lapply` function with `dim` as an argument.
+3. Use `split` to divide `mtcars` by `am` type and assign the output to a
+variable. Now use an `lapply` function with `dim` as a functional argument.
+What are the dims in each dataset?
 
 ```{r}
 
