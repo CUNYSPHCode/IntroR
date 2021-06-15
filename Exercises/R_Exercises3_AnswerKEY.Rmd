@@ -29,34 +29,26 @@ subIris <- iris[ iris$Petal.Width > 2.0 ,]
 table(subIris$Species)
 ```
 
-3. Load the `mtcars` dataset. `arrange` or `order` the dataset by decreasing
-order in `mpg`.
+3. Load the `mtcars` dataset. Extract the 'hp' variable and use the `order`
+function on the vector.
 
 ```{r}
-## reorder the mtcars dataset based on mpg
-mtcars[order(mtcars$mpg, decreasing = TRUE),]
+## extract hp variable
+mtcars$hp
 
-## with dplyr..
-library(dplyr)
-arrange(mtcars, -mpg)
+## ordering
+order(mtcars$hp)
 ```
 
-4. Apply `aggregate` or `summarize_each` to the mtcars dataset with a mean for
-each of the categories in the `cyl` or cylinder column. What cylinder category
-gets the most miles per gallon? What cylinder category has the highest mean
-weight (`wt`)? Show your code.
+4. Take the mean of 'hp' and the mean of 'disp' or displacement. Which mean is
+higher? Show your code.
 
 ```{r}
-## Using formula notation to indicate all variables
-mtcars2 <- aggregate(. ~ cyl, data = mtcars, FUN = mean)
-
-## optional subsetting based on max weight
-mtcars2[which(mtcars2$wt == max(mtcars2$wt)),]
+mean(mtcars$hp)
+mean(mtcars$disp)
 ```
 
-Cars with 4 cylinders have the highest mean miles per gallon.
-Cars with 8 cylinders have the highest mean weight (shown in thousands of
-pounds).
+The mean for displacement is higher at 230.7 cubic inches.
 
 5. Consider a systematic error for the weight scale used in the `ChickWeight`
 dataset. The reading on each of the weights was consistently 5 grams lower than
