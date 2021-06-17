@@ -57,8 +57,8 @@ cube(2)
 
 data("mtcars")
 
-aggregate(x = mtcars$mpg,
-        by = list(mtcars$cyl),
+## anonymous functions (unnamed)
+aggregate(x = mtcars$mpg, by = list(mtcars$cyl),
         FUN = function(number) {
           c(sum(number), mean(number), sd(number))
         })
@@ -87,24 +87,25 @@ summary(spec1$sulfate)
 
 folder <- "Data/specdata/"
 
-mean_sulfite <- function(folder) {
-  
+mean_sulfate <- function(folder) {
+
   files <- list.files(folder, pattern = "*.csv", full.names = TRUE)
-  
+
   mean_stat <- vector(mode = "numeric", length = length(files))
-  
+
   names(mean_stat) <- basename(files)
-  
+
   for (i in seq_along(files)) {
     monitor_df <- read.csv(files[i], header = TRUE)
     sulfate_levels <- monitor_df[["sulfate"]]
     mean_stat[i] <- round(mean(sulfate_levels, na.rm = TRUE), 2)
   }
-  
+
   mean_stat
 }
 
-mean_readings <- mean_sulfite("Data/specdata/")
+
+mean_readings <- mean_sulfate("Data/specdata/")
 
 barplot(mean_readings)
 
