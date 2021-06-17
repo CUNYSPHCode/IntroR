@@ -25,6 +25,7 @@ knitr::opts_chunk$set(echo = FALSE)
 # Topics for today
 
 * Merging datasets
+    * Identifying duplicate observations
 * Review for loops, plotting systems
 * Functions / functionals
 * Example where we use functions and loops
@@ -36,11 +37,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Merging datasets
 
+* Duplicate observations can be observed with `duplicated()`
+  * Remove these first before merging
 * `rbind` / `cbind` functions require equal dimensions
   * whether binding by rows or columns
-  * row binding requires same column names (`colnames`)
+  * row binding requires same column names (`colnames`)!
 * `merge` function allows binding between unequal dims
-  * `by` argument to tell R what IDs to use
+  * `by` argument to tell R what variable to use as the ID
   * no sorting required
 * tidyverse: `*_join` type of functions
   * `full_join`
@@ -54,7 +57,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * _Pure_ functions - input is the same class as the output
 * Well defined inputs and output
 * Save you from repeating code
-* Open up the possibilities in R
+* Increase the flexibility of what R can do
 
 # Structure of a loop
 
@@ -65,7 +68,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```{r, eval=FALSE, echo=TRUE}
 for (variable in vector) {
-    # < enter code here >
+    # do something here with
+    variable
 }
 ```
 
@@ -74,10 +78,10 @@ for (variable in vector) {
 * `function` structure
 
 ```{r, eval = FALSE, echo=TRUE}
-functionname <- function(argument1 = "default1",
-                         argument2 = "default2") {
-    myresult <- anotherfunction(argument1, argument2)
-        return(myresult)
+functionname <-
+    function(argument1 = "default1", argument2 = "default2")
+{
+    anotherfunction(argument1, argument2)
 }
 ```
 
@@ -134,18 +138,14 @@ functionname <- function(argument1 = "default1",
 * Packages with new methods get published faster
 * Extensibility is an MAJOR advantage compared to other software
 
-# The basics
+# Descriptives
 
 * Frequency tables
-* Calculating odds ratios
-* `relevel`
-
-# Frequencies
-
+    * `table` function
+        * `prop.table`
 * `gmodels` package
-* `CrossTable` function
-* `table` function
-    * `prop.table`
+    * `CrossTable` function
+* `mean` and `sd` functions
 
 # Statistical Tests
 
