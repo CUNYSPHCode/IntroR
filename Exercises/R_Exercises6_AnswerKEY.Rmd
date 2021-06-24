@@ -1,7 +1,6 @@
 ---
 title: "R Exercises Session 6"
 author: "Introduction to R for Data Management and Analysis"
-date: "June 21, 2016"
 output: word_document
 ---
 
@@ -45,8 +44,14 @@ who don't.
 
 ```{r}
 babies <- read.table("babies.txt", header = TRUE)
-babies[babies$smoke == 9, ] <- NA
-t.test(bwt ~ smoke, data = babies)
+## create a new variable instead of overwritting
+babies$smokeNA <- babies$smoke
+## change 9s to NA
+babies[babies$smoke == 9, "smokeNA"] <- NA
+## check the result with a freq. table
+table(babies$smokeNA, useNA = "always")
+
+t.test(bwt ~ smokeNA, data = babies)
 ```
 
 4. Run a linear regression with `gestation`, `smoke`, `age` as predictor of
@@ -54,17 +59,20 @@ birth weight `bwt`. Create a plot of fitted vs residual values using the
 functions learned in class.
 
 ```{r}
-babies.fit <- lm(bwt ~ gestation + smoke + age, data = babies)
+babies.fit <- lm(bwt ~ gestation + smokeNA + age, data = babies)
 plot(fitted(babies.fit), residuals(babies.fit))
 ```
 
-## Extra Credit 
+## Extra Credit
 
 5. Using the `lm` object in #4, create a table (`data.frame`) of beta ($\beta$)
 coefficients using the `coef` function on the `summary` of the model. Add
 columns for confidence intervals with `confint`.
 
 ```{r}
-cbind(coef(summary(babies.fit)), confint(babies.fit))
+cbind(
+    coef(summary(babies.fit)),
+    confint(babies.fit)
+)
 ```
 

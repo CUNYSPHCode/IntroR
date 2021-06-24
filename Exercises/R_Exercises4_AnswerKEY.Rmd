@@ -1,7 +1,6 @@
 ---
 title: "R Exercises Session 4"
 author: "Introduction to R for Data Management and Analysis"
-date: "June 14, 2016"
 output: word_document
 ---
 
@@ -9,25 +8,34 @@ output: word_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-**Note**: Use `Ctrl (Command) + Alt (Option) + I` or go to `Code` > `Insert Chunk` (from the menu) to insert a code block "chunk". 
+**Note**: Use `Ctrl (Command) + Alt (Option) + I` or go to `Code` > `Insert Chunk` (from the menu) to insert a code block "chunk".
 
 ## Exercises
 
-1. Create a histogram of the `mtcars` dataset with the `mpg` variable. Change the _x axis_ label to "Miles per Gallon (mpg)".
+1. Create a histogram (using the `hist` fuction) of `mpg` from the `mtcars`
+dataset. Set the _x axis_ label to "Miles per Gallon (mpg)" using the `xlab`
+argument.
 
 ```{r}
 hist(mtcars[["mpg"]], xlab = "Miles per Gallon (mpg)")
 ```
 
-2. Use the `mtcars` dataset to draw a scatterplot of weight `wt` and displacement `disp`. Draw a fit line using the `lm` function and formula notation. 
+2. Use the `mtcars` dataset to draw a scatterplot of weight `wt` and
+displacement `disp`. The `plot` function takes two vectors as input. Provide
+the `wt` and `disp` vectors as input to the `plot` function.
 
 ```{r}
 plot(mtcars$wt, mtcars$disp, xlab = "Weight", ylab = "Displacement")
-fitLine <- lm(mtcars$disp ~ mtcars$wt)
+# optionally you can draw a regression line
+fitLine <- lm(disp ~ wt, data = mtcars)
 abline(fitLine, col = "darkblue", lwd = 3)
 ```
 
-3. Run the "pairs.panels" function from the `psych` package on the `mtcars` dataset. What variables are highly correlated (> |.80|)? What does it tell you about the displacement variable and the number of cylinders? 
+3. Install the `psych` package using `install.packages` with the package name
+"psych" character input. Use the `pairs.panels` function on the `mtcars`
+dataset. What are some variables that are highly correlated (> |.80|)? What
+does it tell you about the relationship between displacement (`disp`) and the
+number of cylinders (`cyl`)?
 
 ```{r}
 ## install.packages("psych")
@@ -35,47 +43,56 @@ library(psych)
 pairs.panels(mtcars)
 ```
 
-The relationship between miles per gallon (`mpg`) and cylinder (`cyl`) is strong and negative. As miles per gallon rating goes up, number of cylinders goes down. The relationship between the number of cylinders and displacement (`disp`) is strong and positive. The displacement of fuel is higher when the number of cylinders is greater. 
+The relationship between miles per gallon (`mpg`) and cylinder (`cyl`) is
+strong and negative. As miles per gallon rating goes up, number of cylinders
+goes down. The relationship between the number of cylinders and displacement
+(`disp`) is strong and positive. The displacement of fuel is higher when the
+number of cylinders is greater.
 
-4. Create any 4 plots and put them in one single output device using the `par` function. Can you reorder the plots so that you get 4 in one column? Show your code. 
+4. Based on the previous lecture's example, group the mtcars dataset by
+the `vs` variable and obtain the mean displacement (`disp`) for each of
+the categories in the `vs` variable (v-shaped vs. straight). What can you
+say about the design of engines in terms of the displacement of fuel in cubic
+inches?
 
 ```{r}
-## optional to use library(rafalib)
-rafalib::mypar()
-par(mfrow = c(4, 1))
+# option 1
+tapply(X = mtcars$disp, INDEX = mtcars$vs, FUN = mean)
 
-plot(mtcars[, "mpg"], mtcars[, "hp"])
-plot(mtcars[, "wt"], mtcars[, "disp"])
-boxplot(weight ~ feed, data = chickwts)
-boxplot(len ~ supp, data = ToothGrowth)
+# option 2
+aggregate(disp ~ vs, data = mtcars, FUN = mean)
+
+# option 3
+library(dplyr)
+group_by(mtcars, vs) %>%
+    summarize(mean_disp = mean(disp))
 ```
 
-5. Use the `iris` dataset to draw boxplots of `Petal.Length` for each of the species. Show your code. 
+On average, v-shaped engines displace more fuel than straight engines.
+
+
+5. Use a formula and the `boxplot` function to show the distribution of
+`Petal.Length` by `Species` in the `iris` dataset.
+
 
 ```{r}
-par(mfrow = c(1,1))
+data("iris")
 boxplot(Petal.Length ~ Species, data = iris)
 ```
 
 ## Extra credit
 
-6. Create correlation matrix using only **numeric** observations in the `mtcars` dataset. Find the correlations that are greater than the absolute value of `.80`. What pairs of variables are highly correlated? Show your code. 
+6. Select 3 **numeric** variables by subsetting the mtcars dataset. See the
+`?mtcars` for more information about the columns. Save the `data.frame` to an
+object / variable. Create correlation matrix (using `cor()`) with the
+**numeric** observations in the subset. Find the correlations that are greater
+than the absolute (`abs()`) value of `.80` (with a logical vector). What pairs
+of variables are highly correlated? Show your code.
 
 ```{r}
-# Remove cylinders variable from the data as it is categorical (conceptually)
-categorical <- !(names(mtcars) %in% c("cyl", "vs", "am", "gear", "carb"))
-mtcars2 <- mtcars[, categorical]
+mtcars2 <- mtcars[, c("mpg", "wt", "hp")]
 mycorrel <- abs(cor(mtcars2))
 
 mycorrel > 0.8 & mycorrel!= 1
 ```
-
-The following 3 variable pairs are highly correlated:
-
-1. `mpg` and `wt` 
-2. `disp` and `wt`
-3. `mpg` and `disp`
-
-
-
 

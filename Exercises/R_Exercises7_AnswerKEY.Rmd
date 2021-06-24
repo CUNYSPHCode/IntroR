@@ -11,29 +11,20 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Exercises
 
-1. Take the `pew.csv` dataset and reshape it to get a tally of the number of
-participants by religous affiliation.
+
+1. Take the `relig_income` dataset from the `tidyr` package (see `?data`) and
+reshape it to get a tally of the number of participants by religous
+affiliation.
 
 ```{r}
-## Method 1
-library(readr)
 library(tidyr)
 library(dplyr)
 
-pew <- read_csv("~/GitHub/IntroR/Data/pew.csv")
-pew %>%
-    gather(income, n, -religion) %>%
+relig_income %>%
+    pivot_longer(-religion, names_to = "income", values_to = "count") %>%
     group_by(religion) %>%
-    summarize(totals = sum(n)) %>%
-    arrange(totals)
-
-## Method 2
-nums <- pew[, -which(names(pew) == "religion")]
-cbind.data.frame(religion = pew$religion, totals = rowSums(nums))
-
-## Method 3
-nums <- pew[, -which(names(pew) == "religion")]
-cbind.data.frame(religion = pew$religion, totals = apply(nums, 1L, sum))
+    summarize(totals = sum(count)) %>%
+    arrange(-totals)
 ```
 
 2. Use the `nycflights13` package to add columns to the `flights` dataset from
@@ -71,11 +62,16 @@ flights2[, c("origin_name", "dest_name")] <-
 variable. Use the internal R vector `month.name` for your labels.
 
 ```{r}
+table(flights1$month)
 ## Method 1
-flights1$month2 <- factor(flights1$month, levels = 1:12, labels = month.name)
+flights1$month2 <- factor(
+    flights1$month, levels = 1:12, labels = month.name
+)
 
 ## Method 2
-flights1[["month2"]] <- factor(flights1$month, levels = 1:12, labels = month.name)
+flights1[["month2"]] <- factor(
+    flights1$month, levels = 1:12, labels = month.name
+)
 ```
 
 4. What month and airport has the most flights?
@@ -96,18 +92,19 @@ flights1 %>%
 ## Method 3
 splitDF <- split(flights1, list(flights1$month2, flights1$origin_name))
 tallies <- vapply(splitDF, nrow, numeric(1L))
-tallies[which.max(tallies)]
+head(tallies[order(tallies, decreasing = TRUE)], 10)
 
 ## Method 4
 flights1[["COUNT"]] <- 1
 agg_flights <- aggregate(COUNT ~ month2 + origin_name, data = flights1, FUN = sum)
-agg_flights[which.max(agg_flights$COUNT), ]
+head(agg_flights[order(agg_flights$COUNT, decreasing = TRUE), ], 10)
 ```
 
 5. What is the average, minimum, and maximum yearly temperatures for all listed
 airports in the `weather` dataset?
 
 ```{r}
+weather
 ## Years in data
 table(weather$year)
 
