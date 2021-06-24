@@ -14,17 +14,16 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Review Session
+# Q&A
 
-* Questions from previous class
-* Typical workflow using R
+* Questions from previous class?
 
 # Topics to cover
 
-* Reporting tools
-* RMarkdown syntax basics
 * Analysis example
   * OpenCaseStudies - Health Expenditure
+* Reporting tools
+* RMarkdown syntax basics
 
 # Reporting Tools
 
@@ -53,7 +52,7 @@ page
 
 * yaml 'front matter'
 * yaml stands for 'YAML ain't markup language'
-* A special type of syntax similar to JSON for configurations
+* A special type of syntax for configurations (similar to JSON)
 * Driven by a key value pairs
 ```
 ---
@@ -70,13 +69,14 @@ output: word_document
 * `Rmd` > `md` > `HTML`
 * When the output is `HTML`
 * `md` is a popular format for GitHub READMEs
+    * A file that describes the project
 
-# Bioconductor 2020 Workshops (real-world example)
+# Bioconductor 2021 Workshops (real-world example)
 
 * [\color{green}{Bioc2020 Workshops}](https://bioc2020.bioconductor.org/workshops)
 * Use an Rmd to generate an md file
 * Run the R code in the chunks
-* Use the md file to publish on the website
+* Use `pkgdown` package to publish to a website
 
 # RMarkdown basics
 
@@ -89,5 +89,7 @@ output: word_document
 
 # OpenCaseStudies Example
 
-* [\color{blue}{Health Expenditures}](https://opencasestudies.github.io/ocs-healthexpenditure/ocs-healthexpenditure.html) webpage
+* [\color{blue}{Health Expenditures}](https://www.opencasestudies.org/ocs-healthexpenditure/) webpage
 * [\color{green}{GitHub repository}](https://github.com/opencasestudies/ocs-healthexpenditure)
+    * See the `index.Rmd` file
+
