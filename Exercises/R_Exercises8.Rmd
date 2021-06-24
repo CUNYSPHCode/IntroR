@@ -8,6 +8,19 @@ output: word_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Setup
+
+First, clone the [Assignment8][1] repository to your own GitHub account
+by forking. Look for the forking button on the GitHub repository page.
+
+You can then modify the repository (namely the `R_Exercises8.Rmd` file)
+and complete the assignment by adding your answers in the appropriate
+place. Do **NOT** rename the file.
+
+## Completing the assignment
+
+Check your work by knitting the document.
+
 1. Create a level 2 header below in Markdown with the name "Answer 1".
 
 
@@ -16,17 +29,23 @@ add their ingredients as sub-items in the list. You should enter at least two
 dishes with two ingredients each.
 
 
-3. Add an R code chunk below. Show the `summary` of the `Orange` dataset. Run a
-linear regression using the `lm` function to predict `circumference` from `age`
-and assign the result. Show the `summary` of the fit object that you assigned. 
+3. Insert an R code chunk below. Show the `summary` of the `Orange` dataset.
+Run a linear regression using the `lm` function to predict `circumference` from
+`age` and assign the result. Show the `summary` of the fit object that you
+assigned.
 
 
-4. Add a RMarkdown format link below to your favorite R reference website.
+4. Add an RMarkdown weblink (in link format) below to your favorite R reference
+website.
+
 
 5. Replace the author field in the `yaml` header with your name and then
 successfully `knit` the RMarkdown document into a Word document.
 
 
-6. Follow the instructions at https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
-to submit your assignment via GitHub to the https://github.com/CUNYSPHCode/IntroR repository.
+6. Follow the [Pull Request instructions on GitHub](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)
+to submit your assignment via GitHub as a Pull Request to the [Assignment8][1]
+repository.
+
+[1]: https://github.com/CUNYSPHCode/Assignment8
 
