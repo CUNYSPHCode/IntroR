@@ -27,6 +27,8 @@ help(package = "notexist")
 
 ## ERROR below when creating a vector
 1, 2, 3, 4, 5
+## SOLUTION
+c(1, 2, 3, 4, 5)
 
 ## Assignment with arrow "<-"
 a <- c(1, 3, 4, 6)

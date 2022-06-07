@@ -7,14 +7,13 @@ output:
     colortheme: dolphin
     fonttheme: structureitalicserif
     theme: CambridgeUS
-  ioslides_presentation: default
 ---
 
 # Introduction to R
 
 Welcome!
 
-# Introductions
+# Introductions on Blackboard DB
 
 * Name
 * Program/Concentration
@@ -24,10 +23,9 @@ Welcome!
 
 # Class structure
 
-* Lecture and short exercises: 90 minutes
-* Break: 10 minutes
-* Exercise: 40 minutes
-* Discussion: 10 minutes
+* Lecture and short exercises: 60 minutes
+* Break: 5 minutes
+* Exercise & Discussion: 25 minutes
 
 # Grading
 
@@ -39,19 +37,20 @@ Welcome!
 
 | Date          | Topics                           | Assessment |
 |---------------|----------------------------------|------------|
-| Tues. June 1  | Introductions                    | -          |
+| Tues. June 7  | Introductions                    | -          |
 |               | About this class                 |            |
 |               | Features of the R language       |            |
 |               | Getting help and troubleshooting |            |
 |               |                                  |            |
-| Thurs. June 3 | Classes and data types           | Exercise   |
+| Thurs. June 9 | Classes and data types           | Exercise   |
 |               | data.frame                       |            |
 |               | Import/Export                    |            |
 |               | subsets                          |            |
 
 # Announcements
 
-* Slack available at \url{https://cunysphcode.slack.com}
+* Gitter Login
+  * https://gitter.im/CUNYSPHCode/IntroR
 * Syllabus available on Blackboard
 * Zoom link in syllabus
 
@@ -133,8 +132,8 @@ R to function as a language
 
 Pseudo code                                   |   Example code
 --------------------------------------------  |   -------------------
-install.packages(packagename)                 | install.packages("dplyr")
-?functionname                                 | ?select
+install.packages("packagename")               | install.packages("dplyr")
+?functionname                                 | ?mean
 ?package::functionname                        | ?dplyr::select
 ? 'Reserved keyword or symbol' \color{blue}{(or backticks)} | ? '%>%'
 ??searchforpossiblyexistingfunctionandortopic | ??simulate
