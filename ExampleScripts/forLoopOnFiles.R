@@ -1,9 +1,9 @@
-datalocation <- "S:/github/IntroR/Data"
+datalocation <- "~/gh/IntroR/Data"
 
 myfilelist <- list.files(datalocation, pattern = ".csv", full.names = TRUE)
 
-for (i in myfilelist) {
-  currentfile <- read.csv(i, header = TRUE)
-  filedata <- c(basename(i), ncol(currentfile))
+for (file in myfilelist) {
+  currentfile <- read.csv(file, header = TRUE)
+  filedata <- c(basename(file), ncol(currentfile))
   print(filedata)
 }
