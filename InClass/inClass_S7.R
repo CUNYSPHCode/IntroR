@@ -1,28 +1,3 @@
-# basic assignment
-var <- 1:10
-
-# creating a simple vector
-c(1, 2, 3)
-c("blue", "red", "green")
-c(TRUE, FALSE, FALSE)
-
-# vectorized calculations
-var + 2
-
-## >=, <=, ==, !=, >, <
-## ?Comparison   /   logical operators
-5 == 3
-1:4 == 3
-5 > 3
-TRUE & FALSE
-TRUE | FALSE
-1:5 > 2
-"a" %in% letters
-letters %in% "a"
-letters %in% c("a", "b", "c")
-
-# list objects in the global environment
-ls()
 
 # use mtcars as the data example
 data("mtcars")

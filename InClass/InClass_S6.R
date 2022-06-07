@@ -1,3 +1,28 @@
+?duplicated
+
+mtcars2x <- rbind(mtcars, mtcars)
+
+duplicated(mtcars2x)
+
+dim(mtcars2x)
+nrow(mtcars2x)
+
+length(duplicated(mtcars2x))
+
+nondup <- mtcars2x[ !duplicated(mtcars2x), ]
+
+dim(nondup)
+
+
+
+
+
+
+
+
+
+
+
 
 frutti <- data.frame(
   fruits = c("banana", "pineapple", "tomato")
@@ -10,12 +35,21 @@ prezzi <- data.frame(
 dim(frutti)
 dim(prezzi)
 
-cbind(frutti, prezzi)
+fruitsA <- cbind(frutti, prezzi)
 
 extrafruits <- data.frame(
-  fruits = c("cherry", "grapes", "oranges", "watermelon"),
-  price = rep(1, 4)
+  fruits2021 = c("cherry", "grapes", "oranges", "watermelon"),
+  price = rep(1, times = 4)
 )
+
+extrafruits
+
+# cbind(fruitsA, extrafruits)
+rbind(fruitsA, extrafruits)
+
+
+
+
 dim(extrafruits)
 
 rbind(frutti, extrafruits)
@@ -24,13 +58,27 @@ rbind(frutti, extrafruits)
 
 merge(frutti, extrafruits, by = "fruits", all = TRUE)
 
+merge(x = frutti, y = extrafruits,
+      by.x = "fruits2020", by.y = "fruits2021", all = TRUE)
+
+merge(x = frutti, y = extrafruits,
+      by.x = "fruits2020", by.y = "fruits2021")
+
 merge(extrafruits, frutti, by = "fruits", all = FALSE)
 
 library(dplyr)
 library("dplyr")
+frutti <- data.frame(
+  fruits = c("banana", "pineapple", "tomato")
+)
+extrafruits <- data.frame(
+  fruits = c("cherry", "grapes", "oranges", "watermelon"),
+  price = rep(1, times = 4)
+)
 
 full_join(frutti, extrafruits, by = "fruits")
 
+?`dplyr-package`
 
 
 
@@ -80,17 +128,29 @@ aggregate(x = mtcars$mpg,
 
 getwd()
 
+file.exists("Data/specdata/001.csv")
+file.choose()
+
 spec1 <- read.csv("Data/specdata/001.csv", header = TRUE)
+
+
 head(spec1)
 dim(spec1)
 summary(spec1$sulfate)
 
 folder <- "Data/specdata/"
 
-mean_sulfate <- function(folder) {
+files <- list.files("Data/specdata", pattern = ".csv", full.names = TRUE)
+spec <- read.csv("Data/specdata/001.csv", header = TRUE)
+head(spec)
+mean(spec$sulfate, na.rm = TRUE)
+mean_stat <- "A"
 
-  files <- list.files(folder, pattern = "*.csv", full.names = TRUE)
+mean_sulfate <- function(folder = "Data/specdata") {
 
+  files <- list.files(folder, pattern = ".csv", full.names = TRUE)
+  ## allocate and fill
+  # mean_stat <- rep(0, times = length(files))
   mean_stat <- vector(mode = "numeric", length = length(files))
 
   names(mean_stat) <- basename(files)
@@ -98,12 +158,13 @@ mean_sulfate <- function(folder) {
   for (i in seq_along(files)) {
     monitor_df <- read.csv(files[i], header = TRUE)
     sulfate_levels <- monitor_df[["sulfate"]]
-    mean_stat[i] <- round(mean(sulfate_levels, na.rm = TRUE), 2)
+    mean_stat[i] <- round(mean(sulfate_levels, na.rm = TRUE), digits = 2)
   }
 
-  mean_stat
+  return(mean_stat)
 }
 
+mean_sulfate(folder = "Data/specdata/")
 
 mean_readings <- mean_sulfate("Data/specdata/")
 
@@ -227,6 +288,7 @@ CrossTable(mydata$admit2, mydata$rank2, prop.c = FALSE, prop.t = FALSE)
 mylogit <- glm(admit2 ~ gre + gpa + rank2, data = mydata, family = "binomial")
 summary(mylogit)
 
+library(broom)
 resultsTab <- tidy(mylogit)
 resultsTab$OR <- exp(resultsTab$estimate)
 resultsTab

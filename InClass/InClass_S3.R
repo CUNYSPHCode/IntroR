@@ -120,14 +120,23 @@ table(mtcars$cyl)
 var <- mtcars[ mtcars$cyl == 4, ]
 mean(var$mpg)
 
+data("mtcars")
+head(mtcars)
+
 aggregate(mpg ~ cyl, data = mtcars, FUN = mean)
+aggregate(. ~ cyl, data = mtcars, FUN = mean)
+
+aggregate(mtcars$mpg, by = list(mtcars$cyl), FUN = mean)
 
 ?tapply
 
 tapply(X = mtcars$mpg, INDEX = mtcars$cyl, FUN = mean)
 
-mtcars %>% group_by(cyl) %>% summarise( mean_mpg = mean(mpg) )
+mtcars %>%
+  group_by(cyl) %>%
+  summarise( mean_mpg = mean(mpg) )
 
+summarise( group_by(mtcars, cyl), mean_mpg = mean(mpg) )
 
 mtcars$newvar <- mtcars$mpg + 5
 head(mtcars)

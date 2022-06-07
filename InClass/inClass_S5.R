@@ -75,6 +75,10 @@ title(main = "Odds Ratios for CVD Risk by Country")
 dev.off()
 
 
+plot(mtcars$mpg, mtcars$hp,
+     xlab = "Miles Per Gallon (mpg)", ylab = "Gross Horsepower",
+     main = "MPG by HP", pch = 18, cex = 3)
+
 ## LATTICE
 
 data(mtcars)
@@ -87,7 +91,7 @@ mtcars$cyl.f <- factor(mtcars$cyl, levels = c(4,6,8),
 mtcars$gear.f
 
 library(lattice)
-
+head(mtcars)
 bwplot(cyl.f ~ mpg | gear.f, data = mtcars,
    ylab="Cylinders", xlab="Miles per Gallon",
    main="Mileage by Cylinders and Gears",
@@ -96,12 +100,14 @@ bwplot(cyl.f ~ mpg | gear.f, data = mtcars,
 
 data(quakes)
 
+## with jitter.data
 stripplot(depth ~ factor(mag), data = quakes,
     jitter.data = TRUE, alpha = 0.6,
     main = "Depth of earthquake epicenters by magnitude",
     xlab = "Magnitude (Richter)",
     ylab = "Depth (km)")
 
+## without the jitter.data
 stripplot(depth ~ factor(mag), data = quakes,
           alpha = 0.6,
           main = "Depth of earthquake epicenters by magnitude",
@@ -166,7 +172,7 @@ df
 
 df$b[df$b == -99] <- NA
 df$c[df$c == -99] <- NA
-
+df
 # We can try a loop..
 # Regenerate the data
 
@@ -176,7 +182,22 @@ df$c[df$c == -99] <- NA
 seq_along(df)
 1:3
 
-# df[, 1][ df[, 1] == -99 ] <- NA
+df[, 1][ df[, 1] == -99 ] <- NA
+
+df[, i][ df[, i] == -99 ] <- NA
+
+df[[1]][ df[[1]] == -99 ] <- NA
+
+df[["a"]][ df[["a"]] == -99 ] <- NA
+df$a[df$a == -99] <- NA
+names(df)
+
+for (colname in names(df)) {
+  df[[colname]][ df[[colname]] == -99 ] <- NA
+  # df[, colname][ df[, colname] == -99 ] <- NA
+}
+
+mtcars[, c("mpg", "hp")]
 
 for (i in seq_along(df)) {
 
@@ -261,6 +282,14 @@ fix_missing <- function(a_vector) {
     return(a_vector)
 }
 
+df[["a"]]
+df[, "a"]
+
+dplyr::select(df, a)
+
+fix_missing(a_vector = df$a)
+fix_missing(a_vector = df$b)
+
 ## function name and assignment operator
 fix_missing <-
 ## 'function' keyword ## function argument(s)
@@ -280,7 +309,7 @@ fix_missing(df$d)
 ## looking at examples and understanding them
 
 ## If you're using windows, drives will have letters
-## taken from the Coursera Data Science Specialization
+## Data from JHU's Data Science Specialization on Coursera
 mydatalocation <- "E:/data/specdata/"
 
 list.files(mydatalocation, pattern = ".csv", full.names = TRUE)

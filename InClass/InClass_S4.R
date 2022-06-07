@@ -16,13 +16,41 @@ library(nycflights13)
 library(dplyr)
 
 head(flights)
-
+dim(flights)
 table(flights$carrier)
 
-summary_flights <- flights %>% group_by(carrier) %>%
-  summarize(avg_depdelay = mean(dep_delay, na.rm = TRUE),
-    count = n()) %>%
-  left_join(airlines) %>% arrange(avg_depdelay)
+unique(flights$carrier)
+length(unique(flights$carrier))
+
+head(airlines)
+
+summary_flights <-
+  flights %>%
+  group_by(carrier) %>%
+  summarize(
+    avg_depdelay = mean(dep_delay, na.rm = TRUE),
+    count = n()
+  ) %>%
+  left_join(airlines) %>%
+  arrange(avg_depdelay)
+
+left_join(flights, airlines)
+
+flights$CarrierName <-
+  airlines[ match(flights$carrier, airlines$carrier), "name"][[1]]
+
+flights
+
+
+length(flights$carrier)
+
+flights %>% group_by(carrier)
+
+group_by(flights, carrier)
+
+
+library(tidycensus)
+
 
 data("iris")
 install.packages("tidyr")
@@ -36,8 +64,11 @@ longiris %>% group_by(Species, type, dimension)
 # Graphing
 
 # from tidyr
-relig_income %>% gather(income, n, -religion) %>%
-    group_by(income) %>% summarize(totals = sum(n))
+relig_income %>%
+  gather(income, n, -religion) %>%
+  group_by(income) %>%
+  summarize(totals = sum(n)) %>%
+  arrange(totals)
 
 # Generate random numbers
 rating <- rnorm(200)
