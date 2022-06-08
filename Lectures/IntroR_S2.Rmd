@@ -7,7 +7,6 @@ output:
     colortheme: dolphin
     fonttheme: structureitalicserif
     theme: CambridgeUS
-  ioslides_presentation: default
 ---
 
 # Announcements
