@@ -43,29 +43,44 @@ object called `myFaves`.
 
 ```
 
-4. Create an ordered factor from the `myFaves` character vector by arranging
-the levels argument in the order from least to greatest in personal preference. 
+4. Create an ordered factor from the `myFaves` character vector (with the
+`ordered` argument) by arranging the levels argument in the order from _least_
+to _greatest_ in personal preference.
 
 ```{r}
 
 ```
 
-5. Load the `mtcars` dataset by running the `data()` function on it. How many
-columns does the data have? How many rows? What function do you use to look at
-the car makes and models?
+5. Load the `mtcars` dataset by running the `data()` function on it, i.e.,
+`data("mtcars")`.
+
+How many columns does the data have?
 
 ```{r}
 
 ```
 
-6. Use a series of **20** random numbers with a mean of **20** and a standard
-deviation of **5** to create a matrix with **4** rows.
+How many rows?
 
 ```{r}
 
 ```
 
-7. Create a list of 2 vectors (a character vector of letters a, b, and c and a
+What function do you use to look at the car makes and models?
+
+```{r}
+
+```
+
+6. Create a series of **20** random numbers with a mean of **20** and a standard
+deviation of **5** using the `rnorm` function and then create a matrix with
+**4** rows.
+
+```{r}
+
+```
+
+7. Create a `list` of 2 vectors (a character vector of letters a, b, and c and a
 numeric vector from one to ten) with names `element1` and `element2`.
 
 ```{r}
