@@ -12,11 +12,12 @@ output:
 
 # Announcements
 
-* Fill out the registration form on BB
+* Login to Gitter
+  * \url{https://gitter.im/CUNYSPHCode/IntroR}
 
 # Notes on last lecture
 
-* Pull up documentation
+* Pull up documentation (`help`, `?`)
 * Use `c()` to create a 'vector'
 * '+' in the console indicates 'waiting for additional input...'
 * relative vs absolute paths
