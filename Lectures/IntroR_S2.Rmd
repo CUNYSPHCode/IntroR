@@ -151,7 +151,7 @@ of a `data.frame`
 # Importing and Exporting Data
 
 * Recognizing file types
-    * File extensions (e.g., `.tsv`, `.csv`, `.xlsx`, `.txt`, `.sav`, `.sasb7dat`)
+    * File extensions (e.g., `.tsv`, `.csv`, `.xlsx`, `.txt`, `.sav`, `.sas7bdat`)
 * Show file extensions on Windows
     * Windows File Explorer > View tab > Show File Extensions
 * Downloading files from the internet
