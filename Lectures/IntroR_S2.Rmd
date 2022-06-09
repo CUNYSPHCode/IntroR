@@ -36,7 +36,7 @@ output:
     * know how to get help (use `?functionname` or `help("functionname")`)
     * Finding help and troubleshooting are critically important
         * check for examples online
-        * ask on the #programming Slack channel
+        * ask on the Gitter channel
     * Help pages can be intimidating but useful
 
 # Today's lecture overview

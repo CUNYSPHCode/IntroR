@@ -1,3 +1,52 @@
+partytable <- data.frame(
+    drinks = c("beer", "water", NA),
+    who = c("Mary", "Joe", "Jane"),
+    quantity = c(24, 12, 10),
+    alcoholic = c(TRUE, FALSE, TRUE)
+)
+
+?`NA`
+?matrix
+matrix(
+    data = 1:12, nrow = 3, ncol = 4
+)
+
+# install.packages("tibble")
+library("tibble")
+?tibble
+as_tibble(partytable)
+dim(partytable)
+example(tibble)
+
+
+myfirstlist <- list(
+    c(1, 3, 5),
+    c("one", "three", "five", "zero"),
+    partytable,
+    help
+)
+
+class( c("1", "2", "3") )
+class(
+    as.numeric(c("1", "2", "3"))
+)
+
+as.logical( c(1, 0, 2, -1) )
+
+?readr::type_convert
+
+a <- readr::type_convert(
+    df = data.frame(
+        myvariable = c("1", "2", "3")
+    )
+)
+class(a$myvariable)
+
+?factor
+factor(c("a", "b", "c", "a", "a"))
+
+
+
 ?c
 c(1, 2, 3, 4, 5)
 1:5

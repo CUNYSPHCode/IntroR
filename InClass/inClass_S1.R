@@ -91,9 +91,33 @@ list.files("~/github/IntroR/Data/")
 ## shortcut to home directory '~'
 normalizePath("~")
 
+
+
+
 ## read a text file from your current working directory
 babies <- read.table("babies.txt")
 head(babies)
+
+## relative path
+file.exists("Data/babies.txt")
+babies <- read.table("Data/babies.txt", header = TRUE)
+head(babies)
+colnames(babies)
+?read.table
+
+## absolute path
+file.choose()
+read.table("/home/rstudio/gh/IntroR/Data/babies.txt", header = TRUE)
+
+library(readr)
+mice <- read_csv("Data/femaleMiceWeights.csv")
+
+read.csv("Data/femaleMiceWeights.csv", header = TRUE)
+
+library(haven)
+read_spss()
+help(package = "haven")
+
 
 ## use headers = TRUE
 babies <- read.table("babies.txt", header = TRUE)
@@ -102,3 +126,19 @@ head(babies)
 
 # install.packages()
 # library()
+
+
+partytable <- data.frame(
+    drinks = c("beer", "water", NA),
+    who = c("Mary", "Joe", "Jane"),
+    quantity = c(24, 12, 10),
+    alcoholic = c(TRUE, FALSE, TRUE)
+)
+partytable
+## relative
+write.csv(x = partytable, file = "Data/partytable.csv")
+## absolute / full path 
+write.csv(
+    x = partytable,
+    file = "/home/rstudio/gh/IntroR/Data/partytable2.csv"
+)
