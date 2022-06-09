@@ -1,5 +1,7 @@
 # Introduction to R for Data Management and Analysis
 
+[![Join the chat at https://gitter.im/CUNYSPHCode/IntroR](https://badges.gitter.im/CUNYSPHCode/IntroR.svg)](https://gitter.im/CUNYSPHCode/IntroR?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 * Slides will be posted on BlackBoard
 * Source code for such slides can be found here
 
