@@ -1,19 +1,23 @@
 ## releveling factors
 
-fruit <- c("banana", "strawberry", "kiwi")
-class(fruit)
-fruitfactor <- factor(fruit)
-class(fruitfactor)
 
-contrasts(fruitfactor)
-levels(fruitfactor)
 
-fruitfactor <- relevel(fruitfactor, ref = "kiwi")
-contrasts(fruitfactor)
+food <- c("banana", "strawberry", "tomato", "squash", "pumpkin")
+class(food)
+categ <- c("fruit", "fruit", "fruit", "veggie", "veggie")
+data.frame(
+    name = food, category = categ
+)
+categfactor <- factor(categ)
+class(categfactor)
 
-factor(fruit, ordered = TRUE)
-var <- factor(fruit, levels =  c("banana", "strawberry", "kiwi"), ordered = TRUE)
+contrasts(categfactor)
+levels(categfactor)
 
+categfactor <- relevel(categfactor, ref = "veggie")
+contrasts(categfactor)
+
+factor(categ, ordered = TRUE)
 
 data("mtcars")
 head(mtcars)
@@ -74,7 +78,7 @@ mtcars$am
 mtcars$am == 1
 mtcars[ mtcars$am == 1 , ]
 
-mtcars$am == 1 
+mtcars$am == 1
 mtcars$mpg >= 30
 
 ## & AND

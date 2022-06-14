@@ -17,11 +17,14 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Notes on the Thursday's lecture
 
-* data classes: tabular / non-tab, vectors, lists, and matrices
-* assignment `<-`
+* assignment operator `<-` (in English: "gets")
 * extract vector from `data.frame` with `$`
-* converting between data types (`as.numeric`)
+* converting between data types (e.g., `as.numeric`)
+  * a.k.a. coercion (`as.`**classname**)
 * importing and exporting data
+  * read and write functions
+* general data categories: tabular / non-tabular (unstructured)
+* class names: vector, list, and matrix
 
 # Lists
 
@@ -37,16 +40,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Classes (bicycle analogy)
     * can have particular operations
-    * some functions are similar across classes
+    * some functions (methods) are similar across classes
     * identify a class by using the `class` function
-* Assignment creates objects and puts them in the .GlobalEnv (see `ls()`)
+* Assignment creates objects and puts them in the `.GlobalEnv` (see `ls()`)
 * Factors and levels
     * Changing the levels of a factor
-* `data.frames` and `lists` - `fruit_stand` dataset
-* coercion (`as.`**classname**)
+* `data.frames` and `lists`
 * Import and Export data
     * Know your paths!
-    * Most export functions include keyword "write" (i.e., `write.table`)
+    * Most export functions include "write" (i.e., `write.table`)
+    * Most import functions include "read" (i.e., `read.csv`)
     * Use relative paths for Rmd files
         * Put the data and file in the same folder
     * You can use absolute paths for interactive sessions (console)
@@ -61,7 +64,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Motivation (cont.)
 
-* Learning R requires practice
+* Learning R requires practice (doing)
 * Persistence
 * Find fun exercises (Trello Board)
 * Follow along with the live coding examples
@@ -74,7 +77,9 @@ knitr::opts_chunk$set(echo = FALSE)
 # Expectations (cont.)
 
 * Exposure to the R language
+  * vocabulary and common verbs
 * Basics of troubleshooting and debugging
+  * Using examples, documentation
 * Learning R won't happen overnight
 
 # Data Manipulation Overview
@@ -96,6 +101,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Subsetting
 
+* Reduce dimensionality of data (rows or columns)
 * can be done with either the `[` bracket or tidyverse operations
 * Think about dimensions before doing the subset
 * Think in terms of verbs (slice, select)
@@ -116,14 +122,15 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Uses the `~` for denoting a formula
     * `y ~ m*x + b`
-* Good for specifying linear models
+* Good for working with statistical models / tables
 * Mainly used in base R code
 * Useful for creating crosstabs!
     * `xtabs(A ~ B, data = blue)`
 * Look out for `formula` class inputs
     * see `?xtabs`
     * see `?t.test`
-* Usually requires a `data` input / argument for the function
+* Functions with `formula` inputs usually have a `data` argument
+    * R needs to know where the variables can be found
 
 # Useful conditions for subsetting
 
