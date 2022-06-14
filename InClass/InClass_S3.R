@@ -2,12 +2,38 @@
 
 
 
-food <- c("banana", "strawberry", "tomato", "squash", "pumpkin")
+food <- c("banana", "strawberry", "tomato", "squash", "pumpkin", "kiwi")
 class(food)
-categ <- c("fruit", "fruit", "fruit", "veggie", "veggie")
-data.frame(
+categ <- c("fruit", "fruit", "fruit", "veggie", "veggie", "fruit")
+market <- data.frame(
     name = food, category = categ
 )
+
+class(market$category)
+
+market$category == "fruit"
+table(market$category)
+
+?`==`
+?'=='
+
+market[ market$category == "fruit" , ]
+
+market[ , 1, drop = FALSE]
+market[ , 1]
+
+market[, "name", drop = FALSE]
+market[, "category", drop = FALSE]
+
+market[, c(TRUE, FALSE), drop = FALSE]
+
+names(market) == "name"
+startsWith(names(market), "na")
+c("names0", "names1", "names2", "names3")
+
+# Unstable to changes in market
+# market[ c(TRUE, TRUE, TRUE, FALSE, FALSE) , ]
+
 categfactor <- factor(categ)
 class(categfactor)
 
@@ -19,8 +45,24 @@ contrasts(categfactor)
 
 factor(categ, ordered = TRUE)
 
+
+
+
+data()
 data("mtcars")
 head(mtcars)
+
+?order
+order(mtcars$mpg)
+cbind(mtcars$mpg, order(mtcars$mpg))
+
+mtcars[order(mtcars$mpg, mtcars$wt), ]
+
+dplyr::arrange(mtcars, mpg, wt)
+?dplyr::arrange
+
+
+
 
 ## subset rows
 mtcars$cyl == 8
@@ -127,7 +169,11 @@ mean(var$mpg)
 data("mtcars")
 head(mtcars)
 
+table(mtcars$cyl)
+nrow(mtcars)
+dim(mtcars)
 aggregate(mpg ~ cyl, data = mtcars, FUN = mean)
+# aggregate(mpg ~ cyl, FUN = mean)
 aggregate(. ~ cyl, data = mtcars, FUN = mean)
 
 aggregate(mtcars$mpg, by = list(mtcars$cyl), FUN = mean)
@@ -136,8 +182,10 @@ aggregate(mtcars$mpg, by = list(mtcars$cyl), FUN = mean)
 
 tapply(X = mtcars$mpg, INDEX = mtcars$cyl, FUN = mean)
 
-mtcars %>%
-  group_by(cyl) %>%
+library(dplyr)
+
+mtcars |>
+  group_by(cyl) |>
   summarise( mean_mpg = mean(mpg) )
 
 summarise( group_by(mtcars, cyl), mean_mpg = mean(mpg) )
@@ -379,13 +427,29 @@ arrange(aq, Temp)
 arrange(aq, -Temp)
 
 ## Checking for duplicated rows (none found)
+
+data("airquality")
+head(airquality)
+dim(airquality)
+
 duplicated(airquality)
 duplicated(
-    rbind(airquality, airquality[5, ])
+    rbind(airquality, airquality[1:5, ])
 )
 head(airquality)
 
+table( is.na(airquality$Ozone) )
+
+logicmatrix <- is.na(airquality)
+any(logicmatrix[1, ])
+any(logicmatrix[2, ])
+any(logicmatrix[3, ])
+any(logicmatrix[4, ])
+any(logicmatrix[5, ])
+
 unique(airquality$Day)
+
+airquality[complete.cases(airquality), ]
 
 ?complete.cases
 dim(airquality)
@@ -437,11 +501,17 @@ rownames(mtcars)
 
 shuffle <- sample(nrow(mtcars))
 
-A <- mtcars[shuffle, 5:9]
-B <- mtcars[, 1:4]
+
+dput( names(mtcars)[5:9] )
+dput( names(mtcars)[1:4] )
+
+A <- mtcars[shuffle, c("drat", "wt", "qsec", "vs", "am")]
+B <- mtcars[, c("mpg", "cyl", "disp", "hp")]
 
 
 merge(x = A, y = B, by = "row.names")
+merge(x = B, y = A, by = "row.names")
+head(mtcars)
 
 # merge(x = A, y = B, by.x = A$ID, by.y = B$ID2)
 # merge(x = A, y = B, by = "IDvar")
