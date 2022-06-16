@@ -1,12 +1,9 @@
 ## generating data.frame
-
 data.frame()
 data.frame(column1 = 1:3, column2 = c("a", "b", "c"))
 
 ## ERROR
 data.frame(column1 = 1:3, column2 = c("a", "b", "c", "d"))
-
-options("stringsAsFactors")
 
 data.frame(column1 = 1:3, column2 = c("a", "b", "c"),
     stringsAsFactors = FALSE)
@@ -25,13 +22,13 @@ length(unique(flights$carrier))
 head(airlines)
 
 summary_flights <-
-  flights %>%
-  group_by(carrier) %>%
+  flights |>
+  group_by(carrier) |>
   summarize(
     avg_depdelay = mean(dep_delay, na.rm = TRUE),
     count = n()
-  ) %>%
-  left_join(airlines) %>%
+  ) |>
+  left_join(airlines) |>
   arrange(avg_depdelay)
 
 left_join(flights, airlines)
@@ -44,7 +41,7 @@ flights
 
 length(flights$carrier)
 
-flights %>% group_by(carrier)
+flights |> group_by(carrier)
 
 group_by(flights, carrier)
 
@@ -53,25 +50,27 @@ library(tidycensus)
 
 
 data("iris")
-install.packages("tidyr")
+# install.packages("tidyr")
 library(tidyr)
 longiris <-
-    iris %>%
-    gather(key = measure, n, Sepal.Length:Petal.Width) %>%
+    iris |>
+    gather(key = measure, n, Sepal.Length:Petal.Width) |>
   separate(measure, c("type", "dimension"))
 
-longiris %>% group_by(Species, type, dimension)
+longiris |> group_by(Species, type, dimension)
 # Graphing
 
 # from tidyr
-relig_income %>%
-  gather(income, n, -religion) %>%
-  group_by(income) %>%
-  summarize(totals = sum(n)) %>%
+relig_income |>
+  gather(income, n, -religion) |>
+  group_by(income) |>
+  summarize(totals = sum(n)) |>
   arrange(totals)
 
 # Generate random numbers
 rating <- rnorm(200)
+
+hist(rating, breaks = 40)
 
 head(rating)
 
@@ -81,7 +80,6 @@ dat <- data.frame(
     cond = factor(rep(c("A", "B"), each = 200)),
     rating = c(rating, rating2))
 
-hist(rating)
 
 hist(rating, breaks = 20, col = "#CCCCFF", freq = FALSE)
 
@@ -90,18 +88,29 @@ dev.off()
 
 ## Scatterplots
 set.seed(777)
-newData <- data.frame(a = 1:20 + rnorm(20, sd=3),
-                  b = 1:20 + rnorm(20,sd=3),
-                  cc = 1:20 + rnorm(20,sd=3))
+newData <- data.frame(
+    a = 1:20 + rnorm(20, sd=3),
+    b = 1:20 + rnorm(20,sd=3),
+    c = 1:20 + rnorm(20,sd=3)
+)
+
+mtcars
+
+plot(mtcars$disp, mtcars$hp,
+     ylab = "Horsepower (HP)", xlab = "Displacement in^3",
+     main = "Displacement by HP"
+)
+fit <- lm(hp ~ disp, data = mtcars)
+abline(fit, col = "red", lwd = 3)
+
+
+
 
 head(newData)
 
 plot(newData$a, newData$b)
-
 plot(b ~ a, data = newData)
-
 fitLine <- lm(b ~ a, data = newData)
-
 abline(fitLine, col = "blue", lwd = 3)
 
 ## lowess smoothing
@@ -118,12 +127,13 @@ segments(x0 = 5, x1 = 15, y0 = 40, y1 = 100)
 ?segments
 
 ## Scatterplot Matrix
-
-plot(newData[, 1:3])
+## In base R
+pairs(mtcars[, 1:3])
+## In base R
+plot(mtcars[, 1:3])
 
 library(psych)
-
-pairs.panels(newData)
+pairs.panels(mtcars[, 1:3])
 
 psych::pairs.panels(newData)
 
@@ -145,6 +155,7 @@ abline(h = 22)
 
 ## boxplot with dots
 library(ggplot2)
+data("ToothGrowth")
 ToothGrowth$dose <- as.factor(ToothGrowth$dose)
 
 p <- ggplot(ToothGrowth, aes(x=dose, y=len)) +
@@ -232,3 +243,5 @@ pdf("filename.pdf", width = 5, height = 5)
 
 ?svg
 ?png
+
+?ggplot2::ggsave

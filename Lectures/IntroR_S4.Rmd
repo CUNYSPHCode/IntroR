@@ -65,17 +65,21 @@ flights |> group_by(carrier) |>
 
 ```{r, echo = TRUE, message = FALSE}
 library(tidyr); library(tidycensus)
+head(us_rent_income)
+```
 
-us_rent_income
+# Reshaped `us_rent_income`
 
+```{r, echo = TRUE, message = FALSE}
 us_rent_income |>
-  pivot_wider(names_from = variable, values_from = c(estimate, moe))
+  pivot_wider(names_from = variable,
+    values_from = c(estimate, moe)) |> head(4)
 ```
 
 # Reshaping using `pivot_longer`
 
 ```{r, echo = TRUE}
-relig_income
+head(relig_income)
 ```
 
 # Long dataset
