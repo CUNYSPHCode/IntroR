@@ -8,6 +8,7 @@ output:
     fonttheme: structureitalicserif
     theme: CambridgeUS
   ioslides_presentation: default
+urlcolor: blue
 ---
 
 ```{r setup, include = FALSE, echo = FALSE}
@@ -178,6 +179,5 @@ the file.
 
 * [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/)
     * Claus O. Wilke
-* [R Graphics Cookbook](http://www.cookbook-r.com/Graphs/)
+* [R Graphics Cookbook, 2nd Ed.](https://r-graphics.org/)
     * Winston Chang
-
