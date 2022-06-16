@@ -18,39 +18,11 @@ knitr::opts_chunk$set(echo = FALSE)
 # Announcements
 
 * Additional topics to cover
-    * Formulas
-    * Aggregating
     * Reshaping your data
-* Piping operator `magrittr::%>%` or `|>` (new)
+* Piping operator `magrittr::%>%` or `|>` (new; R > 4.2)
     * Takes the LHS as input to the RHS
     * Readable
     * Allows easy command chaining
-
-# Formula notation in R
-
-* Uses the `~` for denoting a formula
-    * `y ~ m*x + b`
-    * on the left, the outcome (`y`)
-    * on the right, the variables (`x`s)
-* Good for specifying linear models
-* Mainly used in base R code
-* Useful for creating crosstabs!
-    * `xtabs(~ A + B, data = blue)`
-* Look for `formula` class inputs
-    * see `?xtabs`
-    * see `?t.test`
-    * see `?lm`
-* Usually requires a `data` input / argument in a supported function
-
-# Sorting and aggregating data
-
-* `order` function - which rows are lowest to highest?
-* tidyverse: `arrange` - returns the arranged data
-* `aggregate` - summarize data by a categorical variable
-    * `aggregate(mtcars$mpg, by = list(mtcars$cyl), FUN = "mean")`
-* `tapply`
-    * `tapply(mtcars$mpg, mtcars$cyl, mean)`
-* tidyverse: `group_by` and `summarize`
 
 # Outline for today
 
@@ -75,12 +47,11 @@ extracted from a given body of data. -John Tukey
 # Using the `nycflights13` dataset
 
 ```{r, echo = TRUE, message = FALSE, warning = FALSE}
-library(nycflights13)
-library(dplyr)
-flights %>% group_by(carrier) %>%
+library(nycflights13); library(dplyr)
+flights |> group_by(carrier) |>
   summarise(avg_depdelay = mean(dep_delay, na.rm = TRUE),
-    count = n()) %>% left_join(airlines) %>%
-      arrange(avg_depdelay) %>% head
+      count = n()) |> left_join(airlines) |>
+      arrange(avg_depdelay) |> head()
 ```
 
 # Reshaping data
@@ -97,7 +68,7 @@ library(tidyr); library(tidycensus)
 
 us_rent_income
 
-us_rent_income %>%
+us_rent_income |>
   pivot_wider(names_from = variable, values_from = c(estimate, moe))
 ```
 
@@ -110,8 +81,8 @@ relig_income
 # Long dataset
 
 ```{r, echo = TRUE}
-relig_income %>% pivot_longer(-religion, names_to = "income",
-  values_to = "count") %>% head
+relig_income |> pivot_longer(-religion, names_to = "income",
+  values_to = "count") |> head()
 ```
 
 * `-religion` - don't include religion when reshaping
@@ -126,17 +97,17 @@ relig_income %>% pivot_longer(-religion, names_to = "income",
 # Using `group_by` (1)
 
 ```{r, echo = TRUE}
-relig_income %>% pivot_longer(-religion,
-  names_to = "income", values_to = "count") %>%
-  group_by(income) %>% summarise(totals = sum(count))
+relig_income |> pivot_longer(-religion,
+  names_to = "income", values_to = "count") |>
+  group_by(income) |> summarise(totals = sum(count))
 ```
 
 # Using `group_by` (2)
 
 ```{r, echo = TRUE}
-relig_income %>% pivot_longer(-religion,
-  names_to = "income", values_to = "count") %>%
-  group_by(religion) %>% summarise(totals = sum(count))
+relig_income |> pivot_longer(-religion,
+  names_to = "income", values_to = "count") |>
+  group_by(religion) |> summarise(totals = sum(count))
 ```
 
 # Plotting and Graphing
