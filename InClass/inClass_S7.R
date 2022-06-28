@@ -21,7 +21,7 @@ library(haven)
 help(package = "haven")
 
 file.exists("S:/github/IntroSAS/datasets/classds.sas7bdat")
-classds <- read_sas("~/IntroSAS/datasets/classds.sas7bdat")
+classds <- read_sas("~/courses/IntroSAS/datasets/classds.sas7bdat")
 normalizePath("~")
 getwd()
 "../IntroSAS/datasets/classds.sas7bdat"
@@ -37,9 +37,9 @@ classds2 <- readr::type_convert(classds)
 # as.numeric(classds$boro_char)
 
 # working with strings
-grep("boro", names(classds), ignore.case = TRUE, value = TRUE)
-
-classds[, grep("boro", names(classds), ignore.case = TRUE, value = FALSE)]
+boro_vars <- grep("boro", names(classds), ignore.case = TRUE, value = TRUE)
+# grep("[Bb]$", names(classds), value = TRUE)
+classds[, boro_vars]
 
 grep("boro", names(classds), ignore.case = TRUE, value = FALSE)
 ?grep
@@ -65,6 +65,28 @@ classds$BOROUGH == 99
 classds[classds$BOROUGH == 99, "BOROUGH"] <- NA
 table(classds$BOROUGH, useNA = "always")
 
+plyr::mapvalues(classds$BOROUGH, from = 99, to = NA)
+
+head(classds)
+sapply(classds, FUN = function(x) {
+  sum(x == 99, na.rm = TRUE)
+})
+
+table(is.na(classds$LOCATION))
+
+cleanvars <- c("gender", "BOROUGH", "boro_char", "race")
+cleanup <- classds[, cleanvars]
+cleaned <- lapply(cleanup, function(x) {
+  plyr::mapvalues(x = x, from = 99, to = NA)
+})
+newdata <- as.data.frame(cleaned)
+names(newdata) <- paste0(cleanvars, "_R")
+head(newdata)
+
+head(cbind.data.frame(classds, newdata))
+
+
+
 classds$BOROUGH != 99
 
 bronx1 <- classds[classds$BOROUGH == 1, ]
@@ -82,7 +104,9 @@ classds[, borovars]
 classds[, c("gender", "race", "AGE", "ZIP")]
 
 ## dplyr::select
-dplyr::select(classds, gender, race, AGE, ZIP)
+dplyr::select(classds, "gender", "race", "AGE", "ZIP")
+# dplyr::select(classds, uniqueid:race)
+
 
 ## reshaping
 ## see lecture 4 examples
