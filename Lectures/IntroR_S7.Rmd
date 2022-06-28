@@ -18,7 +18,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * `lm` and friends
 * `t-test` with a formula vs vector
-* object names with a period (`.`)
+* object names with a period (`.`) vs underscore (`_`)
+  * method.class (e.g., `cbind.data.frame`)
 * 'apply'ing over a `data.frame`
 
 # Today's outline
@@ -26,7 +27,8 @@ knitr::opts_chunk$set(echo = FALSE)
 * General Tips
 * Troubleshooting
 * Exploratory functions
-* GitHub basics
+* Contributing to Open Source Projects
+  * GitHub basics
 * Data Analysis Workflow
 
 # General R Learning Tips
@@ -40,30 +42,31 @@ knitr::opts_chunk$set(echo = FALSE)
     * Mock examples
     * Answer your own questions in the console
     * Search for answers online
-    * Follow online example by running them
+    * Follow online examples by running them
 * Make use of online resources, help pages
     * RStudio cheatsheets
-* Create a catalog...
+* Create your own study sheet
 
-# Catalog
+# Study sheet
 
-* Create a catalog of functions that are useful for a particular task
+* Create a study sheet of functions that are useful for a particular task
 * Use your reference websites / textbooks
-    * [R Cookbook by Winston Chang](https://r-graphics.org/)
+    * [R Cookbook by Winston Chang, 2nd Ed.](https://r-graphics.org/)
     * [Quick-R](https://www.statmethods.net/)
     * [R for Data Science](https://r4ds.had.co.nz/) - Hadley Wickham
     * Handbook for Statistical Analyses using R - 3rd Ed.
+* Make use of the resources linked in Trello
 
 # Troubleshooting
 
 * Getting help within R
     * Documentation pages (examples)
 * Getting help outside of R
-    * stackoverflow.com
+    * stackoverflow.com (link on BB)
         * Reproducible examples `reprex::reprex`
     * Quick-R website
 * Finding the error in the code
-    * Run code line by line to identify location
+    * Run code line by line to identify error location
     * Isolate the error by breaking the process into small pieces
 
 # Exploring an object
@@ -79,9 +82,10 @@ knitr::opts_chunk$set(echo = FALSE)
 # Data Analysis Workflow
 
 * RStudio setup
-* Maintain a clean environment
+* A clean global environment (`.GlobalEnv`)
   * No restoring `.RData`
   * Never save workspace on exit
+* (Optional) Avoid the inline RMarkdown results
 * Top to bottom RMarkdown
 * Import data (usually)
 * Clean
