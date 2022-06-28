@@ -226,8 +226,15 @@ data("sleep")
 head(sleep)
 plot(extra ~ group , data = sleep)
 
+table(sleep$group)
 ## Using formula notation
+?t.test
+# NUMERIC ~ GROUPING
 t.test(extra ~ group, data = sleep)
+
+x <- sleep$extra[sleep$group == 1]
+y <- sleep$extra[sleep$group == 2]
+t.test(x = x, y = y)
 
 ## UCLA Linear Regression Examples
 browseURL("https://stats.idre.ucla.edu/r/seminars/introduction-to-regression-in-r/")
@@ -238,12 +245,25 @@ data("faithful")
 
 head(faithful, 10)
 
-eruption.lm <- lm(eruptions ~ waiting, data = faithful)
-plot(eruptions ~ waiting, data= faithful)
-abline(eruption.lm, lwd = 3)
+file.choose
+cbind.data.frame
 
-fitted(eruption.lm)
-summary(eruption.lm)
+eruption_lm <- lm(eruptions ~ waiting, data = faithful)
+# eruptionLm
+class(eruption_lm)
+
+plot(formula = eruptions ~ waiting, data= faithful)
+plot(x = faithful$waiting, y = faithful$eruptions)
+
+abline(eruption_lm, lwd = 3)
+
+dim(faithful)
+
+head(cbind(
+  fitted(eruption_lm), faithful$waiting, predict(eruption_lm)
+))
+
+summary(eruption_lm)
 
 ## if waiting time to next eruption is 90 min
 ## what will be the predicted eruption time?
@@ -258,9 +278,9 @@ confint(eruption.lm)
 ## using the broom package
 library(broom)
 
-tidy(eruption.lm)
-head( augment(eruption.lm) )
-glance(eruption.lm)
+tidy(eruption_lm)
+head( augment(eruption_lm) )
+glance(eruption_lm)
 
 ## Logistic regression using GLM
 browseURL("https://stats.idre.ucla.edu/r/dae/logit-regression/")
