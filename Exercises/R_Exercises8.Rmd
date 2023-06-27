@@ -1,6 +1,6 @@
 ---
 title: "R Exercises Session 8"
-author: "Introduction to R for Data Management and Analysis"
+author: "<YOUR NAME HERE>"
 output: word_document
 ---
 
@@ -8,20 +8,12 @@ output: word_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Setup
-
-First, clone the [Assignment8][1] repository to your own GitHub account
-by forking. Look for the forking button on the GitHub repository page.
-
-You can then modify the repository (namely the `R_Exercises8.Rmd` file)
-and complete the assignment by adding your answers in the appropriate
-place. Do **NOT** rename the file.
-
 ## Completing the assignment
 
 Check your work by knitting the document.
 
 1. Create a level 2 header below in Markdown with the name "Answer 1".
+
 
 
 2. Add an unordered Markdown list of your favorite food dishes and
@@ -43,9 +35,6 @@ website.
 successfully `knit` the RMarkdown document into a Word document.
 
 
-6. Follow the [Pull Request instructions on GitHub](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)
-to submit your assignment via GitHub as a Pull Request to the [Assignment8][1]
-repository.
-
-[1]: https://github.com/CUNYSPHCode/Assignment8
+6. Load the `mtcars` dataset. Summarize the average miles per gallon (`mpg`) per
+cylinder category in the data. Note. Remember to use code chunks for R code.
 
